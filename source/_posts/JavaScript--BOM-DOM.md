@@ -7,7 +7,7 @@ tags:
 - BOM
 categories: JavaScript
 ---
-
+<!-- more -->
 # DOM
 
 > document 文档操作级别的最高对象

@@ -5,7 +5,7 @@ author: xuanji
 tags: jQuery
 categories: jQuery
 ---
-
+<!-- more -->
 # jQuery
 
 - 写的少，做的多 JavaScript 库

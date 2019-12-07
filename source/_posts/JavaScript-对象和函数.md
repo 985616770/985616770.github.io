@@ -7,7 +7,7 @@ tags:
   - JavaScript
 categories: JavaScript
 ---
-
+<!-- more -->
 # 对象
 
 ---

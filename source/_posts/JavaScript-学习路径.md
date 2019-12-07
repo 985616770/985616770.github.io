@@ -6,7 +6,7 @@ tags:
     - JavaScript
 categories: JavaScript
 ---
-
+<!-- more -->
 要说学习 JavaScript，首先要说到 JavaScript 这门语言本身的特质，
 简直就是一门神奇的语言，他正在朝着万能钥匙的方向发展，
 **只要会 JavaScript**，

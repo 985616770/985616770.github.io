@@ -1,3 +1,11 @@
+---
+title: Git 全局代理
+tags:
+- git
+date: 2019-12-01 07:59:35
+categories: 服务器
+---
+<!-- more -->
 设置 Git 全局代理的命令如下：
 
 `git config --global http.proxy socks5://127.0.0.1:8080`

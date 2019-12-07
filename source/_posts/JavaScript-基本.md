@@ -5,7 +5,7 @@ author: xuanji
 tags: JavaScript
 categories: JavaScript
 ---
-
+<!-- more -->
 # javaScript 组成
 
 > 基于对象和事件驱动的脚本语言

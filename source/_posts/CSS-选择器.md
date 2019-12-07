@@ -4,7 +4,7 @@ date: 2018-05-02 11:58:09
 tags: CSS
 categories: CSS
 ---
-
+<!-- more -->
 # 选择器
 
 ## 规则结构:

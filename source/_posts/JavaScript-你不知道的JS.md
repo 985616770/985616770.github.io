@@ -6,7 +6,7 @@ tags:
     - JavaScript
 categories: JavaScript
 ---
-
+<!-- more -->
 # 作用域
 
 ## 编译原理

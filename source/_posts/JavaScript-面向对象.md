@@ -6,7 +6,7 @@ tags:
   - JavaScript
 categories: JavaScript
 ---
-
+<!-- more -->
 # 面向对象
 
 > 定义
