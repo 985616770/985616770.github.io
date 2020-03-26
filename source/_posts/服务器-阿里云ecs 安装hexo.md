@@ -20,7 +20,7 @@ $ yum install git
 $ git --version
 ```
 
-<!-- more -->
+
 
 ## 安装 hexo(window)
 

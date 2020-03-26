@@ -5,33 +5,37 @@ tags:
 date: 2019-12-01 07:59:35
 categories: 服务器
 ---
+<!-- more -->
 
+# 针对 github.com
 
-## http / https
+## http / https协议
+
+>  命令行中输入
 
 设置 Git 全局代理的命令如下：
 
-HTTP 代理服务器：`http://127.0.0.1:8081`
-HTTPS 代理服务器： `https://127.0.0.1:8081`
+```shell
+$ git config --global http.https://github.com.proxy http://127.0.0.1:8889
+$ git config --global https.https://github.com.proxy http://127.0.0.1:8889
+# 取消当前使用代理
+$ git config --global --unset http.proxy
+# 查看当前使用代理
+$ git config -l
+$ git config --global --get http.proxy
 
-比如只针对 github.com 的 Git 代码库使用代理，语法是如下：
-
-```js
-git config --global http.https://github.com.proxy http://127.0.0.1:8889
-git config --global https.https://github.com.proxy http://127.0.0.1:8889
-
-git config --global --unset
-git config -l
 ```
-
-
 
 
 
 ## ssh/git
 
+>  修改~/.ssh/config文件
+
 ```shell
-ProxyCommand connect -S 127.0.0.1:8080 %h %p # proxy hostname:port
+ProxyCommand connect -S 127.0.0.1:8080 %h %p 
+# proxy hostname:port
+# 这个地方会针对全局的git 注意!!
 
 Host github.com
   User git
@@ -53,6 +57,10 @@ Host ssh.github.com
 
 
 (set the correct **proxy hostname:port,** and **the path to id_rsa**. When you use git-bash, use slashes in the path to id_rsa)
+
+设置`正确的代理服务器,端口`
+
+和`私钥` 的`正确位置`
 
 ## yarn加速
 

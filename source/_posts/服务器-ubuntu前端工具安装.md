@@ -9,13 +9,15 @@ categories: 服务器
 
 # ubuntu 前端工具安装
 
+<!-- more -->
+
 ### 登入 vps
 
 ```shell
 ssh -p port username@ip_address
 ```
 
-<!-- more -->
+
 
 ### 安装 git
 

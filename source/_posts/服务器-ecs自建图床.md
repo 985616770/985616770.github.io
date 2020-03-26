@@ -13,7 +13,7 @@ categories: 服务器
 
 如果你有多余的 VPS，或者带宽足够，可以考虑拿来搭个图床。我个人就是使用的 Vultr 的 5 刀每月的服务器，每月 1T 的流量如果只用来科学上网有点暴殄天物。还是多折腾下吧！
 
-<!-- more -->
+
 
 [Chevereto is an image hosting script that allows you to create a beautiful and full-featured image hosting website on your own server. It’s your hosting and your rules, say goodbye to closures and restrictions.](https://github.com/Chevereto/Chevereto-Free)
 
@@ -40,7 +40,7 @@ git clone https://github.com/Chevereto/Chevereto-Free.git
 
 到这一步，chevereto 就部署完成，以我为例，图床链接为http://47.105.69.170/Chevereto-Free
 
-![485fc8dc8fc0c8270c12726ac3171d3d.jpg](http://47.105.69.170/Chevereto-Free/images/2018/12/07/485fc8dc8fc0c8270c12726ac3171d3d.jpg)
+
 
 ### 3. 配置 chevereto
 
@@ -58,9 +58,7 @@ git clone https://github.com/Chevereto/Chevereto-Free.git
 
 如果一切正常，可见下图，不过一般是英文 数据库即之前配置 LAMP 时的选择，如果使用的 MariaDB 也是一样的（MySQL 和它是完全兼容的）
 
-![c8086eda8da6593214a93b2f939a1bfb.png](http://47.105.69.170/Chevereto-Free/images/2018/12/07/c8086eda8da6593214a93b2f939a1bfb.png)
 
-![35dab1fcb3635938a304c5fea077672f.png](http://47.105.69.170/Chevereto-Free/images/2018/12/07/35dab1fcb3635938a304c5fea077672f.png)
 
 注意网站模式，如果是个人模式，网站是只能指定一个账户使用的，社区模式类似论坛。 但这些包括是否开启注册，在网站后台即 dashboard（仪表盘）都是可以设置的。
 

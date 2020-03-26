@@ -33,7 +33,7 @@ ps -aux|grep chat.js
 kill -9  强行删除进程号
 ```
 
-#
+
 
 ## 文件目录操作
 
