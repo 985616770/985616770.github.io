@@ -8,53 +8,25 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon/apple-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <link rel="manifest" href="/uploads/favicon/manifest.json">
   <meta name="msapplication-config" content="/uploads/favicon/browserconfig.xml">
-  <meta http-equiv="Cache-Control" content="no-transform">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('https://xjdd.xyz').hostname,
-    root: '/',
-    scheme: 'Mist',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: true,
-    mediumzoom: false,
-    lazyload: true,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"xjdd.xyz","root":"/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="Ubuntu 的发音Ubuntu，源于非洲祖鲁人和科萨人的语言，发作 oo-boon-too 的音。了解发音是有意义的，您不是第一个为此困惑的人，当然，也不会是最后一个：）大多数的美国人读 ubuntu 时，将 u 作为元音发音，类似单词 who 或者 boo ，重音在第二个音节即 u’buntu ，oo-boon-too 。如果您喜欢撒哈拉，喜欢它令人窒息的温柔、梦幻般的寂寥还有张扬恣肆的旷远，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu完全教程">
 <meta property="og:url" content="https://xjdd.xyz/2018/12/01/%E6%9C%8D%E5%8A%A1%E5%99%A8-Ubuntu%E5%AE%8C%E5%85%A8%E6%95%99%E7%A8%8B/index.html">
-<meta property="og:site_name" content="玄机..">
+<meta property="og:site_name" content="玄 机">
 <meta property="og:description" content="Ubuntu 的发音Ubuntu，源于非洲祖鲁人和科萨人的语言，发作 oo-boon-too 的音。了解发音是有意义的，您不是第一个为此困惑的人，当然，也不会是最后一个：）大多数的美国人读 ubuntu 时，将 u 作为元音发音，类似单词 who 或者 boo ，重音在第二个音节即 u’buntu ，oo-boon-too 。如果您喜欢撒哈拉，喜欢它令人窒息的温柔、梦幻般的寂寥还有张扬恣肆的旷远，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-11-30T23:59:35.000Z">
@@ -71,12 +43,13 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
-  <title>Ubuntu完全教程 | 玄机..</title>
+  <title>Ubuntu完全教程 | 玄 机</title>
   
 
 
@@ -115,18 +88,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">玄机..</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">一个学什么,忘什么的..</p>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -134,11 +95,27 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">玄 机</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个学什么,忘什么的..</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
@@ -165,39 +142,12 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
-        <li class="menu-item menu-item-schedule">
-
-    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
   </ul>
-
 </nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
 
-</div>
-<div class="search-pop-overlay"></div>
 
-  </div>
+
+
 </div>
     </header>
 
@@ -210,24 +160,24 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post">
             
 
   <div class="posts-expand">
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2018/12/01/%E6%9C%8D%E5%8A%A1%E5%99%A8-Ubuntu%E5%AE%8C%E5%85%A8%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avator.jpg">
       <meta itemprop="name" content="xuanji">
-      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+      <meta itemprop="description" content="沉醉于学习,无法自拔!!!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="玄机..">
+      <meta itemprop="name" content="玄 机">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -256,13 +206,18 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index">
-                    <span itemprop="name">服务器</span>
-                  </a>
+                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">服务器</span></a>
                 </span>
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -2167,10 +2122,9 @@
     
 
       <footer class="post-footer">
-          
           <div class="post-tags">
-              <a href="/tags/VPS/" rel="tag"><i class="fa fa-tag"></i> VPS</a>
-              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
+              <a href="/tags/VPS/" rel="tag"># VPS</a>
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
           </div>
 
         
@@ -2202,7 +2156,7 @@
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -2245,6 +2199,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-的发音"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu 的发音</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Ubuntu-的涵义"><span class="nav-number">1.1.</span> <span class="nav-text">1.Ubuntu 的涵义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Ubuntu-的特点"><span class="nav-number">1.2.</span> <span class="nav-text">2.Ubuntu 的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进入系统"><span class="nav-number">2.</span> <span class="nav-text">进入系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令行提示符"><span class="nav-number">3.</span> <span class="nav-text">命令行提示符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#退出系统"><span class="nav-number">4.</span> <span class="nav-text">退出系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">5.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装中的注意事项"><span class="nav-number">6.</span> <span class="nav-text">安装中的注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell"><span class="nav-number">7.</span> <span class="nav-text">Shell</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令"><span class="nav-number">8.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-程序、进程"><span class="nav-number">9.</span> <span class="nav-text">Linux 程序、进程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-系统简介"><span class="nav-number">10.</span> <span class="nav-text">Linux 系统简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路径"><span class="nav-number">10.0.0.1.</span> <span class="nav-text">路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径相关命令"><span class="nav-number">10.0.0.2.</span> <span class="nav-text">路径相关命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程路径："><span class="nav-number">10.0.0.3.</span> <span class="nav-text">远程路径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件"><span class="nav-number">10.0.0.4.</span> <span class="nav-text">软件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置方式"><span class="nav-number">10.0.0.5.</span> <span class="nav-text">配置方式</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件类型"><span class="nav-number">11.</span> <span class="nav-text">文件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#执行命令的权限"><span class="nav-number">11.0.0.1.</span> <span class="nav-text">执行命令的权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行"><span class="nav-number">11.0.0.2.</span> <span class="nav-text">命令行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在线帮助系统"><span class="nav-number">11.0.0.3.</span> <span class="nav-text">在线帮助系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通配符"><span class="nav-number">11.0.0.4.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#任务管理"><span class="nav-number">11.0.0.5.</span> <span class="nav-text">任务管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设定命令的搜索路径"><span class="nav-number">11.0.0.6.</span> <span class="nav-text">设定命令的搜索路径</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-系统简介"><span class="nav-number">12.</span> <span class="nav-text">Ubuntu 系统简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ubuntu-系统目录结构"><span class="nav-number">12.0.0.1.</span> <span class="nav-text">Ubuntu 系统目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务管理"><span class="nav-number">12.0.0.2.</span> <span class="nav-text">服务管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重要配置文件"><span class="nav-number">12.0.0.3.</span> <span class="nav-text">重要配置文件</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件安装"><span class="nav-number">13.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DPKG"><span class="nav-number">13.0.0.1.</span> <span class="nav-text">DPKG</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#APT"><span class="nav-number">13.0.0.2.</span> <span class="nav-text">APT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Xwindow-简介"><span class="nav-number">13.0.0.3.</span> <span class="nav-text">Xwindow 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Xserver"><span class="nav-number">13.0.0.4.</span> <span class="nav-text">Xserver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Xclient"><span class="nav-number">13.0.0.5.</span> <span class="nav-text">Xclient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#窗口管理器"><span class="nav-number">13.0.0.6.</span> <span class="nav-text">窗口管理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Startx"><span class="nav-number">13.0.0.7.</span> <span class="nav-text">Startx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GDM-会话"><span class="nav-number">13.0.0.8.</span> <span class="nav-text">GDM 会话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X-服务器"><span class="nav-number">13.0.0.9.</span> <span class="nav-text">X 服务器</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统管理"><span class="nav-number">14.</span> <span class="nav-text">系统管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一些细节"><span class="nav-number">14.0.0.1.</span> <span class="nav-text">一些细节</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令名"><span class="nav-number">14.0.0.2.</span> <span class="nav-text">命令名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分隔符"><span class="nav-number">14.0.0.3.</span> <span class="nav-text">分隔符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参数"><span class="nav-number">14.0.0.4.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件管理"><span class="nav-number">14.0.0.5.</span> <span class="nav-text">文件管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链接"><span class="nav-number">14.0.0.6.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切换目录"><span class="nav-number">14.0.0.7.</span> <span class="nav-text">切换目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建文件夹"><span class="nav-number">14.0.0.8.</span> <span class="nav-text">创建文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除"><span class="nav-number">14.0.0.9.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链接-1"><span class="nav-number">14.0.0.10.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#more"><span class="nav-number">14.0.0.11.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#权限管理"><span class="nav-number">14.0.0.12.</span> <span class="nav-text">权限管理</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -2253,7 +2208,7 @@
     <img class="site-author-image" itemprop="image" alt="xuanji"
       src="/uploads/avator.jpg">
   <p class="site-author-name" itemprop="name">xuanji</p>
-  <div class="site-description" itemprop="description">博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu</div>
+  <div class="site-description" itemprop="description">沉醉于学习,无法自拔!!!</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -2278,10 +2233,6 @@
       </div>
   </nav>
 </div>
-  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
-    Chat
-  </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
         <a href="https://github.com/985616770" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;985616770" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
@@ -2310,13 +2261,15 @@
     <footer class="footer">
       <div class="footer-inner">
         
+
+        
   <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">滇ICP备19008002号-1 </a>
       <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=19008002" rel="noopener" target="_blank">滇ICP备19008002号 </a>
   </div>
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2019 – 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -2325,6 +2278,26 @@
 </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -2339,12 +2312,10 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
 
@@ -2356,66 +2327,9 @@
 
 <script src="/js/next-boot.js"></script>
 
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.content-wrap',
-    '.post-toc-wrap',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-window.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.getAttribute('pjax') !== null) {
-      element.setAttribute('pjax', '');
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
 
   <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three-waves.min.js"></script>
 
 
   
@@ -2423,8 +2337,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-  
-<script src="/js/local-search.js"></script>
 
 
 
@@ -2436,13 +2348,9 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
-    <div id="pjax">
   
 
   
 
-    </div>
 </body>
 </html>
