@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/uploads/favicon/manifest.json">
+  <meta name="msapplication-config" content="/uploads/favicon/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://xjdd.xyz').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="今天备案通过，故重新整顿了下博客，记录下上午的成果_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云hexo">
+<meta property="og:url" content="https://xjdd.xyz/2019/09/06/%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%98%BF%E9%87%8C%E4%BA%91hexo/index.html">
+<meta property="og:site_name" content="玄机..">
+<meta property="og:description" content="今天备案通过，故重新整顿了下博客，记录下上午的成果_">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yimg.xjdd.xyz//%E5%A4%87%E6%A1%88%E5%9B%BE.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906150639.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906151344.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906151657.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906151833.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906152032.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906152157.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906153318.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906153536.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906153711.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906153817.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906154242.png">
+<meta property="og:image" content="https://yimg.xjdd.xyz//20190906154822.png">
+<meta property="article:published_time" content="2019-09-06T06:57:32.000Z">
+<meta property="article:modified_time" content="2019-12-23T08:56:25.704Z">
+<meta property="article:author" content="xuanji">
+<meta property="article:tag" content="服务器">
+<meta property="article:tag" content="ecs">
+<meta property="article:tag" content="阿里云">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yimg.xjdd.xyz//%E5%A4%87%E6%A1%88%E5%9B%BE.png">
+
+<link rel="canonical" href="https://xjdd.xyz/2019/09/06/%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%98%BF%E9%87%8C%E4%BA%91hexo/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>阿里云hexo | 玄机..</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">玄机..</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个学什么,忘什么的..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/09/06/%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%98%BF%E9%87%8C%E4%BA%91hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          阿里云hexo
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-06 14:57:32" itemprop="dateCreated datePublished" datetime="2019-09-06T14:57:32+08:00">2019-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>今天备案通过，故重新整顿了下博客，记录下上午的成果_</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="备案脚标的添加"><a href="#备案脚标的添加" class="headerlink" title="备案脚标的添加"></a>备案脚标的添加</h1><ol>
+<li>以前添加需要自己复制代码，现在简单多了，hexo 的 next 主题直接可以添加备案信息且还可以下载图标，直接放图<br><img data-src="https://yimg.xjdd.xyz//%E5%A4%87%E6%A1%88%E5%9B%BE.png" alt=""><br>成果就是这样子：<br><img data-src="https://yimg.xjdd.xyz//20190906150639.png" alt=""></li>
+</ol>
+<h1 id="搞图床"><a href="#搞图床" class="headerlink" title="搞图床"></a>搞图床</h1><p>第二件事就是 <strong>搞图床</strong>,<br>如今备案了就直接使用国内的 cdn 就好了。<br>我使用的是<a href="https://www.qiniu.com" target="_blank" rel="noopener">七牛云</a>和<a href="https://www.upyun.com" target="_blank" rel="noopener">又拍云</a><br>过程也不复杂，就是注册就完事了<br>比较复杂的就是配置 CNAME</p>
+<ol>
+<li>七牛云为例子，记录一下<br><img data-src="https://yimg.xjdd.xyz//20190906151344.png" alt=""><br>注册对象存储，会给你个测试域名，以前不懂，以前的图片都挂了，因为只有三十天的使用时期，所以还是要绑定域名，才能避免这一切。<br>因为并不使用七牛云的 cdn 服务，所以直接创个二级域名就好。<br><img data-src="https://yimg.xjdd.xyz//20190906151657.png" alt=""></li>
+<li>现在创建成功，接下来就是域名服务商的操作了。<br><img data-src="https://yimg.xjdd.xyz//20190906151833.png" alt=""><br>现在就是添加解析的时候了，我使用的是阿里云的域名所以打开阿里云的控制台 中的<em>域名</em>管理进行操作<br><img data-src="https://yimg.xjdd.xyz//20190906152032.png" alt=""><br>点<strong>解析</strong>，<strong>添加记录</strong><br><img data-src="https://yimg.xjdd.xyz//20190906152157.png" alt=""><br>如图所示，主机记录填写<strong>二级域名</strong>，记录值填写七牛云的所注册的域名的<strong>CNAME</strong>值。<br>添加后返回七牛云，刷新界面。就 OK 了。<br>现在无非就是找款软件上传图了<br>我使用的是</li>
+</ol>
+<p><strong><a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">picgo</a></strong></p>
+<p>点击就可以下载了。设置什么的文档介绍的很详细，就不细说了。</p>
+<h1 id="https-的小锁添加"><a href="#https-的小锁添加" class="headerlink" title="https 的小锁添加"></a>https 的小锁添加</h1><p>作为一个轻微强迫症，看到 F12 里的黄字警告和浏览器栏的警告这怎么可以忍！！！<br>hexo 本身不支持添加 https，<br>所以还是得自己搞：</p>
+<ol>
+<li>阿里云，七牛云，又拍云都有免费的 ssl 证书申请，咱搞免费就 OK 了。<br><img data-src="https://yimg.xjdd.xyz//20190906153318.png" alt=""> 阿里云的</li>
+<li>然后返回证书界面，点申请<br><img data-src="https://yimg.xjdd.xyz//20190906153536.png" alt=""><br>填信息，过验证 就 OK 了<br><img data-src="https://yimg.xjdd.xyz//20190906153711.png" alt=""></li>
+<li>申请下来后下载证书<br><img data-src="https://yimg.xjdd.xyz//20190906153817.png" alt=""><br>浏览器的端的操作就结束了</li>
+<li>现在到了服务器端的操作，修改 Nginx 的配置问题<br>个人对 Linux 系统操作不太熟悉，所以使用了 xshell 系列的 xftp 进行操作。。。<br>先是连接服务器呗 然后打开 xftp 一般来说 nginx 都在<code>/etc/nginx</code>目录下<br><img data-src="https://yimg.xjdd.xyz//20190906154242.png" alt=""><br>现在打开<code>nginx.conf</code>进行编辑了（记事本，vscode 都可以，一个直接改，一个下载到本地然后传回去）。<br><img data-src="https://yimg.xjdd.xyz//20190906154822.png" alt=""><br>现在打开自己的网站，http 加上 s 就可以使用了<br>还可以</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">   listen       80;</span><br><span class="line">   server_name  xjdd.xyz;</span><br><span class="line">   return 301 https:&#x2F;&#x2F;xjdd.xyz$request_uri; &#x2F;&#x2F;在这里添加语句，http自动跳转https</span><br><span class="line"></span><br><span class="line">   root         &#x2F;var&#x2F;www&#x2F;hexo;</span><br><span class="line"></span><br><span class="line">   # Load configuration files for the default server block.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   location &#x2F; &#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   error_page 404 &#x2F;404.html;</span><br><span class="line">       location &#x3D; &#x2F;40x.html &#123;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   error_page 500 502 503 504 &#x2F;50x.html;</span><br><span class="line">       location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">   &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来就是解决图床上传的问题了，七牛云的上传图片不带 s，所以。。<br>我注册又拍云的账号，又拍云免费的话需要打广告，页脚添加链接，会点 html 就行了。<br>需要注册</p>
+<p><strong><a href="https://www.upyun.com/league" target="_blank" rel="noopener">又拍云联盟</a></strong></p>
+<p>操作和七牛云差不多，就是要开启 https，加上注册一个免费证书。现在我还在等那个又拍云联盟的通过。先写到这里</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"><i class="fa fa-tag"></i> 服务器</a>
+              <a href="/tags/ecs/" rel="tag"><i class="fa fa-tag"></i> ecs</a>
+              <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/" rel="tag"><i class="fa fa-tag"></i> 阿里云</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/03/%E6%9C%8D%E5%8A%A1%E5%99%A8-CentOS%207%20%E4%BD%BF%E7%94%A8iptables%20%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/" rel="prev" title="CentOS 7 使用iptables 开放端口">
+      <i class="fa fa-chevron-left"></i> CentOS 7 使用iptables 开放端口
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/09/09/CSS-margin%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/" rel="next" title="margin原理及应用">
+      margin原理及应用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xuanji"
+      src="/uploads/avator.jpg">
+  <p class="site-author-name" itemprop="name">xuanji</p>
+  <div class="site-description" itemprop="description">博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/985616770" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;985616770" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:z985616770@gmail.com" title="E-Mail → mailto:z985616770@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">滇ICP备19008002号-1 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=19008002" rel="noopener" target="_blank">滇ICP备19008002号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuanji</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

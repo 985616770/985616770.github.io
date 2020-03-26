@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/uploads/favicon/manifest.json">
+  <meta name="msapplication-config" content="/uploads/favicon/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://xjdd.xyz').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+<meta property="og:type" content="website">
+<meta property="og:title" content="玄机..">
+<meta property="og:url" content="https://xjdd.xyz/page/5/index.html">
+<meta property="og:site_name" content="玄机..">
+<meta property="og:description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="xuanji">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="jQuery">
+<meta property="article:tag" content="jq">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="ubuntu">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://xjdd.xyz/page/5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>玄机..</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">玄机..</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个学什么,忘什么的..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/09/09/CSS-margin%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/09/CSS-margin%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">margin原理及应用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-09 18:10:33" itemprop="dateCreated datePublished" datetime="2019-09-09T18:10:33+08:00">2019-09-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<p>今天看到圣杯，双飞翼，就想搞懂 margin 的原理，以前一直避而不谈。</p>
+<h1 id="什么是-margin"><a href="#什么是-margin" class="headerlink" title="什么是 margin"></a>什么是 margin</h1><blockquote>
+<p>CSS 边距属性定义元素周围的空间。通过使用单独的属性，可以对上、右、下、左的外边距进行设置。也可以使用简写的外边距属性同时改变所有的外边距。——W3School</p>
+</blockquote>
+<blockquote>
+<p>边界，元素周围生成额外的空白区。“空白区”通常是指其他元素不能出现且父元素背景可见的区域。——CSS 权威指南</p>
+</blockquote>
+<p>大家都喜欢使用<strong>外边距</strong>这个词来解释 margin，我们可以很清楚的了解到 margin 的最基本用途就是控制元素周围空间的间隔，从视觉角度上达到相互隔开的目的。</p>
+<h1 id="Margin-的特性"><a href="#Margin-的特性" class="headerlink" title="Margin 的特性"></a>Margin 的特性</h1><p>margin 始终是透明的。</p>
+<h1 id="margin-基本用法"><a href="#margin-基本用法" class="headerlink" title="margin 基本用法"></a>margin 基本用法</h1><p>margin 通过使用单独的属性，可以对上、右、下、左的外边距进行设置。即：</p>
+<p><code>margin-top margin-right margin-bottom margin-left</code></p>
+<p>外边距的 margin-width 的值类型有：</p>
+<p><code>auto | length | percentage</code></p>
+<p>也可以使用简写的外边距属性同时改变所有的外边距：margin: <code>top | right| bottom |left</code>;</p>
+<p>记忆方式是元素周围正上方<strong>顺时针</strong>“上右下左”记忆。</p>
+<p>并且规范还提供了省略的数值写法，基本如下：</p>
+<ol>
+<li><p>如果 margin 只有一个值，表示上右下左的 margin 同为这个值。</p>
+</li>
+<li><p>如果 margin 只有两个值，第一个值表示上下 margin 值，第二个值为左右 margin 的值。</p>
+</li>
+<li><p>如果 margin 有三个值，第一个值表示上 margin 值，第二个值表示左右 margin 的值，第三个值表示下 margin 的值。</p>
+</li>
+<li><p>如果 margin 有四个值，那这四个值分别对应上右下左这四个 margin 值。</p>
+</li>
+</ol>
+<hr>
+<blockquote>
+<p><strong>不推荐使用三个值的 margin</strong>，一是容易记错，二是不容易日后修改，一开始如果写成 margin:10px 20px 30px;日后需求改动为上 10px，右 30px，下 30px，左 20px，你不得不还是得把这个 margin 拆开为 margin:10px 30px 30px 20px;费力且不讨好，不如一开始就老老实实的写成 margin:10px 20px 30px 20px;来的实在，不要为了现在节省俩个字节而让日后再次开发的成本上升。</p>
+</blockquote>
+<h1 id="垂直外边距合并问题"><a href="#垂直外边距合并问题" class="headerlink" title="垂直外边距合并问题"></a>垂直外边距合并问题</h1><p>外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。你可以查看<a href="http://www.w3school.com.cn/css/css_margin_collapsing.asp" target="_blank" rel="noopener">W3Shool CSS 外边距合并</a>了解这个基本知识。</p>
+<p>合并外边距的计算方式是：</p>
+<p>垂直方向上：</p>
+<p>$$（一正一负） 正外边距值max + |负外边距值max| = 显示的外边距值 $$</p>
+<p>$$<br>（全负）<br>0 -|负外边距值max| = |显示的外边距值|<br>$$</p>
+<p>全是正值：取最大值。</p>
+<p>左右正常相加。</p>
+<h1 id="margin-移动问题"><a href="#margin-移动问题" class="headerlink" title="margin 移动问题"></a>margin 移动问题</h1><p><img data-src="https://yimg.xjdd.xyz//marginMoveDefault.gif" alt=""></p>
+<p>为了形象、易懂的解释负 margin，我们将引入 W3C 上没有的参考线的说法。何谓参考线？参考线就是 margin 移动的基准点，此基准点相对于 box(自身)是静止的。而 margin 的数值，就是 box 相对于参考线的位移量。</p>
+<p>一个完整的 margin 属性是这么写的 margin: top right bottom left;(eg: margin:10px 20px 30px 40px)。<strong>在 margin 属性中一共有两类参考线，top 和 left 的参考线属于一类，right 和 bottom 的参考线属于另一类。top 和 left 是以外元素为参考，right 和 bottom 是以元素本身为参考。margin 的位移方向是指 margin 数值为正值时候的情形，如果是负值则位移方向相反。</strong></p>
+<p>bottom 和 right 属性设置并不会对元素自身产生唯一效果。。</p>
+<p>这样写肯定很抽象，主要是引入参考线的说法，理解 margin 值设定后的走向。</p>
+<p>可以做一些有意思的事情，比如，</p>
+<ol>
+<li>通过套 div，实现两层像素的 css 圆角功能，正是利用 margin 移动后，显示的大小，和存在的逻辑大小（也就是调试工具中，设置 margin 负值的元素，选择后显示的大小），产生区别而形成的重叠现象;如下图所示：</li>
+</ol>
+<p><a href="#" style =" display:inline-block;vertical-align:top;background-color:#e0e"><span style=" display:inline-block;vertical-align:top; margin:1px -1px;background-color:#e0e">确定</span></a></p>
+<h2 id="margin-负值-问题"><a href="#margin-负值-问题" class="headerlink" title="margin 负值 问题"></a>margin 负值 问题</h2><p>margin 设定负值不会影响的正常的<strong>文档流</strong>，上图所示的比较清晰了，文档流只能是后面的流向前面的，即文档流只能向左或向上流动，不能向下或向右移动。</p>
+<p><strong>所以，一切只要是由文档流决定的东西，负边距就能起作用了。</strong></p>
+<p>形成一种覆盖样式，有很多应用。下面会记录下。</p>
+<p>在元素不指定宽度的情况下，如果设置 <code>margin-left</code> 或者 <code>margin-right</code> 为<strong>负值</strong>的话，会在元素对应的方向上增加其宽度。效果就和设置 <code>padding-left</code> 或者 <code>padding-right</code> 一样。</p>
+<h3 id="负值与定位"><a href="#负值与定位" class="headerlink" title="负值与定位"></a>负值与定位</h3><ol>
+<li>元素没有设置浮动且没有设置定位或者 <code>position</code> 为 <code>static</code></li>
+</ol>
+<p>如果元素没有设置浮动并且没有设置定位或者 <code>position</code> 属性为 <code>static</code> 的情况下，对元素的 margin 设置负值会有以下的效果：</p>
+<p><strong>设置的 margin 的方向为 top 或者 left</strong></p>
+<p>当设置负值的 margin 的方向为 top 或者 left 的时候，元素会按照设置的方向移动相应的距离。</p>
+<p>比如，设置 <code>margin-left: -100px;</code>。 那么，元素会往左移动 100px。对于设置 <code>margin-top</code> 也是一样的道理。</p>
+<p><strong>设置的 margin 的方向为 bottom 或者 right</strong></p>
+<p>当设置负值的 margin 的方向为 bottom 或者 right 的时候，元素本身并不会移动，元素后面的其他元素会往该元素的方向移动相应的距离，并且覆盖在该元素上面。</p>
+<p>比如，设置 <code>margin-right: -100px;</code>。那么，元素本身并不会移动，后面的元素会向左移动 100px 到该元素上。对于设置 <code>margin-bottom</code> 也是同样的道理。</p>
+<ol start="2">
+<li><p>元素没有设置浮动且 <code>position</code> 为 <code>relative</code></p>
+<p> 如果元素没有设置浮动，但是设置了相对定位，设置 margin 为负值的时候，表现如下：</p>
+<p> <strong>设置的 margin 的方向为 top 或者 left</strong></p>
+<p> 当设置负值的 margin 的方向为 top 或者 left 的时候，元素也会按照设置的方向移动相应的距离。</p>
+<p> <strong>设置的 margin 的方向为 bottom 或者 right</strong></p>
+<p> 当设置 <code>margin-bottom/left</code> 的时候，元素本身也不会移动，元素后面的其他元素也会往该元素的方向移动相应的距离，但是，该元素会覆盖在后面的元素上面 (当然，此处说的情况肯定是后面的元素没有设置定位以及 <code>z-index</code> 的情况)。</p>
+</li>
+<li><p>元素没有设置浮动且 <code>position</code> 为 <code>absolute</code></p>
+</li>
+</ol>
+<p>如果元素没有设置浮动，但是设置了绝对定位，设置 margin 为负值的时候，表现如下：</p>
+<p><strong>设置的 margin 的方向为 top 或者 left</strong></p>
+<p>当设置负值的 margin 的方向为 top 或者 left 的时候，元素也会按照设置的方向移动相应的距离。</p>
+<p><strong>设置的 margin 的方向为 bottom 或者 right</strong></p>
+<p>由于设置绝对定位的元素已经脱离了标准文档流，所以，设置 <code>margin-right/bottom</code> 对后面的元素并没有影响。</p>
+<h3 id="负值与浮动"><a href="#负值与浮动" class="headerlink" title="负值与浮动"></a>负值与浮动</h3><blockquote>
+<p>肯定没有既设置了浮动又设置绝对定位的情况，那样太荒唐了。<br>设置了浮动的元素，再设置 <code>postion: relative;</code> 的话，元素的行为和单独设置 <code>float</code> 是一样的。</p>
+</blockquote>
+<p>对于设置了浮动的元素，设置 margin 为负值的时候，表现如下：</p>
+<p>如果设置的 margin 的方向与浮动的方向相同，那么，元素会往对应的方向移动对应的距离。</p>
+<p>eg：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.elem &#123; float: right; margin-right: -100px; background-color：#eee &#125;</span><br></pre></td></tr></table></figure>
+
+<p>该元素则会向右移动 100px。</p>
+<p>如果设置 margin 的方向与浮动的方向相反，则元素本身不动，元素之前或者之后的元素会向该元素的方向移动相应的距离。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.elem &#123; float: right; margin-left: -100px; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>位于该元素左边的元素则会向右移动 100px，同时覆盖在该元素上。</p>
+<p>如果后面的元素也设置了浮动的话，我们以一个具体的例子来说明。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">min-height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">30px</span> auto;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000000</span>;</span><br><span class="line"></span><br><span class="line">    .left &#123;</span><br><span class="line">        <span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">        <span class="selector-tag">width</span>: 400<span class="selector-tag">px</span>;</span><br><span class="line">        <span class="selector-tag">height</span>: 200<span class="selector-tag">px</span>;</span><br><span class="line">        <span class="selector-tag">margin-right</span>: <span class="selector-tag">-300px</span>;</span><br><span class="line">        <span class="selector-tag">background</span>: <span class="selector-tag">purple</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-class">.right</span> &#123;</span><br><span class="line">        <span class="attribute">float</span>: left;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">        <span class="attribute">background</span>: <span class="number">#cccccc</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>.left</code> 和 <code>.right</code> 都设置了浮动，在 <code>.left</code> 上设置了 <code>margin-right: -300px;</code>，那么，<code>.right</code> 会向左移动 300px，从而覆盖在 <code>.left</code> 上。这种行为与没有既没有设置浮动也没有设置定位的表现类似。</p>
+<h1 id="margin-百分比问题"><a href="#margin-百分比问题" class="headerlink" title="margin 百分比问题"></a>margin 百分比问题</h1><p>规范中注明 <code>margin</code> 的百分比值参照其<strong>包含块的宽度（width）</strong>进行计算。</p>
+<p>非常出名的圣杯布局，双飞翼布局利用的就是这点。但是：</p>
+<p>只发生在默认的 <code>writing-mode: horizontal-tb;</code> 和 <code>direction: ltr;</code> 的情况下。</p>
+<p>当书写模式变成纵向的时候，其参照将会变成包含块的高度。我们改变 CSS 书写模式：</p>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS:"></a>CSS:</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#demo</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-writing-mode</span>: vertical-rl; <span class="comment">/* for browsers of webkit engine */</span></span><br><span class="line">    <span class="attribute">writing-mode</span>: tb-rl; <span class="comment">/* for ie */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在变成了：参照对象变成了<strong>包含块的高度（height）</strong></p>
+<p>为什么要选择宽度做参照而不是高度呢？？？</p>
+<blockquote>
+<p>其实更多的要从 CSS 设计意图上去想，因为 CSS 的基础需求是排版，而通常我们所见的横排文字，其水平宽度一定（仔细回想一下，如果没有显式的定义宽度或者强制一行显示，都会遇到边界换行，而不是水平延展），垂直方向可以无限延展。但当书写模式为纵向时，其参照就变成了高度而不再是宽度了。这也解释了为什么 <code>margin：auto</code>在垂直方向为什么不生效的原因了。</p>
+</blockquote>
+<h2 id="失效场景"><a href="#失效场景" class="headerlink" title="失效场景"></a>失效场景</h2><ol>
+<li>inline 水平元素的垂直 margin 无效（margin-top/margin-bottom）</li>
+<li>margin 重叠发生</li>
+<li>绝对定位元素非定位方位的 margin 值 “无效” 因为 绝对定位元素 脱离了文档流，与相邻元素没有关系，所以它不可能像普通元素一样，设置 margin，推走其他元素</li>
+<li>margin 鞭长莫及 因为 有某些元素破坏了 文档流，设置了 float absolute，造成了假象，margin 不会根据 这些破坏元素作为标准</li>
+<li>display:table-cell/display:table-row 等声明的 margin 无效！某些替换元素除外，根据各个浏览器的实现方式作为区分。比如，给 button 元素声明 display:table-cell，但在 chrome 中,button 的 display 属性是 inline-block 。</li>
+<li>内联特性导致 margin 失效 margin-top: 负无穷， 但是，小到 1em 便无效了。 因为它是内联元素，默认是基线对齐，x 字母下边缘对齐，margin 值再大，也不会起作用。 示例如下：</li>
+</ol>
+<h1 id="margin-应用"><a href="#margin-应用" class="headerlink" title="margin 应用"></a>margin 应用</h1><ol>
+<li>像素圆角</li>
+<li>已知宽高的元素水平垂直居中</li>
+<li>tab 底边栏，重叠显示</li>
+<li>布局的应用，应用的很多</li>
+<li>半遮挡的标题</li>
+</ol>
+<h2 id="引用地址"><a href="#引用地址" class="headerlink" title="引用地址"></a>引用地址</h2><p><a href="https://segmentfault.com/a/1190000007184954" target="_blank" rel="noopener">理解并运用 CSS 的负 margin 值</a></p>
+<p><a href="https://juejin.im/post/5a94d67ff265da4e732ef535#heading-18" target="_blank" rel="noopener">你有所不知的 margin 属性</a></p>
+<p><a href="https://www.cnblogs.com/2050/archive/2012/08/13/2636467.html" target="_blank" rel="noopener">CSS 布局奇淫巧计之-强大的负边距</a></p>
+<p><a href="https://blog.doyoe.com/2013/12/20/css/margin%E7%B3%BB%E5%88%97%E4%B9%8Bbug%E5%B7%A1%E6%BC%94%EF%BC%88%E4%B8%89%EF%BC%89/" target="_blank" rel="noopener">margin 系列之 bug 巡演</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/09/06/%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%98%BF%E9%87%8C%E4%BA%91hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/06/%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%98%BF%E9%87%8C%E4%BA%91hexo/" class="post-title-link" itemprop="url">阿里云hexo</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-06 14:57:32" itemprop="dateCreated datePublished" datetime="2019-09-06T14:57:32+08:00">2019-09-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>今天备案通过，故重新整顿了下博客，记录下上午的成果_</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/09/06/%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%98%BF%E9%87%8C%E4%BA%91hexo/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2018/12/03/%E6%9C%8D%E5%8A%A1%E5%99%A8-CentOS%207%20%E4%BD%BF%E7%94%A8iptables%20%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/03/%E6%9C%8D%E5%8A%A1%E5%99%A8-CentOS%207%20%E4%BD%BF%E7%94%A8iptables%20%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/" class="post-title-link" itemprop="url">CentOS 7 使用iptables 开放端口</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-03 17:39:48" itemprop="dateCreated datePublished" datetime="2018-12-03T17:39:48+08:00">2018-12-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>CentOS 7.0 默认使用的是 firewall 作为防火墙，这里改为 iptables 防火墙。</p>
+<p>1、关闭 firewall：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">systemctl stop firewalld.service</span><br><span class="line"></span><br><span class="line">systemctl disable firewalld.service</span><br><span class="line"></span><br><span class="line">systemctl mask firewalld.service</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/12/03/%E6%9C%8D%E5%8A%A1%E5%99%A8-CentOS%207%20%E4%BD%BF%E7%94%A8iptables%20%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2018/12/01/%E6%95%B0%E6%8D%AE%E5%BA%93-MongoDB%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/01/%E6%95%B0%E6%8D%AE%E5%BA%93-MongoDB%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">MongoDB安装及使用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-01 07:59:35" itemprop="dateCreated datePublished" datetime="2018-12-01T07:59:35+08:00">2018-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MongoDB-安装及使用"><a href="#MongoDB-安装及使用" class="headerlink" title="MongoDB 安装及使用"></a>MongoDB 安装及使用</h1><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>下载地址 : <a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">https://www.mongodb.com/download-center/community</a></p>
+<p>根据版本下载</p>
+<p>选择<code>custom</code></p>
+<p>自定义安装路径</p>
+<p>取消左下角 comonjs 的勾选</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/12/01/%E6%95%B0%E6%8D%AE%E5%BA%93-MongoDB%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2018/12/01/%E5%88%B7%E9%A2%98-freecodecamp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/01/%E5%88%B7%E9%A2%98-freecodecamp/" class="post-title-link" itemprop="url">freecodecamp</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-01 07:59:35" itemprop="dateCreated datePublished" datetime="2018-12-01T07:59:35+08:00">2018-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">刷题</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><h3 id="1-Check-for-Palindromes"><a href="#1-Check-for-Palindromes" class="headerlink" title="1. Check for Palindromes"></a>1. Check for Palindromes</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">palindrome</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 请把你的代码写在这里</span></span><br><span class="line">  <span class="keyword">var</span> string = str.toLowerCase().replace(<span class="regexp">/[\W_]+/g</span>, <span class="string">''</span>);</span><br><span class="line">  <span class="keyword">var</span> rString = string</span><br><span class="line">    .split(<span class="string">''</span>)</span><br><span class="line">    .reverse()</span><br><span class="line">    .join(<span class="string">''</span>);</span><br><span class="line">  <span class="keyword">if</span> (string == rString) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">palindrome(<span class="string">'almostomla'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>考察正则及 js 基础的应用</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/12/01/%E5%88%B7%E9%A2%98-freecodecamp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xuanji"
+      src="/uploads/avator.jpg">
+  <p class="site-author-name" itemprop="name">xuanji</p>
+  <div class="site-description" itemprop="description">博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/985616770" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;985616770" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:z985616770@gmail.com" title="E-Mail → mailto:z985616770@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">滇ICP备19008002号-1 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=19008002" rel="noopener" target="_blank">滇ICP备19008002号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuanji</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/uploads/favicon/manifest.json">
+  <meta name="msapplication-config" content="/uploads/favicon/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://xjdd.xyz').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+<meta property="og:type" content="website">
+<meta property="og:title" content="玄机..">
+<meta property="og:url" content="https://xjdd.xyz/page/2/index.html">
+<meta property="og:site_name" content="玄机..">
+<meta property="og:description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="xuanji">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="jQuery">
+<meta property="article:tag" content="jq">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="ubuntu">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://xjdd.xyz/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>玄机..</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">玄机..</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个学什么,忘什么的..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/08/JavaScript-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/08/JavaScript-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/" class="post-title-link" itemprop="url">JavaScript-你不知道的JS(上)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-08 21:03:02" itemprop="dateCreated datePublished" datetime="2019-11-08T21:03:02+08:00">2019-11-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h2><blockquote>
+<p>分词/词法分析(Tokenizing/Lexing)</p>
+</blockquote>
+<p>字符组成的字符串分解成对(对编程语言)有意义代码块,这些代码块称为<strong>词法单元</strong>(token)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="comment">// var , a, = , 2, 以及空格(是否有意义取决于语言本身)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解析/语法分析(Parsing)</p>
+</blockquote>
+<p>这个过程是将词法单元流(数组)转换成一个由元素逐级嵌套所组成的代表程序语法结构的树.(AST 抽象语法树)</p>
+<blockquote>
+<p>代码生成</p>
+</blockquote>
+<p>将 AST 转换成可执行的代码的过程称为代码生成,这个过程域语言,目标平台等息息相关.</p>
+<ul>
+<li>JavaScript 代码的编译在执行前的几微秒(甚至更短)</li>
+<li>v8 引擎用了很多方法进行优化</li>
+</ul>
+<h2 id="理解作用域"><a href="#理解作用域" class="headerlink" title="理解作用域"></a>理解作用域</h2><blockquote>
+<p>引擎</p>
+</blockquote>
+<p>负责从头到尾的整个 JavaScript 程序的编译及执行</p>
+<blockquote>
+<p>编译器</p>
+</blockquote>
+<p>负责语法分析和代码生成</p>
+<blockquote>
+<p>作用域</p>
+</blockquote>
+<p>负责收集并维护所有声明的标识符（变量)组成的一系列查询,并实施一套非常严格的规则,确定当前执行的代码对这些标识符的访问权限.</p>
+<h2 id="变量的赋值操作"><a href="#变量的赋值操作" class="headerlink" title="变量的赋值操作"></a>变量的赋值操作</h2><p>变量的赋值操作会执行两个动作:</p>
+<ul>
+<li>编译器会在当前作用域中声明一个变量(如果之前没有声明过)</li>
+<li>在运行时引擎会在作用域中查找该变量，如果找到就会对它赋值</li>
+</ul>
+<blockquote>
+<p>编译器层次</p>
+</blockquote>
+<ul>
+<li>LHS查询</li>
+</ul>
+<p>变量出现在赋值操作的左侧,找到容器的本身,从而对其赋值(赋值操作的目标是谁)<br>两个词概括: <strong>赋值</strong></p>
+<ul>
+<li>RHS查询</li>
+</ul>
+<p>查找某个变量的值,’非左侧’=&gt; retrieve this source value (取到它的源码), 谁是赋值操作的源头.</p>
+<p>两个词概括: <strong>查询</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/06/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/06/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">JavaScript-面向对象</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-06 23:47:04" itemprop="dateCreated datePublished" datetime="2019-11-06T23:47:04+08:00">2019-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><blockquote>
+<p>定义</p>
+</blockquote>
+<p>对代码的一种抽象,对外统一提供接口的编程思想</p>
+<blockquote>
+<p>在 JavaScript 中的实现</p>
+</blockquote>
+<p>基于原型的面向对象方式中,对象则是依靠构造器<code>constructor</code>,利用原型<code>prototype</code>构造出来的</p>
+<hr>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><blockquote>
+<p>属性</p>
+</blockquote>
+<p>事务的特性</p>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<p>事物的功能</p>
+<blockquote>
+<p>对象</p>
+</blockquote>
+<p>事物的一个实例</p>
+<blockquote>
+<p>原型</p>
+</blockquote>
+<p>JavaScript 函数由<code>prototype</code>引用了一个对象,即<strong>原型</strong></p>
+<hr>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<p>实现面向对象的根源</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<p>闭包是一个拥有许多变量和绑定了这些变量的环境的表达式(通常是一个函数)<br>闭包是一个拥有上层函数的引用，且不会被立即释放的一个作用域，</p>
+<ul>
+<li>实现的功能是函数内部拥有对外部函数的引用，可以防止及外部函数改变内部函数的状态，</li>
+</ul>
+<blockquote>
+<p>优点:</p>
+</blockquote>
+<ul>
+<li>有利于封装和可以访问局部变量<blockquote>
+<p>缺点</p>
+</blockquote>
+</li>
+<li>内存占用严重，容易内存泄露，</li>
+</ul>
+<hr>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h2><blockquote>
+<p>6 种</p>
+</blockquote>
+<blockquote>
+<p>寄生式组合式继承</p>
+</blockquote>
+<ul>
+<li>es5<blockquote>
+<p>原型继承:</p>
+</blockquote>
+</li>
+<li>用于写框架和 js 库<blockquote>
+<p>构造继承</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  A.call(<span class="keyword">this</span>, name);</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">B.prototype = <span class="built_in">Object</span>.create(A.prototype);</span><br><span class="line">B.constructor = B;</span><br></pre></td></tr></table></figure>
+
+<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><blockquote>
+<p>原型</p>
+</blockquote>
+<ul>
+<li>利用 prototype 添加属性和方法</li>
+</ul>
+<blockquote>
+<p>原型链</p>
+</blockquote>
+<ul>
+<li>Js 在创建对象(无论是普通对象还是函数对象)的时候，都有一个叫做<code>__proto__</code>的内置属性，用于指向创建它的函数的的原型对象 prototype，</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> A();</span><br><span class="line"><span class="comment">// 默认执行</span></span><br><span class="line"><span class="comment">// let p = &#123;&#125;</span></span><br><span class="line"><span class="comment">// p.__proto__ = A.prototype =&gt; true</span></span><br><span class="line"><span class="comment">// A.call(p)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>__proto__</code><br>实例对象的隐式原型<br>指向它的构造函数的原型对象</p>
+</blockquote>
+<p><img data-src="https://yimg.xjdd.xyz//%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%9B%BE.png" alt=""></p>
+<blockquote>
+<p>规则:</p>
+</blockquote>
+<ol>
+<li>实例对象的隐式原型指向构造函数的原型对象</li>
+<li>Function 的原型对象和隐式原型都指向 Function 的原型对象</li>
+<li>Object 原型对象是所有原型对象的终点,它的隐式原型为 null</li>
+<li>函数的隐式原型指向 function 原型对象</li>
+</ol>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>4种情况</p>
+<ul>
+<li>一般函数调用this ,指向全局对象,在严格模式下指向undefined</li>
+<li>作为方法调用,构造函数中的this</li>
+<li>Call ,apply, bind</li>
+<li>对象中的this</li>
+</ul>
+<p>对象冒充</p>
+<ol>
+<li>冒充对象传递特权属性和特权方法给子类</li>
+<li>不能继承共有方法和属性(prototype)</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/06/JavaScript-%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/06/JavaScript-%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">JavaScript-对象和函数</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-06 21:44:41" itemprop="dateCreated datePublished" datetime="2019-11-06T21:44:41+08:00">2019-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-25 13:05:18" itemprop="dateModified" datetime="2019-12-25T13:05:18+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><hr>
+<blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>值的集合:键值对|名称值对</li>
+</ul>
+<h2 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h2><ol>
+<li>字面量</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> b = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> c = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>构造函数创建</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Object.create()</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line"><span class="comment">// 完全的空对象, 没有任何属性</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="方法及属性"><a href="#方法及属性" class="headerlink" title="方法及属性"></a>方法及属性</h2><blockquote>
+<p>修改</p>
+</blockquote>
+<ul>
+<li><code>.</code>法</li>
+<li>[]法</li>
+</ul>
+<p>区别在于两者后者更通用些</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="string">'s d'</span>] = ... <span class="comment">// 有空格</span></span><br><span class="line">obj.s = ...</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>删除</p>
+</blockquote>
+<ul>
+<li><code>delete obj[name]|.name</code></li>
+</ul>
+<blockquote>
+<p>是否存在</p>
+</blockquote>
+<ul>
+<li><code>&#39;name&#39; in object</code> 返回布尔值</li>
+</ul>
+<blockquote>
+<p>循环对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for ... in ...</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> object)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对象的深浅拷贝</p>
+</blockquote>
+<p><strong>浅拷贝</strong></p>
+<ul>
+<li>浅拷贝是对象共用一个内存地址，对象的变化相互影响</li>
+<li>只复制一层对象</li>
+</ul>
+<ol>
+<li><code>Object.assign()</code>当属性有对象时</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> srcObj = &#123; <span class="attr">name</span>: <span class="string">'明'</span>, <span class="attr">grade</span>: &#123; <span class="attr">chi</span>: <span class="string">'50'</span>, <span class="attr">eng</span>: <span class="string">'50'</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">let</span> copyObj = <span class="built_in">Object</span>.assign(&#123;&#125;, srcObj);</span><br><span class="line">copyObj.name = <span class="string">'红'</span>;</span><br><span class="line">copyObj.grade.chi = <span class="string">'60'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'copyObj'</span>, copyObj);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "红",</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'srcObj'</span>, srcObj);</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "明"</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>直接赋值</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">a</span>: <span class="number">2</span>, <span class="attr">b</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> objCopy = obj;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'objCopy'</span>, objCopy);</span><br><span class="line"><span class="comment">// &#123;a: 2, b: 3&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' obj'</span>, obj);</span><br><span class="line"><span class="comment">// &#123;a: 2, b: 3&#125;</span></span><br><span class="line">objCopy.a = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>函数实现</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> target = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> source) &#123;</span><br><span class="line">    <span class="keyword">if</span> (source.hasOwnProperty(i)) &#123;</span><br><span class="line">      target[i] = source[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>深拷贝</strong></p>
+<ul>
+<li>简单理解深拷贝是将对象放到一个新的内存中，两个对象的改变不会相互影响。</li>
+</ul>
+<ol>
+<li><code>JSON.parse()</code> 和 <code>JSON.stringify()</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">srcObj = &#123; <span class="attr">name</span>: <span class="string">'明'</span>, <span class="attr">grade</span>: &#123; <span class="attr">chi</span>: <span class="string">'50'</span>, <span class="attr">eng</span>: <span class="string">'50'</span> &#125; &#125;;</span><br><span class="line">copyObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(srcObj));</span><br><span class="line">copyObj.name = <span class="string">'红'</span>;</span><br><span class="line">copyObj.grade.chi = <span class="string">'60'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'srcObj'</span>, srcObj); <span class="comment">/* grade: &#123;chi: "50", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "明" */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'copyObj'</span>, copyObj); <span class="comment">/* </span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "红"</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JSON.stringify(..) 在对象中遇到 undefined 、 function 和 symbol 时会自动将其忽略， 在 数组中则会返回 null （以保证单元位置不变）。</li>
+</ul>
+<ol start="2">
+<li>函数实现</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] =</span><br><span class="line">        <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> ? deepCopy(obj[key]) : obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以上针对的只是简单的对象,复杂的拷贝在 JavaScript 一直以来都是一个难题</p>
+<hr>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>一次封装,四处使用</li>
+</ul>
+<blockquote>
+<p>分类</p>
+</blockquote>
+<ul>
+<li>命名函数</li>
+<li>匿名函数</li>
+</ul>
+<blockquote>
+<p>优点</p>
+</blockquote>
+<ol>
+<li>复用代码</li>
+<li>统一修改和维护</li>
+<li>可读性</li>
+</ol>
+<blockquote>
+<p>本质</p>
+</blockquote>
+<ul>
+<li>二象性</li>
+<li>调用</li>
+<li>对象</li>
+</ul>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>把对象内部数据和操作细节进行隐藏，把闭包的方法叫做特权方法，</p>
+<p>在构造函数中返回对其内部变量的访问，实现外部访问内部变量的方法，</p>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ul>
+<li>一占用内存</li>
+<li>二不利于继承，</li>
+</ul>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ol>
+<li>字面量</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newFun = <span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> newFun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>声明式</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>构造函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newf = <span class="keyword">new</span> <span class="built_in">Function</span>(参数,函数体)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>函数声明和函数表达式(var)都有预解析</p>
+</blockquote>
+<h2 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h2><ul>
+<li>全局作用域</li>
+<li>函数作用域</li>
+</ul>
+<blockquote>
+<p>作用域链</p>
+</blockquote>
+<p><img data-src="https://yimg.xjdd.xyz//20191106232415.png" alt="作用域图"></p>
+<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ul>
+<li>普通调用</li>
+</ul>
+<p><code>a();</code></p>
+<ul>
+<li>匿名调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iife</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>递归调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (num === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> num * f(num - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">3</span>); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事件模拟(dom事件)</span></span><br><span class="line"><span class="comment">// 链式调用</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line"><span class="comment">// 对象方法调用</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>构造函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首字母大写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Aa</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> Aa(<span class="string">'xx'</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>间接调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// call,apply,bind</span></span><br><span class="line"><span class="comment">// 改变this的指向</span></span><br><span class="line">obj.fun.call(<span class="literal">null</span>)</span><br><span class="line">obj.fun.apply(<span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>形参</li>
+</ul>
+<p>占位符,相当于定义变量</p>
+<ul>
+<li>实参</li>
+</ul>
+<p>传递值,给形参,代替形参</p>
+<h3 id="参数的个数"><a href="#参数的个数" class="headerlink" title="参数的个数"></a>参数的个数</h3><ol>
+<li>实参 &lt; 形参</li>
+</ol>
+<ul>
+<li><p>未赋值,undefined&lt;可选参数&gt;</p>
+</li>
+<li><p>设置默认值 值 = 值 || 固定值</p>
+</li>
+</ul>
+<ol start="2">
+<li>实参 &gt; 形参</li>
+</ol>
+<blockquote>
+<p>arguments</p>
+</blockquote>
+<ul>
+<li>类数组 每一个函数都有自己的 arguments</li>
+<li>多余的参数存储在类数组中</li>
+<li><code>arguments.callee</code>代表自身(递归常用)</li>
+</ul>
+<h3 id="能作为参数的"><a href="#能作为参数的" class="headerlink" title="能作为参数的"></a>能作为参数的</h3><ul>
+<li>空 “”</li>
+<li>数字 number</li>
+<li>字符串 string</li>
+<li>boolean 布尔</li>
+<li>undefined</li>
+<li>null</li>
+<li>array 数组</li>
+<li>object 对象</li>
+<li>function(回调函数)</li>
+</ul>
+<h3 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h3><blockquote>
+<p>return<br>continue<br>break</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/05/JavaScript-%E8%BF%9B%E9%98%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/05/JavaScript-%E8%BF%9B%E9%98%B6/" class="post-title-link" itemprop="url">JavaScript-进阶</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-05 23:28:20" itemprop="dateCreated datePublished" datetime="2019-11-05T23:28:20+08:00">2019-11-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="变量-作用域-内存"><a href="#变量-作用域-内存" class="headerlink" title="变量,作用域,内存"></a>变量,作用域,内存</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><blockquote>
+<p>数据</p>
+</blockquote>
+<ul>
+<li>本质操作数据</li>
+<li>使用一次,哪里需要写哪里</li>
+</ul>
+<blockquote>
+<p>命名</p>
+</blockquote>
+<ul>
+<li><code>$_字母数字</code> 为了维护代码,使用有意义的名字</li>
+</ul>
+<blockquote>
+<p>关键字,保留字</p>
+</blockquote>
+<ul>
+<li>if for</li>
+<li>class</li>
+</ul>
+<hr>
+<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><ul>
+<li>七种基本类型</li>
+<li>一种复杂类型</li>
+</ul>
+<hr>
+<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><blockquote>
+<p>栈(Stack)</p>
+</blockquote>
+<ul>
+<li>空间分配一样(较小)</li>
+<li>有序排放<blockquote>
+<p>堆(Heap)</p>
+</blockquote>
+</li>
+<li>无序</li>
+<li>地址保存在堆</li>
+<li>内存较大</li>
+</ul>
+<hr>
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>都是按值传递</p>
+<ul>
+<li>函数的参数的是复制对象的一份引用</li>
+</ul>
+<hr>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><blockquote>
+<p>变量起作用的区域范围</p>
+</blockquote>
+<ul>
+<li>变量的生命周期</li>
+<li>访问到变量</li>
+</ul>
+<blockquote>
+<ul>
+<li>全局作用域</li>
+<li>局部作用域(函数作用域)</li>
+</ul>
+</blockquote>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><blockquote>
+<p>内层 =&gt; 外层 =&gt; 全局(window)</p>
+</blockquote>
+<p>延长作用域链</p>
+<ul>
+<li>with</li>
+</ul>
+<hr>
+<h2 id="解析机制"><a href="#解析机制" class="headerlink" title="解析机制"></a>解析机制</h2><p>这是 JavaScript 特性之一,当初困扰了老旧了</p>
+<ul>
+<li>var,声明式函数会提升到,当前作用域的顶部</li>
+<li>函数声明在,变量声明之上</li>
+<li>预解析分<code>&lt;script&gt;</code>标签进行</li>
+</ul>
+<blockquote>
+<p>JavaScript 解析代码</p>
+</blockquote>
+<ol>
+<li>预解析</li>
+<li>逐行读代码</li>
+</ol>
+<hr>
+<h2 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h2><blockquote>
+<p>分类</p>
+</blockquote>
+<ul>
+<li>标记清除(JavaScript)</li>
+<li>引用计数清除</li>
+</ul>
+<blockquote>
+<p>原理</p>
+</blockquote>
+<ul>
+<li>找出没有使用的数据, 打上标记,周期性执行清除无用数据的策略</li>
+</ul>
+<blockquote>
+<p>标记清除</p>
+</blockquote>
+<ul>
+<li>离开作用域的值标记为可回收,垃圾收集期间删除环境中的变量</li>
+<li>给不用的数据添加标记,回收</li>
+</ul>
+<blockquote>
+<p>引用计数清除</p>
+</blockquote>
+<ul>
+<li>跟踪引用次数</li>
+<li>缺陷循环引用无法清除(因为依然保持引用),基于 C++ COM ,ie 早期版本使用引用计数清除</li>
+<li>可以手动清除 <code>对象=null</code></li>
+</ul>
+<hr>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><ul>
+<li>web 浏览器 &lt; 桌面应用程序</li>
+<li>进程与进程之间</li>
+<li><code>对象=null</code></li>
+</ul>
+<p>##　</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/05/%E9%A1%B9%E7%9B%AE-%E8%BD%AE%E6%92%AD%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/05/%E9%A1%B9%E7%9B%AE-%E8%BD%AE%E6%92%AD%E5%9B%BE/" class="post-title-link" itemprop="url">项目-轮播图</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-05 23:28:20" itemprop="dateCreated datePublished" datetime="2019-11-05T23:28:20+08:00">2019-11-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index">
+                    <span itemprop="name">项目</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="swiper"><a href="#swiper" class="headerlink" title="swiper"></a>swiper</h1><p>定义就是根据图片的个数来进行，有动画的，像幻灯片式的轮播效果，<br>总体的思路就是</p>
+<ol>
+<li>获取索引，</li>
+<li>同级相同的个数利用 data-id 设置，用来动态生成 span 的个数，</li>
+<li>注意边界条件的判断，</li>
+</ol>
+<p>通常有两种方式，</p>
+<ul>
+<li>第 1 种是通过控制元素的显示和隐藏，常用的属性是<code>opacity</code>，</li>
+<li>第 2 种是通过控制容器的位移，来实现这个目的，常用的属性是 <code>transform 和 transition，</code></li>
+</ul>
+<h2 id="无缝轮播图的实现"><a href="#无缝轮播图的实现" class="headerlink" title="无缝轮播图的实现"></a>无缝轮播图的实现</h2><p>只有通过第 2 种方式实现轮播时，才会用到这种无无缝轮播的实践方式。</p>
+<ol>
+<li>首先复制第 1 张和最后一张的图片元素，分别加于元素的手部位置和元素的末尾布置位置，</li>
+<li>通过元素的个数生成 span 标签的个数，但是要排除添加的元素，要排除添加的元素</li>
+<li>当图片切换到第 1 张和最后一张时通过设置，通过通过设置将位移的动画效果取消，瞬间切换到第 2 张图片（或者第三张图片的效果）来实现这个无缝轮播的效果，</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xuanji"
+      src="/uploads/avator.jpg">
+  <p class="site-author-name" itemprop="name">xuanji</p>
+  <div class="site-description" itemprop="description">博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/985616770" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;985616770" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:z985616770@gmail.com" title="E-Mail → mailto:z985616770@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">滇ICP备19008002号-1 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=19008002" rel="noopener" target="_blank">滇ICP备19008002号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuanji</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/uploads/favicon/manifest.json">
+  <meta name="msapplication-config" content="/uploads/favicon/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://xjdd.xyz').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="正则表达式 定义   操作字符串 查找特定字符 替换文本(敏感词过滤) 数据有效性验证   两种字符组成的文字模式   普通字符 26 个英文字母数字 特殊字符有特殊含义的(.&#x2F;\~&amp;^*%$@#)  创建 字面量创建  1let pattern &#x3D; &#x2F;^abc$&#x2F;gi;   构造函数创建  12let a &#x3D; new RegExp(&#39;abc&#39;, &#39;ig&#39;);&#x2F;^function\s*[^">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-面向对象">
+<meta property="og:url" content="https://xjdd.xyz/2019/11/18/JavaScript-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+<meta property="og:site_name" content="玄机..">
+<meta property="og:description" content="正则表达式 定义   操作字符串 查找特定字符 替换文本(敏感词过滤) 数据有效性验证   两种字符组成的文字模式   普通字符 26 个英文字母数字 特殊字符有特殊含义的(.&#x2F;\~&amp;^*%$@#)  创建 字面量创建  1let pattern &#x3D; &#x2F;^abc$&#x2F;gi;   构造函数创建  12let a &#x3D; new RegExp(&#39;abc&#39;, &#39;ig&#39;);&#x2F;^function\s*[^">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-11-18T15:47:04.000Z">
+<meta property="article:modified_time" content="2019-12-23T08:56:25.697Z">
+<meta property="article:author" content="xuanji">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="正则表达式">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://xjdd.xyz/2019/11/18/JavaScript-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>JavaScript-面向对象 | 玄机..</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">玄机..</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个学什么,忘什么的..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/18/JavaScript-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript-面向对象
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 23:47:04" itemprop="dateCreated datePublished" datetime="2019-11-18T23:47:04+08:00">2019-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>操作字符串</li>
+<li>查找特定字符</li>
+<li>替换文本(敏感词过滤)</li>
+<li>数据有效性验证</li>
+</ul>
+<blockquote>
+<p>两种字符组成的文字模式</p>
+</blockquote>
+<ul>
+<li>普通字符 26 个英文字母数字</li>
+<li>特殊字符有特殊含义的(<code>./\~&amp;^*%$@#</code>)</li>
+</ul>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ol>
+<li>字面量创建</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/^abc$/gi</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>构造函数创建</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'abc'</span>, <span class="string">'ig'</span>);</span><br><span class="line">/^function\s*[^\(]*\(\s*([^\)]*)\)/m</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><blockquote>
+<p>pattern.test()</p>
+</blockquote>
+<ul>
+<li>检测是否存在</li>
+<li>返回布尔值</li>
+</ul>
+<blockquote>
+<p>pattern.exec()</p>
+</blockquote>
+<ul>
+<li>返回匹配字符串</li>
+</ul>
+<blockquote>
+<p>修饰符</p>
+</blockquote>
+<ul>
+<li><code>i</code><ul>
+<li>ignoreCase 忽略大小写</li>
+</ul>
+</li>
+<li><code>g</code><ul>
+<li>global 全局匹配</li>
+</ul>
+</li>
+<li><code>m</code><ul>
+<li>multiline 多行匹配</li>
+<li>与$^ 配合使用</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>转义　<code>\</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\n 换行 =&gt; \xOA</span><br><span class="line">\t tab键 \uooo9</span><br><span class="line">\u4eoo-\u9fa5 中文</span><br></pre></td></tr></table></figure>
+
+<p>##　匹配模式</p>
+<blockquote>
+<p>字符类</p>
+</blockquote>
+<ul>
+<li>匹配单一字符</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[] 从方括号中按顺序匹配一个</span><br><span class="line">[^_] 匹配除了下划线之外的所有字符</span><br><span class="line">[a-z] 匹配a到z的所有字母</span><br><span class="line">[A-Z] 匹配大写a到z的所有字母</span><br><span class="line">[\u4E00-\u9FA5] 匹配所有的中文简体字</span><br><span class="line">[<span class="number">0</span><span class="number">-9</span>] 匹配所有的数字</span><br><span class="line"></span><br><span class="line">[a-zA-Z0<span class="number">-9</span>_] = \w 匹配字母加数字和下划线</span><br><span class="line">[^a-zA-Z0<span class="number">-9</span>_] = \W 匹配除了字母加数字和下划线之外的所有字符</span><br><span class="line"></span><br><span class="line">[<span class="number">0</span><span class="number">-9</span>] = \d 匹配所有数字</span><br><span class="line">[^<span class="number">0</span><span class="number">-9</span>] = \D 匹配除了数字之外的所有字符</span><br><span class="line"></span><br><span class="line">\s 匹配空格制表符，unicode码</span><br><span class="line">\S 为除了空格制表符,unicode码</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>重复（量词）</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;n&#125; 匹配次数n次</span><br><span class="line">&#123;n,m&#125; 匹配次数n到m次</span><br><span class="line">&#123;<span class="number">0</span>,<span class="number">1</span>&#125; =&gt; ? 匹配<span class="number">0</span>~<span class="number">1</span>次</span><br><span class="line">&#123;<span class="number">1</span>,+++&#125; =&gt; + 匹配一次以上</span><br><span class="line">&#123;<span class="number">0</span>,+++&#125; =&gt; * 匹配零次以上</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>贪婪匹配</strong>:</p>
+</blockquote>
+<ul>
+<li>匹配次数尽量多</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">加 ? 号 可以变成非贪婪匹配,尽可能少从头开始,</span><br><span class="line">与 重复量词 和 匹配单一字符 进行组合</span><br><span class="line">\d+?</span><br><span class="line">\d??</span><br><span class="line">\d*?</span><br><span class="line"></span><br><span class="line">只有在开头不会匹配的情况下，才会达到预期效果</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>选择符 <code>|</code></p>
+</blockquote>
+<p><code>str | str2 | str3</code></p>
+<ul>
+<li>选择一个进行匹配</li>
+</ul>
+<blockquote>
+<p>分组 <code>()</code></p>
+</blockquote>
+<ol>
+<li>返回匹配数组，捕获性分组</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'abcabc'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/(ab)c/</span>;</span><br><span class="line"></span><br><span class="line">pattern.exec(str); <span class="comment">//["abc", "ab", index: 0, input: "abcabc", groups: undefined]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>非捕获性分组,只匹配第 1 次</li>
+</ol>
+<ul>
+<li>加上 <code>?:</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'abcabc'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> pattern = <span class="regexp">/(?:ab)/</span>;</span><br><span class="line"></span><br><span class="line">pattern.exec(str); <span class="comment">//["abc", "ab", index: 0, input: "abcabc", groups: undefined]</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>多个分组按顺序,分布排布</p>
+</li>
+<li><p>嵌套分组 ((())) 从左括号按顺序分组</p>
+</li>
+<li><p>分组可用 <code>\{num}</code> 代替,属于同一组</p>
+</li>
+</ol>
+<ul>
+<li><code>(ab)cc(ab) =&gt; (ab)cc\1</code></li>
+</ul>
+<blockquote>
+<p>指定位置匹配</p>
+</blockquote>
+<ul>
+<li><p><code>/^.../</code></p>
+</li>
+<li><p><code>/...$/</code></p>
+</li>
+</ul>
+<blockquote>
+<p>单词边界匹配</p>
+</blockquote>
+<ul>
+<li><code>\b</code> 单词边界 <code>\w</code> <code>\W</code> 之间的位置</li>
+<li>匹配单词很好用</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">'className stu abc'</span>;</span><br><span class="line">str.replace(<span class="regexp">/className\b/</span>, <span class="string">'123'</span>); <span class="comment">// "123 stu abc"</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>前瞻性匹配 &amp; 后瞻性匹配</p>
+</blockquote>
+<ul>
+<li><code>...(?=word)</code> 匹配前面，但后边必须紧跟着这个词</li>
+<li><code>...(?!word)</code> 匹配前面，但后边不是这个词</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">'className'</span>;</span><br><span class="line">str.replace(<span class="regexp">/class(?=Name)/</span>, <span class="string">'123'</span>);</span><br><span class="line"><span class="comment">// ('123');</span></span><br><span class="line">str = <span class="string">'classname'</span>;</span><br><span class="line">str.replace(<span class="regexp">/class(?!Name)/</span>, <span class="string">'123'</span>);</span><br><span class="line"><span class="comment">// ('123name');</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h2><blockquote>
+<p>exec</p>
+</blockquote>
+<ul>
+<li>返回一个数组</li>
+<li>属性<ul>
+<li>index<ul>
+<li>匹配到的字符索引</li>
+</ul>
+</li>
+<li>input - 匹配到的文本<blockquote>
+<p>test</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>返回布尔值</li>
+</ul>
+<blockquote>
+<p>toString</p>
+</blockquote>
+<ul>
+<li>转化成字符串<blockquote>
+<p>tolocalString</p>
+</blockquote>
+</li>
+<li>转换为字符串</li>
+</ul>
+<blockquote>
+<p>valueOf</p>
+</blockquote>
+<ul>
+<li><p>返回自身</p>
+</li>
+<li><p>lastIndex</p>
+<ul>
+<li>上次匹配到的位置(在全局模式下)</li>
+</ul>
+</li>
+<li><p>ignoreCase</p>
+<ul>
+<li>布尔值, 是否有 i</li>
+</ul>
+</li>
+<li><p>global</p>
+<ul>
+<li>布尔值</li>
+</ul>
+</li>
+<li><p>multiline</p>
+<ul>
+<li>布尔值</li>
+</ul>
+</li>
+<li><p>source</p>
+<ul>
+<li>返回// 的字符串</li>
+</ul>
+</li>
+</ul>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><ul>
+<li><code>[_$]</code> = input</li>
+<li><code>[$&amp;]</code> = lastMatch</li>
+<li>leftContext = [“$`”]</li>
+<li>rightContext = [“$’”]</li>
+<li>lastParen = [“$+”]</li>
+<li>$1 - $9</li>
+</ul>
+<h2 id="String-对象的正则方法"><a href="#String-对象的正则方法" class="headerlink" title="String 对象的正则方法"></a>String 对象的正则方法</h2><blockquote>
+<p>search</p>
+</blockquote>
+<ul>
+<li>返回 index 没有返回-1</li>
+</ul>
+<blockquote>
+<p>match</p>
+</blockquote>
+<ul>
+<li>返回一个数组</li>
+<li>类似于 正则表达式 exec</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>区别 exec match</p>
+</blockquote>
+<ul>
+<li>(match)非全局的情况下 返回分组中匹配的内容,全局匹配会匹配 返回所有匹配到的字符</li>
+<li>(exec) 无论是否全局，都要返回分组中匹配到的内容,只会返回一个结果</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>split</p>
+</blockquote>
+<ul>
+<li>分割字符</li>
+</ul>
+<blockquote>
+<p>replace</p>
+</blockquote>
+<ul>
+<li>第 2 个参数可以是回调，也可以是字符串</li>
+<li>$1-$9</li>
+</ul>
+<p>比较强大,可以用它来敏感词过滤.</p>
+<h2 id="常用的正则表达式"><a href="#常用的正则表达式" class="headerlink" title="常用的正则表达式"></a>常用的正则表达式</h2><blockquote>
+<p>qq</p>
+</blockquote>
+<ul>
+<li>全部是数字首位不为 0，最少 5 位，最多 11 位</li>
+<li><code>/^[1-9]\d{4,11}/</code></li>
+</ul>
+<blockquote>
+<p>昵称</p>
+</blockquote>
+<ul>
+<li>中英文下划线 2~18 位</li>
+<li><code>^[\u4e00-\u9fa5\w]{2,18}</code></li>
+</ul>
+<blockquote>
+<p>密码</p>
+</blockquote>
+<ul>
+<li><p>6~16 位不能用空的字符区分大小写</p>
+</li>
+<li><p><code>[\w]{6,16}</code></p>
+<blockquote>
+<p>匹配 html 标签</p>
+</blockquote>
+</li>
+<li><p>匹配 html 标签,需要注意 闭合标签和非闭合标签</p>
+</li>
+<li><p><code>/&lt;(?:[^&gt;&quot;&#39;]*|&quot;[^&quot;]*&quot;|&#39;[^&#39;]*&#39;)*&gt;/g</code></p>
+</li>
+<li><p><code>/&lt;(?:[^&gt;&quot;&#39;]*|&quot;([&quot;&#39;])[^&quot;&#39;]*)*&gt;/g</code></p>
+<blockquote>
+<p>邮箱</p>
+</blockquote>
+</li>
+<li><p>前面的字符不做限制，有@，后边有一个点, 最后全为字母</p>
+</li>
+<li><p><code>/^(?:\w+\.)*\w+@(?:\w+\.)+[a-z]+/</code></p>
+<blockquote>
+<p>Url 地址</p>
+</blockquote>
+</li>
+<li><p>具体来说比较复杂,</p>
+</li>
+<li><p>协议://主机名:端口号/路径</p>
+</li>
+<li><p><code>/^https?:\/\/)?([^:\/]+)(:\d+)?(\/.*)?$/</code></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+              <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 正则表达式</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/18/JavaScript-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/" rel="prev" title="JavaScript-学习路径">
+      <i class="fa fa-chevron-left"></i> JavaScript-学习路径
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/01/%E6%9C%8D%E5%8A%A1%E5%99%A8-git%E5%8A%A0%E9%80%9F/" rel="next" title="各种代理加速">
+      各种代理加速 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xuanji"
+      src="/uploads/avator.jpg">
+  <p class="site-author-name" itemprop="name">xuanji</p>
+  <div class="site-description" itemprop="description">博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/985616770" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;985616770" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:z985616770@gmail.com" title="E-Mail → mailto:z985616770@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">滇ICP备19008002号-1 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=19008002" rel="noopener" target="_blank">滇ICP备19008002号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuanji</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

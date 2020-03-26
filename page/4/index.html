@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/uploads/favicon/manifest.json">
+  <meta name="msapplication-config" content="/uploads/favicon/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://xjdd.xyz').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+<meta property="og:type" content="website">
+<meta property="og:title" content="玄机..">
+<meta property="og:url" content="https://xjdd.xyz/page/4/index.html">
+<meta property="og:site_name" content="玄机..">
+<meta property="og:description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="xuanji">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="jQuery">
+<meta property="article:tag" content="jq">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="ubuntu">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://xjdd.xyz/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>玄机..</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">玄机..</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个学什么,忘什么的..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/01/VUE-%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/01/VUE-%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">VUE-基础</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-01 21:26:27" itemprop="dateCreated datePublished" datetime="2019-10-01T21:26:27+08:00">2019-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/01/VUE-%E6%BA%90%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/01/VUE-%E6%BA%90%E7%A0%81/" class="post-title-link" itemprop="url">VUE-源码</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-01 21:26:27" itemprop="dateCreated datePublished" datetime="2019-10-01T21:26:27+08:00">2019-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/01/jQuery-%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/01/jQuery-%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">jQuery</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-01 21:26:27" itemprop="dateCreated datePublished" datetime="2019-10-01T21:26:27+08:00">2019-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><ul>
+<li>写的少，做的多 JavaScript 库</li>
+<li>化大为小化繁为简</li>
+<li>简化代码,程序更高效</li>
+</ul>
+<blockquote>
+<p>特点</p>
+</blockquote>
+<ol>
+<li>轻量级</li>
+<li>强大选择器</li>
+<li>Dom 操作极其封装</li>
+<li>事件处理机制</li>
+<li>Ajax.</li>
+<li>不污染顶级变量</li>
+<li>出色的浏览器兼容</li>
+<li>链式操作</li>
+<li>隐式迭代</li>
+<li>行为层和结构层</li>
+<li>插件支持</li>
+<li>组件化,模块化</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>标签引入</li>
+<li>Cdn</li>
+<li>NPM YARn Node.</li>
+<li>框架的使用</li>
+</ul>
+<p>$ = JQuery</p>
+<ul>
+<li>被占用</li>
+<li>jQuery.noConflict(); 释放对$的引用</li>
+</ul>
+<h2 id="jQuery-书写方式"><a href="#jQuery-书写方式" class="headerlink" title="jQuery 书写方式"></a>jQuery 书写方式</h2><blockquote>
+<p>入口函数:</p>
+</blockquote>
+<ol>
+<li><code>$(document().ready(function(){}))</code></li>
+<li><code>$(function(){})</code></li>
+<li><code>$().ready({})</code></li>
+</ol>
+<blockquote>
+<p>区别 onload ready</p>
+</blockquote>
+<ol>
+<li>onload 是所有资源加载完毕</li>
+<li>ready dom 结构加载完成, 不包括图片和非文本</li>
+</ol>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
+<li>最为强大的一点<blockquote>
+<p>返回的都是 jquery 对象,每一个对象都是引用 Dom 节点的对象</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>如果传入的是 undefined || null ,返回空数组[]</p>
+</blockquote>
+<h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><ol>
+<li>Id 选择器</li>
+<li>标签选择器</li>
+<li>Class 选择器</li>
+<li>通配选择器</li>
+</ol>
+<h3 id="多项选择器"><a href="#多项选择器" class="headerlink" title="多项选择器"></a>多项选择器</h3><ol>
+<li>用逗号分割,将匹配的选择器,合并到一起返回</li>
+<li>选择会按照 DOM 顺序选择</li>
+</ol>
+<h3 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h3><ol>
+<li>后代选择器</li>
+<li>子代选择器</li>
+<li>相邻兄弟选择器</li>
+<li>通用兄弟选择器</li>
+</ol>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><ol>
+<li>属性名选择器 <code>[attr]</code></li>
+<li>属性值选择器 <code>[attr=val]</code></li>
+<li>属性值不等于值选择<code>[attr!=val]</code></li>
+<li>开头选择器<code>[attr^=val]</code></li>
+<li>结尾选择题<code>[attr$=val]</code></li>
+<li>包含选择器 <code>[attr*=val]</code></li>
+<li>筛选属性选择器<code>[attr][attr2]</code></li>
+</ol>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ol>
+<li>第 1 个子标签</li>
+<li>最后一个子标签</li>
+<li>第 n 个子标签<code>nth-child(n)</code></li>
+<li>只有一个子标签 <code>only-child</code></li>
+<li>第 1 个指定属性子标签 <code>first-of-type</code></li>
+<li>最后一个指定属性子标签</li>
+<li>第 n 个指定属性子标签 <code>nth-of-type(n)</code></li>
+<li>从后往前选第 n 个指定属性子标签</li>
+<li>只有一个指定属性子标签</li>
+</ol>
+<h3 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h3><ol>
+<li><code>:input</code> 选择</li>
+<li><code>:text</code> 匹配所有的单行文本框</li>
+<li><code>:[type]</code> 有的类型都能匹配</li>
+</ol>
+<ul>
+<li><code>:password | :radio</code></li>
+</ul>
+<blockquote>
+<p>状态</p>
+</blockquote>
+<ol>
+<li><code>:enabled</code> 所有可用的</li>
+<li><code>:disabled</code> 所有不可用的</li>
+<li><code>:checked</code> 单选复选</li>
+<li><code>:selected</code> Option.中的 Selected.</li>
+</ol>
+<h3 id="查找和过滤"><a href="#查找和过滤" class="headerlink" title="查找和过滤"></a>查找和过滤</h3><ol>
+<li>find() 搜索所有与指定表达式匹配的元素</li>
+<li>children() 子代选择器</li>
+<li>parent() 父元素</li>
+<li>next() 相邻的下一个元素</li>
+<li>prev() 相邻的上一个元素</li>
+<li>eq() 选择索引为</li>
+<li>siblings() 同一层的所有兄弟元素</li>
+<li>filter() 筛选出与指定表达式匹配的元素</li>
+</ol>
+<h2 id="Jq-事件"><a href="#Jq-事件" class="headerlink" title="Jq 事件"></a>Jq 事件</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/01/JavaScript-%E5%9F%BA%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/01/JavaScript-%E5%9F%BA%E6%9C%AC/" class="post-title-link" itemprop="url">JavaScript-基本</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-01 21:26:17" itemprop="dateCreated datePublished" datetime="2019-10-01T21:26:17+08:00">2019-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-25 13:05:18" itemprop="dateModified" datetime="2019-12-25T13:05:18+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="javaScript-组成"><a href="#javaScript-组成" class="headerlink" title="javaScript 组成"></a>javaScript 组成</h1><blockquote>
+<p>基于对象和事件驱动的脚本语言</p>
+</blockquote>
+<p>ECMAscript, brower object(DOM,BOM) 三部分组成,平时用 Ecmascript 多</p>
+<p>主要讲 ECMA script</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><blockquote>
+<p>7 种</p>
+</blockquote>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a><strong>String</strong></h5><p><strong>定义</strong>:由多个,0 个 16 位 Unicode 字符组成字符序列<br>转换方法:</p>
+<blockquote>
+<p>toString()</p>
+</blockquote>
+<ul>
+<li>转化为字符串,返回副本</li>
+<li>值可为 number,布尔值,object,字符串</li>
+</ul>
+<blockquote>
+<p>String()</p>
+</blockquote>
+<ul>
+<li>强制转换</li>
+</ul>
+<h5 id="Number"><a href="#Number" class="headerlink" title="Number"></a><strong>Number</strong></h5><blockquote>
+<p>基于 64 位双精度浮动数<br>范围为</p>
+</blockquote>
+<p>$$<br>2^{-53} -2^{53}<br>$$</p>
+<p><strong>检测方法</strong></p>
+<blockquote>
+<p>isNaN()</p>
+</blockquote>
+<ul>
+<li>NaN</li>
+<li>任何数与它操作返回 NaN</li>
+<li>NaN 不与任何数相等,包括自身<br>转换方法<blockquote>
+<p>parseInt()</p>
+</blockquote>
+</li>
+<li>转换为整数从左开始</li>
+<li>第二个参数为为基数<blockquote>
+<p>parseFloat</p>
+</blockquote>
+</li>
+<li>转换为浮点数.从左边开始,保留一位小数<blockquote>
+<p>Number()</p>
+</blockquote>
+</li>
+<li>强制转换 针对 string</li>
+</ul>
+<h4 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a><strong>Boolean</strong></h4><blockquote>
+<p>表示真假</p>
+</blockquote>
+<p><strong>转换方法</strong></p>
+<blockquote>
+<p>Boolean()</p>
+</blockquote>
+<ul>
+<li>除 0,nNaN 外,其他数字全为 true</li>
+<li>除””,其他字符串为 true</li>
+<li>undefined,null 为 false</li>
+</ul>
+<h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a><strong>Undefined</strong></h4><blockquote>
+<p>唯一值,派生于 null</p>
+</blockquote>
+<h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a><strong>Null</strong></h4><blockquote>
+<p>空指针对象</p>
+</blockquote>
+<h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><blockquote>
+<p>ES6 标识符 独一无二</p>
+</blockquote>
+<h4 id="bigInt"><a href="#bigInt" class="headerlink" title="bigInt"></a>bigInt</h4><blockquote>
+<p>大数值</p>
+</blockquote>
+<h3 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型"></a>复杂数据类型</h3><p><strong>Object</strong></p>
+<p>内置对象</p>
+<h4 id="Array-数组"><a href="#Array-数组" class="headerlink" title="Array:数组"></a><strong>Array</strong>:<strong>数组</strong></h4><blockquote>
+<p>创建</p>
+</blockquote>
+<p><code>var arr= new Array()</code></p>
+<p><code>var arr = [];</code></p>
+<p><strong>栈方法</strong> :</p>
+<blockquote>
+<p>push(num) :num 添加数值参数到 arr 尾部</p>
+</blockquote>
+<blockquote>
+<p>unshift(num)<br>num 添加到数组头部</p>
+</blockquote>
+<blockquote>
+<p>pop()<br>删除最后一个</p>
+</blockquote>
+<blockquote>
+<p>shift()<br>删除第一个</p>
+</blockquote>
+<blockquote>
+<p>join(符号)<br>数组根据符号发,分成字符串<br>返回 字符串</p>
+</blockquote>
+<blockquote>
+<p>reverse()</p>
+<ul>
+<li>倒转数组</li>
+<li>返回 数组(返回倒)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>sort(函数)</p>
+<ul>
+<li>根据函数规则来排序</li>
+<li>返回 排序后的数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>concat(数组)</p>
+<ul>
+<li>连接多个数组</li>
+<li>返回 新数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>slice(start,end)</p>
+<ul>
+<li>从已有数组返回选定的元素</li>
+<li>无 end’,选择 starat 后所有数</li>
+<li>有负数,加之为正确的长度</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>splice(index,count,[],[])</p>
+<ul>
+<li>是集删除,替换,添加为一体的方法</li>
+<li>返回 删除的数</li>
+<li>index 索引 count 数量 ,后面新添加的</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>indexOf(value,索引)</p>
+<ul>
+<li>在数组中从索引开始找 value 值</li>
+<li>找到返回索引</li>
+<li>没找到’-1</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>lastIndexOf(value,索引)</p>
+<ul>
+<li>从后往前找</li>
+<li>返回数组长度</li>
+<li>返删除值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>map(callback)</p>
+<ul>
+<li>为数组的每个元素执行回调函数</li>
+<li>返回 处理的后的新数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>find(item=&gt;{操作})</p>
+<ul>
+<li>查找值,找到返回值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>filter(ele,index,arr =&gt; {操作})</p>
+<ul>
+<li>返回通过测试的数值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>reduce(acc,cur,index,arr)=&gt;{},initValue)</p>
+<ul>
+<li>返回经过处理的数值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>flat(depth)</p>
+<ul>
+<li>多维数组 转化为 一维数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>fill(value,index,end)</p>
+<ul>
+<li>从 index 起,到 end 的长度 用 value 来填充</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>withCopy(index,start,end)</p>
+<ul>
+<li>将 index 处的值 复制到 start 的地方</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>属性</p>
+<ul>
+<li>length</li>
+</ul>
+</blockquote>
+<h4 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h4><p>一些数学运算方法</p>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<blockquote>
+<p>Math.ceil(数组)<br>向上取整</p>
+</blockquote>
+<blockquote>
+<p>Math.floor(数组)<br>向下取整</p>
+</blockquote>
+<blockquote>
+<p>Math.round(数组)<br>四舍五入取整</p>
+</blockquote>
+<blockquote>
+<p>Math.abs(数)<br>取绝对值</p>
+</blockquote>
+<blockquote>
+<p>Math.random()<br>随机 0-1</p>
+</blockquote>
+<p>随机整数</p>
+<p>Math.floor(Math.random() * (m-n + 1) +n)</p>
+<h4 id="Date-日期"><a href="#Date-日期" class="headerlink" title="Date:日期"></a>Date:日期</h4><p>方法<br><code>let date = new Date()</code></p>
+<blockquote>
+<p>date.getFullYear()</p>
+<ul>
+<li>4 位年份</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getMonth()</p>
+<ul>
+<li>月份 0-11</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getDate()</p>
+<ul>
+<li>月份的天数</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getDay()</p>
+<ul>
+<li>返回星期</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getHours()</p>
+<ul>
+<li>返回小时</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getMinutes()</p>
+<ul>
+<li>返回分钟</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getSeconds()</p>
+<ul>
+<li>返回秒</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getTime()</p>
+<ul>
+<li>返回毫秒</li>
+</ul>
+</blockquote>
+<h4 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h4><blockquote>
+<p>typeof <code>检测的数据</code></p>
+</blockquote>
+<ul>
+<li>返回</li>
+<li><code>string, number, boolean , object, undefined,function,symbol,bigint</code></li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ol>
+<li>var,let,const</li>
+<li>松散类型-保存任何类型的数据</li>
+<li>多个变量要用逗号</li>
+</ol>
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><h3 id="算数操作符"><a href="#算数操作符" class="headerlink" title="算数操作符"></a>算数操作符</h3><blockquote>
+<ul>
+<li><code>-</code>加</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>*</code>减</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>-</code> 乘</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>/</code>除</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>%</code>取余</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>递增和递减</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>++x ;x–</li>
+</ul>
+</blockquote>
+<h3 id="赋值操作符"><a href="#赋值操作符" class="headerlink" title="赋值操作符"></a>赋值操作符</h3><blockquote>
+<ul>
+<li><code>=</code> 赋值</li>
+<li><code>+=</code>加等</li>
+<li><code>-=</code>减等</li>
+<li><code>\*=</code> 乘等</li>
+<li><code>/=</code>除等</li>
+<li><code>%=</code> 取余等</li>
+</ul>
+</blockquote>
+<h3 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h3><blockquote>
+<p>`&amp;&amp; 逻辑与</p>
+</blockquote>
+<ul>
+<li>非布尔值时</li>
+<li>从左往右执行,遇到 false 值 返回 false 值</li>
+<li>遇到 false 值为 undefined,null,NaN ,直接返回他们三值</li>
+<li>全为 true,返回最后值</li>
+</ul>
+<blockquote>
+<p>|| 逻辑或</p>
+</blockquote>
+<ul>
+<li><p>非布尔值时</p>
+</li>
+<li><p>从左往右执行,遇到 true 值 返回 true 值</p>
+</li>
+<li><p>遇到全为 false 值为 undefined,null,NaN ,直接返回他们三值</p>
+</li>
+<li><p>全为 false 返回最后值</p>
+</li>
+</ul>
+<blockquote>
+<p>! 非</p>
+</blockquote>
+<ul>
+<li>!!val 返回布尔值</li>
+</ul>
+<h3 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h3><blockquote>
+<ul>
+<li><code>&gt;</code> 大于</li>
+<li><code>&lt;</code> 小于</li>
+<li><code>&gt; =</code> 大于等于</li>
+<li><code>&lt;=</code> 小于等于</li>
+<li><code>==</code> 是否相等</li>
+<li><code>===</code> 是否全等(判断类型)</li>
+<li><code>!=</code> 是否不等</li>
+<li><code>!==</code> 是否不全等</li>
+</ul>
+</blockquote>
+<h3 id="三元操作符"><a href="#三元操作符" class="headerlink" title="三元操作符"></a>三元操作符</h3><p><code>条件? 执行代码 1 : 执行代码 2</code></p>
+<ul>
+<li>代替简单的 if 语句</li>
+</ul>
+<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><blockquote>
+<p><strong>将同类型的数据(常量,变量,函数等),运用运算符号按照一定规则链接起来,成为有意义的式子</strong></p>
+</blockquote>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>()&#123;</span><br><span class="line"></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>()&#123;</span><br><span class="line"></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>()&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> 值 :语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">default</span> :语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>区别</strong></p>
+</blockquote>
+<ul>
+<li>if 和 while 已知次数,和未知次数</li>
+</ul>
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="do-while"><a href="#do-while" class="headerlink" title="do..while"></a>do..while</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;&#125;<span class="keyword">while</span>()</span><br></pre></td></tr></table></figure>
+
+<h4 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(执行前定义,循环条件,执行后语句)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>循环嵌套时,先外层后内层,内层 false 后返回外层<blockquote>
+<p><code>while</code> 和 <code>do while</code> 区别</p>
+</blockquote>
+</li>
+<li>区别在于执行次数,do while 至少执行一次</li>
+</ul>
+<h4 id="break-continue"><a href="#break-continue" class="headerlink" title="break continue"></a>break continue</h4><blockquote>
+<p>break</p>
+</blockquote>
+<ul>
+<li>跳出语句,终止语句<blockquote>
+<p>continue</p>
+</blockquote>
+</li>
+<li>跳过语句 ,继续执行</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="function"><a href="#function" class="headerlink" title="function"></a>function</h4><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params">参数</span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="return-语句"><a href="#return-语句" class="headerlink" title="return 语句"></a>return 语句</h4><ul>
+<li><p>函数会在执行完 return,结束函数</p>
+</li>
+<li><p>可以不带值返回</p>
+</li>
+</ul>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><blockquote>
+<p>ECMAscript 函数参数内部用一个数组来表示</p>
+</blockquote>
+<ul>
+<li><strong>arguments</strong></li>
+</ul>
+<blockquote>
+<p>类数组</p>
+</blockquote>
+<ul>
+<li>不是 array 的实例</li>
+<li>有 length 可以用[] 来取值</li>
+</ul>
+<h3 id="错误调试"><a href="#错误调试" class="headerlink" title="错误调试"></a>错误调试</h3><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><h5 id="语法错误"><a href="#语法错误" class="headerlink" title="语法错误"></a>语法错误</h5><ol>
+<li><p>漏打,少打,多打,错打</p>
+</li>
+<li><p>不合法的变量名</p>
+</li>
+<li><p>语法错误</p>
+</li>
+</ol>
+<h5 id="运行时错误"><a href="#运行时错误" class="headerlink" title="运行时错误"></a>运行时错误</h5><ol>
+<li><p>ReferenceError: 变量引用错误</p>
+</li>
+<li><p>TypeError: 类型使用错误</p>
+</li>
+<li><p>RangeError: 递归爆栈</p>
+</li>
+</ol>
+<h5 id="逻辑错误"><a href="#逻辑错误" class="headerlink" title="逻辑错误"></a>逻辑错误</h5><p>计算结果不符合预期</p>
+<h4 id="try-catch-finally-语句"><a href="#try-catch-finally-语句" class="headerlink" title="try-catch -finally 语句"></a>try-catch -finally 语句</h4><blockquote>
+<p>用法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主动抛出错误</li>
+<li>语法错误无法识别</li>
+<li>接受 throw Error()</li>
+</ul>
+<h5 id="finally"><a href="#finally" class="headerlink" title="finally"></a>finally</h5><ul>
+<li>清理性工作</li>
+<li>一定执行()</li>
+</ul>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p><strong>定义</strong> : 文档或浏览器窗口中发生的一些特定的交互瞬间</p>
+<h4 id="事件分类"><a href="#事件分类" class="headerlink" title="事件分类"></a>事件分类</h4><blockquote>
+<p>HTML 事件</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">onclick</span>=<span class="string">"function()&#123;&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>写在行内样式中</p>
+<blockquote>
+<p>DOM0 级事件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>DOM2 级事件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ele.addEventListenr(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="literal">false</span>);</span><br><span class="line">ele.attachEvent(<span class="string">'onclick'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="事件增删"><a href="#事件增删" class="headerlink" title="事件增删"></a>事件增删</h4><blockquote>
+<p>添加事件</p>
+</blockquote>
+<ul>
+<li><p>addEventListener;</p>
+</li>
+<li><p>attachEvent;</p>
+</li>
+</ul>
+<blockquote>
+<p>移出事件</p>
+</blockquote>
+<ul>
+<li>removeEventListener;</li>
+<li>detachEvent;</li>
+</ul>
+<blockquote>
+<p><strong>区别</strong></p>
+</blockquote>
+<ul>
+<li><p>HTML 事件:强耦合,不利于复用代码</p>
+</li>
+<li><p>DOM 0 级事件:松耦合,代码 js 代码分离</p>
+</li>
+<li><p>不能绑定多次绑定同一类型事件</p>
+</li>
+<li><p>DOM2 级事件 :优点全有,增加了冒泡捕获</p>
+</li>
+</ul>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><ol>
+<li><p>事件对象</p>
+</li>
+<li><p>事件对象绑定事件</p>
+</li>
+<li><p>事件句柄:事件处理函数,事件监听函数</p>
+</li>
+</ol>
+<h4 id="冒泡与捕获"><a href="#冒泡与捕获" class="headerlink" title="冒泡与捕获"></a>冒泡与捕获</h4><blockquote>
+<p>捕获:</p>
+</blockquote>
+<ul>
+<li>点击子元素,会先触发父元素的事件,再依次向下触子元素的事件</li>
+</ul>
+<blockquote>
+<p>冒泡:</p>
+</blockquote>
+<ul>
+<li>直系亲属树结构,点底部树结构的某个元素,(亲属树上)的父级元素会依次向上触发</li>
+</ul>
+<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托:"></a>事件委托:</h4><ul>
+<li>利用冒泡,点击子元素触发父元素的事件委托对象(event)</li>
+</ul>
+<h5 id="event"><a href="#event" class="headerlink" title="event"></a><strong>event</strong></h5><blockquote>
+<p>属性</p>
+<ul>
+<li>type<br>事件类型</li>
+<li>target<br>事件源(点击哪个就是哪个)</li>
+<li>currentarget<br>事件绑定的对象</li>
+<li>preventDeault()<br>阻止默认行为(链接跳转)</li>
+<li>stopPropagation()<br>阻止冒泡</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>ie 属性</p>
+<ul>
+<li>returnValue = false<br>同 preventDefault</li>
+<li>cancelBubble = true<br>同 stopPropagation</li>
+<li>srcElement = target</li>
+</ul>
+</blockquote>
+<h4 id="常见的事件类型"><a href="#常见的事件类型" class="headerlink" title="常见的事件类型"></a>常见的事件类型</h4><blockquote>
+<p>load<br>页面加载后</p>
+</blockquote>
+<blockquote>
+<p>unload<br>当文档或一个子资源正在被卸载时</p>
+</blockquote>
+<blockquote>
+<p>resized<br>窗口变换大小</p>
+</blockquote>
+<blockquote>
+<p>scroll<br>滚动</p>
+</blockquote>
+<blockquote>
+<p>blur<br>失去焦点</p>
+</blockquote>
+<blockquote>
+<p>focus<br>得到焦点(不支持冒泡)</p>
+</blockquote>
+<blockquote>
+<p>focusin<br>得到焦点</p>
+</blockquote>
+<blockquote>
+<p>focusout<br>失去焦点</p>
+</blockquote>
+<blockquote>
+<p>DOMFoucusIn<br>得到焦点</p>
+</blockquote>
+<blockquote>
+<p>DOmFoucsOut<br>失去焦点</p>
+</blockquote>
+<blockquote>
+<p>click<br>点击</p>
+</blockquote>
+<blockquote>
+<p>dblclick<br>双击</p>
+</blockquote>
+<blockquote>
+<p>mouseup<br>松开鼠标</p>
+</blockquote>
+<blockquote>
+<p>mousedown<br>鼠标按下</p>
+</blockquote>
+<blockquote>
+<p>mouseout<br>鼠标离开元素区域</p>
+</blockquote>
+<blockquote>
+<p>mouseover<br>鼠标进入元素区域</p>
+</blockquote>
+<blockquote>
+<p>mousemove<br>鼠标在区域移动</p>
+</blockquote>
+<blockquote>
+<p>mousenter<br>鼠标进入目标区域</p>
+</blockquote>
+<blockquote>
+<p>mouseleave<br>鼠标离开目标区域</p>
+</blockquote>
+<blockquote>
+<p>event.</p>
+<ul>
+<li>shiftkey</li>
+<li>ctrlkey</li>
+<li>altkey</li>
+<li>metakey</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>keydown<br>键盘按下<br>返回 keycode 码</p>
+</blockquote>
+<blockquote>
+<p>keyup<br>键盘抬起</p>
+</blockquote>
+<blockquote>
+<p>keypress<br>键盘按下,比 keydouwn 慢<br>只返回数,和字符 返回 ASCII 码</p>
+</blockquote>
+<blockquote>
+<p>textInput<br>输在 input text 类型中和值 会在 event.data 返回</p>
+</blockquote>
+<blockquote>
+<p>DOMNodeRemoved<br>文档任意元素删除触发</p>
+</blockquote>
+<blockquote>
+<p>DOMSubtreeModified<br>文档任意变化触发</p>
+</blockquote>
+<blockquote>
+<p>DOMNodeRemovedFromDocument<br>在文档移除前触发</p>
+</blockquote>
+<blockquote>
+<p>DOMNodeInserted<br>任何元素被添加时触发</p>
+</blockquote>
+<blockquote>
+<p>DOMNodeInsertedIntoDocument<br>在文档添加前触发</p>
+</blockquote>
+<blockquote>
+<p>DOMContentLoaded<br>在 dom 树之后就会触发</p>
+</blockquote>
+<blockquote>
+<p>readystatechange<br>不支持 chrome,提供文档或者元素加载过程中,很难预料结果</p>
+</blockquote>
+<blockquote>
+<p>hashchange<br>网址后的#后的值变化</p>
+</blockquote>
+<blockquote>
+<p>touchstart<br>手指触摸屏幕</p>
+</blockquote>
+<blockquote>
+<p>touchmove<br>手指在滑动</p>
+</blockquote>
+<blockquote>
+<p>touchend<br>手指离开</p>
+</blockquote>
+<blockquote>
+<p>touchcancel<br>当系统停止跟踪触摸时触发</p>
+</blockquote>
+<blockquote>
+<p>手机端</p>
+<ul>
+<li>event.<blockquote>
+<ul>
+<li>touches<br>触摸点数目</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>changeTouces<br>引起事件的触摸点</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>targetTouches<br>放在目标元素的触摸信息</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>注意事项: 兼容代码的书写</p>
+<h3 id="基本包装对象"><a href="#基本包装对象" class="headerlink" title="基本包装对象"></a>基本包装对象</h3><h5 id="String-1"><a href="#String-1" class="headerlink" title="String"></a>String</h5><ul>
+<li>字符串</li>
+</ul>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<blockquote>
+<p>charCodeAt(索引)</p>
+</blockquote>
+<ul>
+<li>返回索引处字符编码(unicode)</li>
+</ul>
+<blockquote>
+<p>indexOf(value)</p>
+</blockquote>
+<ul>
+<li>按顺序查找 value</li>
+<li>返回 索引</li>
+<li>-1 没有找到</li>
+</ul>
+<blockquote>
+<p>lastIndexOf(value)</p>
+</blockquote>
+<ul>
+<li>倒着找</li>
+</ul>
+<blockquote>
+<p>slice(start,end)</p>
+</blockquote>
+<ul>
+<li>截取 start 到 end -1 的字符</li>
+</ul>
+<blockquote>
+<p>substring(start,end)</p>
+</blockquote>
+<ul>
+<li>截取 start 到 end -1 的字符,start 遇到负数转为 0</li>
+</ul>
+<blockquote>
+<p>substr(start,length)</p>
+</blockquote>
+<ul>
+<li>截取 start 到最后 ,length 的长度</li>
+</ul>
+<blockquote>
+<p>split(符号)</p>
+</blockquote>
+<ul>
+<li>根据符号,分成数组</li>
+</ul>
+<blockquote>
+<p>replace(‘被替换’,替换)</p>
+</blockquote>
+<ul>
+<li>替换字符</li>
+</ul>
+<blockquote>
+<p>toUpperCase()</p>
+</blockquote>
+<ul>
+<li>转为大写</li>
+</ul>
+<blockquote>
+<p>toLowerCase()</p>
+</blockquote>
+<ul>
+<li>转为小写</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/01/CSS-CSS3%E5%B1%9E%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/01/CSS-CSS3%E5%B1%9E%E6%80%A7/" class="post-title-link" itemprop="url">CSS3</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-01 21:26:03" itemprop="dateCreated datePublished" datetime="2019-10-01T21:26:03+08:00">2019-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="什么是-CSS"><a href="#什么是-CSS" class="headerlink" title="什么是 CSS"></a>什么是 CSS</h1><p>定义: Cascading style sheets 层叠样式表</p>
+<p>用与: 调整页面的样式</p>
+<hr>
+<h2 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a><strong>CSS3</strong></h2><p>添加了很多新的东西,如 动画,圆弧,变量,渐变,阴影 ,flex,gird 等等 很多的新花样</p>
+<p>但是: 兼容性还是存在一定的问题</p>
+<p><em>写了没效果,所以要经常查兼容性</em></p>
+<p>比较常见的: margin 高度塌陷,float 清除浮动,负值 margin 的 应用</p>
+<h2 id="容易出问题的地方"><a href="#容易出问题的地方" class="headerlink" title="容易出问题的地方"></a>容易出问题的地方</h2><h3 id="权重-css-选择器的问题"><a href="#权重-css-选择器的问题" class="headerlink" title="权重,css 选择器的问题"></a>权重,css 选择器的问题</h3><p>选择器分为</p>
+<ol>
+<li>标签选择器</li>
+<li>类选择器</li>
+<li>id 选择器</li>
+<li>伪元素选择器</li>
+<li>伪类选择器</li>
+<li>自定义属性选择器</li>
+<li>通配符选择器</li>
+</ol>
+<p>大的就分这几种</p>
+<p>细分的话还有: <code>后代( )</code>,<code>群组(,)</code>,<code>兄弟(+)</code>,<code>通用兄弟(~)</code>,<code>子代(&gt;)</code>,</p>
+<blockquote>
+<p>权重排行 !important &gt;&gt;&gt; 行内样式 &gt;&gt;&gt; id(1000) &gt;&gt; 类,伪类,自定义属性(10) &gt;<br>标签,伪元素(1) &gt; 通配,继承(0)</p>
+</blockquote>
+<p><strong>比较规则</strong>:</p>
+<ul>
+<li>必须在同级下比,例如 100 个类叠加,还是比不上个 id 选择器</li>
+<li>两个权重不同的选择器作用在同一元素上，权重值高的 css 规则生效</li>
+<li>两个相同权重的选择器作用在同一元素上：以后面出现的选择器为最后规则.</li>
+</ul>
+<hr>
+<h3 id="margin-高度塌陷和负值应用"><a href="#margin-高度塌陷和负值应用" class="headerlink" title="margin 高度塌陷和负值应用"></a>margin 高度塌陷和负值应用</h3><blockquote>
+<p>我的文章有一篇有比较详细的介绍了,不在啰嗦 <code>margin负值及应用</code></p>
+</blockquote>
+<hr>
+<h3 id="BFC-的应用"><a href="#BFC-的应用" class="headerlink" title="BFC 的应用"></a>BFC 的应用</h3><p>定义 : (block formatting context) <strong>块级格式上下文</strong></p>
+<p><strong>触发条件</strong> :</p>
+<ol>
+<li><code>float</code> 不为 <code>none</code></li>
+<li><code>overflow:auto/scroll/hidden</code> 3.<code>display:table-cell,table-caption,inline-block</code></li>
+<li><code>position</code> 不为 <code>relative,static</code></li>
+</ol>
+<p>mdn 有很详细的介绍,我只挑了几个常见的(我用过的) =&gt; <a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener">mdn</a></p>
+<p><strong>优点</strong> :</p>
+<ol>
+<li><p>自适应内容,由于封闭,更健壮,容错性高</p>
+</li>
+<li><p>自适应内容,自动填充区域形成两列布局</p>
+</li>
+<li><p>所以先构建网页的结构的原因</p>
+</li>
+</ol>
+<hr>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>定义: 由于浮动导致高度塌陷,下面文章自动上移.</p>
+<p><strong>清除浮动</strong>:</p>
+<ol>
+<li>浮动元素上加 类<code>.clearfix</code> (类上属性 <code>clear:both</code>)</li>
+<li>父容器加<code>overflow:hidden</code>(小块,注意内容的溢出)</li>
+<li>利用伪元素 添加清除浮动(大内容)比较完美 <code>::before ::after</code></li>
+<li>设置父元素高度</li>
+<li>父级元素也浮动(不推荐)<blockquote>
+<p>常用 2,3</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性:"></a>常用属性:</h2><h3 id="font"><a href="#font" class="headerlink" title="font"></a><strong>font</strong></h3><blockquote>
+<ul>
+<li><strong>可以继承</strong><blockquote>
+<p>语法</p>
+<ul>
+<li><code>font-family</code> 字体</li>
+<li><code>font-size</code> 字体的大小</li>
+<li><code>color</code> 字 的颜色</li>
+<li><code>font-weight</code> 宽粗</li>
+<li><code>font-style</code> 字体样式(斜体)</li>
+<li><code>font-variant</code> 字体变形(拉丁文) 小型大写<br>简写(不推荐,增加阅读难度): style variant weight (size)/line-height (family)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><strong>括号的必须有才能生效</strong></p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="自定义字体"><a href="#自定义字体" class="headerlink" title="自定义字体"></a><strong>自定义字体</strong></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'iconfont'</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/iconfont.eot?t=1522237704791'</span>);</span><br><span class="line">    <span class="comment">/* IE9*/</span></span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'../fonts/iconfont.eot?t=1522237704791#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">        <span class="comment">/* IE6-IE8 */</span> <span class="built_in">url</span>(<span class="string">'../fonts/iconfont.ttf?t=1522237704791'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">        <span class="comment">/* chrome, firefox, opera, Safari, Android, iOS 4.2+*/</span></span><br><span class="line">            <span class="built_in">url</span>(<span class="string">'../fonts/iconfont.svg?t=1522237704791#iconfont'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">    <span class="comment">/* iOS 4.1- */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.iconfont</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'iconfont'</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">-webkit-font-smoothing</span>: antialiased;</span><br><span class="line">    <span class="attribute">-moz-osx-font-smoothing</span>: grayscale;</span><br><span class="line">&#125;</span><br><span class="line">1.</span><br><span class="line"><span class="selector-class">.icon-backtop</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">'\e689'</span>;</span><br><span class="line">&#125;</span><br><span class="line">2.</span><br><span class="line">添加类 <span class="selector-class">.icon</span> <span class="selector-class">.icon-backtop</span></span><br><span class="line"></span><br><span class="line">3.</span><br><span class="line">添加类 且直接书写</span><br><span class="line"><span class="selector-tag">Unicode</span>码</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="文本样式-text"><a href="#文本样式-text" class="headerlink" title="文本样式 text"></a><strong>文本样式 text</strong></h3><blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>text-shadow 文本创造阴影<blockquote>
+<p>语法 : <code>h-shadow v-shadow blur color</code></p>
+</blockquote>
+</li>
+<li>text-outline 文本轮廓(没得支持)</li>
+<li>text-align 水平对齐方式</li>
+<li>line-height 行高</li>
+<li>vertical-align 文本垂直对齐方式(默认基于基线)<blockquote>
+<p>% 百分比相对于 line-height 行内或者行内块生效</p>
+</blockquote>
+</li>
+<li>word-spacing 单词之间间距,空格为准</li>
+<li>letter-spacing 字母之间间距,中文可以用</li>
+<li>text-transform 文本的大小写</li>
+<li>text-decoration 文体的装饰(a 标签常用)</li>
+<li>text-align-last 规定如何对齐最后一栏<blockquote>
+<p>属性 <code>auto left right center justify start end inital inherit</code></p>
+</blockquote>
+</li>
+<li>text-overflow 文本溢出包括元素发生的事情(各个版本浏览器有不同的支持)<blockquote>
+<p>clip,ellipsis(…),string</p>
+</blockquote>
+</li>
+<li>word-break 规定自行换行的处理方法,针对{拉丁文}</li>
+<li>word-wrap 允许长单词换行,如 {邮箱} {网址}</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="列表样式list"><a href="#列表样式list" class="headerlink" title="列表样式list"></a>列表样式<code>list</code></h3><blockquote>
+<ul>
+<li>list-style-type<blockquote>
+<p>很多选项(基本用不到,都是自己定义图标)<br>none</p>
+</blockquote>
+</li>
+<li>list-style-image 一样,边上 的图标</li>
+<li>list-style-position<blockquote>
+<p>inside(默认)内环绕 | outside 隔出来,不会跑到下面去</p>
+</blockquote>
+</li>
+<li>list-style 简写 三个属性</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="背景-相当常用-background"><a href="#背景-相当常用-background" class="headerlink" title="背景(相当常用)background"></a>背景(相当常用)<code>background</code></h3><blockquote>
+<blockquote>
+<ul>
+<li>background-color 背景颜色</li>
+<li>background-image 背景图<br>*background-repeat 重复方式<br>*background-attachment 图片固定方式</li>
+<li>background-clip 指定背景绘制区域(少见,比较有意思)</li>
+<li>background-origin 指定 positon 的相对位置<br>background-size 背景图像大小</li>
+<li>background-position 背景图的位置</li>
+<li>background(简写)<blockquote>
+<p>属性 *color *position size *repeat origin clip attachment *image</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>渐变</p>
+<ul>
+<li>linear-gradient<blockquote>
+<ul>
+<li>定义 :两个或者多个指定的颜色之间,显示平稳的过渡</li>
+<li>语法 <code>direction ,color 节点...</code>方向 颜色节点</li>
+</ul>
+</blockquote>
+</li>
+<li>repeating-linear-gradient<blockquote>
+<ul>
+<li>重复渐变</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>圆形渐变</p>
+<ul>
+<li>radial-gradient &gt; - 定义: 起点到终点,圆心到外,<blockquote>
+<ul>
+<li>语法 <code>shape size at 圆心位置(x y) , 颜色节点...</code></li>
+</ul>
+</blockquote>
+</li>
+<li>repeating-radial-gradient</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>IE 渐变</p>
+<ul>
+<li>filter</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="过渡-transition"><a href="#过渡-transition" class="headerlink" title="过渡 transition"></a><strong>过渡 transition</strong></h3><blockquote>
+<blockquote>
+<p>transition :</p>
+<ul>
+<li>定义: css 属性值在一定时间内平滑的过渡</li>
+<li>属性<blockquote>
+<ul>
+<li>property 过渡属性的名称</li>
+<li>duration 过渡持续的时间</li>
+<li>timing-function 动画类型<blockquote>
+<ul>
+<li>ease(平滑) linear(线性) ease-in(慢到快) ease-out(快到慢) ease-in-out(慢快慢) cubic-bezier(贝塞尔曲线) step-start|step-end|steps(不常用)</li>
+</ul>
+</blockquote>
+</li>
+<li>delay 延迟过渡时间</li>
+<li>transition(简写): <code>property duration timing-function delay</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="转换-分-3d-和-2d-transform"><a href="#转换-分-3d-和-2d-transform" class="headerlink" title="转换(分 3d 和 2d)transform"></a><strong>转换(分 3d 和 2d)transform</strong></h3><blockquote>
+<p><strong>定义</strong> 让元素在坐标系中变形,包括一系列变形函数<br>语法</p>
+<ul>
+<li>transform<blockquote>
+<p>方法(2d):</p>
+<ul>
+<li>rotate:旋转<blockquote>
+<ul>
+<li>语法: 传角度(angle)</li>
+<li>正顺时针,负数逆时针</li>
+</ul>
+</blockquote>
+</li>
+<li>translate:位移<blockquote>
+<ul>
+<li>语法:<code>translate() translateX() translateY()</code></li>
+<li>传 x y 水平 竖直</li>
+</ul>
+</blockquote>
+</li>
+<li>scale:放大,缩小<blockquote>
+<ul>
+<li>语法: <code>scale() scaleX() scaleY()</code></li>
+<li>传数值(num),可以实现镜像翻转 <code>scale(1,-1)</code></li>
+</ul>
+</blockquote>
+</li>
+<li>skew: 倾斜<blockquote>
+<ul>
+<li>语法:<code>skew() skewX() skewY()</code></li>
+<li>传角度</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>方法((3d): 差不多,但是参数不许省略,可以触发优化</p>
+<ul>
+<li>rotate3d:<blockquote>
+<ul>
+<li>`ratate3d(x,y,z,angle)</li>
+</ul>
+</blockquote>
+</li>
+<li>translate3D</li>
+<li>scale()<blockquote>
+<ul>
+<li>区别是参数不可省略</li>
+<li>(矩阵) :高大上,所有的上面都是由它简化而来</li>
+</ul>
+</blockquote>
+</li>
+<li>matrix:<blockquote>
+<ul>
+<li>2d 平面移动转换</li>
+<li>方法:<blockquote>
+<ul>
+<li><code>matrix(1,0,0,1,x,y) == translate(x,y)</code></li>
+<li><code>matrix(sx,0,0,sy,0,0) == scale(sx,sy)</code></li>
+<li><code>matrix(cos,sin,-sin,cos,0,0) == rotate</code></li>
+<li><code>matrix(1,tanx,tany,1,0,0) == skew(xdeg,ydeg)</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>matrix3d: 3d 平面移动转换</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<ul>
+<li>转换的一些属性<blockquote>
+<ul>
+<li>transform-origin<br>更换元素转换的源位置</li>
+<li>transform-style<br>指定嵌套元素怎么样在 3d 中显示(会有类似的 3d 效果出现)</li>
+<li>perspective<br>观察者与 z 的距离,是具有三维位置变化,元素产生透视效果(不容易看出效果)</li>
+<li>perspective-origin<br>透视点的位置(和上面属性配合使用)</li>
+<li>backface-visiblity<br>元素背向用户是否可见(翻转后能否看到背面,骰子)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="阴影-shadow"><a href="#阴影-shadow" class="headerlink" title="阴影 shadow"></a><strong>阴影 shadow</strong></h3><blockquote>
+<p>盒子</p>
+<ul>
+<li>box-shadow</li>
+<li>属性 :一个,或多个阴影的框</li>
+<li>语法 <code>h-shadow v-shadow blur spread color inset[,]</code></li>
+<li>水平位移 竖直位移 模糊度 拓展 颜色 内阴影 ,可以多个</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>文字阴影</p>
+<ul>
+<li>text-shadow</li>
+<li>上面一样,兼容性有一点问题</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="圆弧-角-radius"><a href="#圆弧-角-radius" class="headerlink" title="圆弧(角)radius"></a><strong>圆弧(角)radius</strong></h3><blockquote>
+<p>border-radius : 圆角边框</p>
+<ul>
+<li>属性 八个值<blockquote>
+<ul>
+<li>左上水平 右上水平 右下水平 左下水平 / 左上竖直 右上竖直 右下竖直 左下竖直</li>
+</ul>
+</blockquote>
+</li>
+<li>方向</li>
+<li>border-top|bottom-left|right-radius</li>
+<li>值: 百分比 参照对本身</li>
+<li>特性:<blockquote>
+<ol>
+<li>大值特性 足够大的值会直接成 ⚪</li>
+<li>等比例特性 : 与高宽成比例. 可以实现 50%的效果,各种几何平面图像都能用它实现,css 动画可以用它</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="动画-animation"><a href="#动画-animation" class="headerlink" title="动画 animation"></a><strong>动画 animation</strong></h3><blockquote>
+<p><strong>定义</strong> : 元素从一种样式到另一种样式的效果</p>
+<ul>
+<li>animation:<blockquote>
+<p>属性</p>
+<ul>
+<li>name 动画名称</li>
+<li>duration 持续时间</li>
+<li>timing-function 动画类型</li>
+<li>delay 延迟时间</li>
+<li>iteration 循环次数</li>
+<li>direction 是否反向运动</li>
+<li>fill-mode 动画完成时或有延迟时未开始播放,应用到元素的样式(会保持状态)</li>
+<li>play-state 运行还暂停(js 控制的多)</li>
+<li>简写 :<br><code>name duration timing-functio-time delay iteration direction fill-mode play-state</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>@keyframes</p>
+<ul>
+<li>定义 控制动画变化的关键位置</li>
+<li>语法</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@keynames name&#123;</span><br><span class="line">to&#123;&#125; .. from&#123;&#125; || 0%&#123;&#125; .. 100%&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>will-change</p>
+<ol>
+<li>增强页面渲染性能</li>
+<li>还可以使用 translateZ 触发<blockquote>
+<ul>
+<li>语法 <code>auto scroll-position contents 名称</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="定位-position"><a href="#定位-position" class="headerlink" title="定位 position"></a><strong>定位 position</strong></h3><blockquote>
+<p>position:</p>
+<ul>
+<li>static 自然定位</li>
+<li>relative 相对定位</li>
+<li>absolute 绝对定位<blockquote>
+<ul>
+<li>基于最近的相对定位(子绝父相)</li>
+</ul>
+</blockquote>
+</li>
+<li>fixed 固定定位</li>
+<li>sticky 磁贴定位(新 css3) 脱离文档流</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>属性</p>
+<ul>
+<li>left</li>
+<li>top</li>
+<li>right</li>
+<li>bottom</li>
+<li>z-index 层叠顺序</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="盒模型-box"><a href="#盒模型-box" class="headerlink" title="盒模型 box"></a><strong>盒模型 box</strong></h3><ul>
+<li>width,height<blockquote>
+<p>宽高</p>
+</blockquote>
+</li>
+<li>padding<blockquote>
+<p>填充 上左下右</p>
+</blockquote>
+</li>
+<li>margin<blockquote>
+<p>边距 上左下右</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="CSS3-变量"><a href="#CSS3-变量" class="headerlink" title="CSS3 变量"></a>CSS3 变量</h2><ul>
+<li><p>类似 sass,但是是官方的</p>
+</li>
+<li><p>用法:</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 全局 */</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attribute">--h</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 局部 */</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">--color</span>: red;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="无单位需要计算-calc-函数"><a href="#无单位需要计算-calc-函数" class="headerlink" title="无单位需要计算 calc()函数"></a>无单位需要计算 <code>calc()函数</code></h2><h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><h3 id="行布局"><a href="#行布局" class="headerlink" title="行布局"></a>行布局</h3><ul>
+<li>height 和 line-height</li>
+</ul>
+<hr>
+<h3 id="两列布局"><a href="#两列布局" class="headerlink" title="两列布局"></a>两列布局</h3><ul>
+<li>float + margin</li>
+<li>​float + BFC</li>
+<li>absolute</li>
+<li>flex</li>
+<li>​gird</li>
+</ul>
+<hr>
+<h3 id="三列布局"><a href="#三列布局" class="headerlink" title="三列布局"></a>三列布局</h3><ul>
+<li>双飞翼,圣杯</li>
+<li>​absolute</li>
+<li>​float</li>
+<li>​flex</li>
+<li>​gird</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xuanji"
+      src="/uploads/avator.jpg">
+  <p class="site-author-name" itemprop="name">xuanji</p>
+  <div class="site-description" itemprop="description">博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/985616770" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;985616770" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:z985616770@gmail.com" title="E-Mail → mailto:z985616770@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">滇ICP备19008002号-1 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=19008002" rel="noopener" target="_blank">滇ICP备19008002号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuanji</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>

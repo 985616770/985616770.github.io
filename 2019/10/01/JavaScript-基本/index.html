@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/uploads/favicon/manifest.json">
+  <meta name="msapplication-config" content="/uploads/favicon/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://xjdd.xyz').hostname,
+    root: '/',
+    scheme: 'Mist',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="javaScript 组成 基于对象和事件驱动的脚本语言  ECMAscript, brower object(DOM,BOM) 三部分组成,平时用 Ecmascript 多 主要讲 ECMA script 数据类型基本数据类型 7 种  String定义:由多个,0 个 16 位 Unicode 字符组成字符序列转换方法:  toString()   转化为字符串,返回副本 值可为 numbe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-基本">
+<meta property="og:url" content="https://xjdd.xyz/2019/10/01/JavaScript-%E5%9F%BA%E6%9C%AC/index.html">
+<meta property="og:site_name" content="玄机..">
+<meta property="og:description" content="javaScript 组成 基于对象和事件驱动的脚本语言  ECMAscript, brower object(DOM,BOM) 三部分组成,平时用 Ecmascript 多 主要讲 ECMA script 数据类型基本数据类型 7 种  String定义:由多个,0 个 16 位 Unicode 字符组成字符序列转换方法:  toString()   转化为字符串,返回副本 值可为 numbe">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-01T13:26:17.000Z">
+<meta property="article:modified_time" content="2019-12-25T05:05:18.503Z">
+<meta property="article:author" content="xuanji">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://xjdd.xyz/2019/10/01/JavaScript-%E5%9F%BA%E6%9C%AC/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>JavaScript-基本 | 玄机..</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">玄机..</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">一个学什么,忘什么的..</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/01/JavaScript-%E5%9F%BA%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript-基本
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-01 21:26:17" itemprop="dateCreated datePublished" datetime="2019-10-01T21:26:17+08:00">2019-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-25 13:05:18" itemprop="dateModified" datetime="2019-12-25T13:05:18+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<h1 id="javaScript-组成"><a href="#javaScript-组成" class="headerlink" title="javaScript 组成"></a>javaScript 组成</h1><blockquote>
+<p>基于对象和事件驱动的脚本语言</p>
+</blockquote>
+<p>ECMAscript, brower object(DOM,BOM) 三部分组成,平时用 Ecmascript 多</p>
+<p>主要讲 ECMA script</p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><blockquote>
+<p>7 种</p>
+</blockquote>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a><strong>String</strong></h5><p><strong>定义</strong>:由多个,0 个 16 位 Unicode 字符组成字符序列<br>转换方法:</p>
+<blockquote>
+<p>toString()</p>
+</blockquote>
+<ul>
+<li>转化为字符串,返回副本</li>
+<li>值可为 number,布尔值,object,字符串</li>
+</ul>
+<blockquote>
+<p>String()</p>
+</blockquote>
+<ul>
+<li>强制转换</li>
+</ul>
+<h5 id="Number"><a href="#Number" class="headerlink" title="Number"></a><strong>Number</strong></h5><blockquote>
+<p>基于 64 位双精度浮动数<br>范围为</p>
+</blockquote>
+<p>$$<br>2^{-53} -2^{53}<br>$$</p>
+<p><strong>检测方法</strong></p>
+<blockquote>
+<p>isNaN()</p>
+</blockquote>
+<ul>
+<li>NaN</li>
+<li>任何数与它操作返回 NaN</li>
+<li>NaN 不与任何数相等,包括自身<br>转换方法<blockquote>
+<p>parseInt()</p>
+</blockquote>
+</li>
+<li>转换为整数从左开始</li>
+<li>第二个参数为为基数<blockquote>
+<p>parseFloat</p>
+</blockquote>
+</li>
+<li>转换为浮点数.从左边开始,保留一位小数<blockquote>
+<p>Number()</p>
+</blockquote>
+</li>
+<li>强制转换 针对 string</li>
+</ul>
+<h4 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a><strong>Boolean</strong></h4><blockquote>
+<p>表示真假</p>
+</blockquote>
+<p><strong>转换方法</strong></p>
+<blockquote>
+<p>Boolean()</p>
+</blockquote>
+<ul>
+<li>除 0,nNaN 外,其他数字全为 true</li>
+<li>除””,其他字符串为 true</li>
+<li>undefined,null 为 false</li>
+</ul>
+<h4 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a><strong>Undefined</strong></h4><blockquote>
+<p>唯一值,派生于 null</p>
+</blockquote>
+<h4 id="Null"><a href="#Null" class="headerlink" title="Null"></a><strong>Null</strong></h4><blockquote>
+<p>空指针对象</p>
+</blockquote>
+<h4 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h4><blockquote>
+<p>ES6 标识符 独一无二</p>
+</blockquote>
+<h4 id="bigInt"><a href="#bigInt" class="headerlink" title="bigInt"></a>bigInt</h4><blockquote>
+<p>大数值</p>
+</blockquote>
+<h3 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型"></a>复杂数据类型</h3><p><strong>Object</strong></p>
+<p>内置对象</p>
+<h4 id="Array-数组"><a href="#Array-数组" class="headerlink" title="Array:数组"></a><strong>Array</strong>:<strong>数组</strong></h4><blockquote>
+<p>创建</p>
+</blockquote>
+<p><code>var arr= new Array()</code></p>
+<p><code>var arr = [];</code></p>
+<p><strong>栈方法</strong> :</p>
+<blockquote>
+<p>push(num) :num 添加数值参数到 arr 尾部</p>
+</blockquote>
+<blockquote>
+<p>unshift(num)<br>num 添加到数组头部</p>
+</blockquote>
+<blockquote>
+<p>pop()<br>删除最后一个</p>
+</blockquote>
+<blockquote>
+<p>shift()<br>删除第一个</p>
+</blockquote>
+<blockquote>
+<p>join(符号)<br>数组根据符号发,分成字符串<br>返回 字符串</p>
+</blockquote>
+<blockquote>
+<p>reverse()</p>
+<ul>
+<li>倒转数组</li>
+<li>返回 数组(返回倒)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>sort(函数)</p>
+<ul>
+<li>根据函数规则来排序</li>
+<li>返回 排序后的数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>concat(数组)</p>
+<ul>
+<li>连接多个数组</li>
+<li>返回 新数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>slice(start,end)</p>
+<ul>
+<li>从已有数组返回选定的元素</li>
+<li>无 end’,选择 starat 后所有数</li>
+<li>有负数,加之为正确的长度</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>splice(index,count,[],[])</p>
+<ul>
+<li>是集删除,替换,添加为一体的方法</li>
+<li>返回 删除的数</li>
+<li>index 索引 count 数量 ,后面新添加的</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>indexOf(value,索引)</p>
+<ul>
+<li>在数组中从索引开始找 value 值</li>
+<li>找到返回索引</li>
+<li>没找到’-1</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>lastIndexOf(value,索引)</p>
+<ul>
+<li>从后往前找</li>
+<li>返回数组长度</li>
+<li>返删除值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>map(callback)</p>
+<ul>
+<li>为数组的每个元素执行回调函数</li>
+<li>返回 处理的后的新数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>find(item=&gt;{操作})</p>
+<ul>
+<li>查找值,找到返回值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>filter(ele,index,arr =&gt; {操作})</p>
+<ul>
+<li>返回通过测试的数值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>reduce(acc,cur,index,arr)=&gt;{},initValue)</p>
+<ul>
+<li>返回经过处理的数值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>flat(depth)</p>
+<ul>
+<li>多维数组 转化为 一维数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>fill(value,index,end)</p>
+<ul>
+<li>从 index 起,到 end 的长度 用 value 来填充</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>withCopy(index,start,end)</p>
+<ul>
+<li>将 index 处的值 复制到 start 的地方</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>属性</p>
+<ul>
+<li>length</li>
+</ul>
+</blockquote>
+<h4 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h4><p>一些数学运算方法</p>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<blockquote>
+<p>Math.ceil(数组)<br>向上取整</p>
+</blockquote>
+<blockquote>
+<p>Math.floor(数组)<br>向下取整</p>
+</blockquote>
+<blockquote>
+<p>Math.round(数组)<br>四舍五入取整</p>
+</blockquote>
+<blockquote>
+<p>Math.abs(数)<br>取绝对值</p>
+</blockquote>
+<blockquote>
+<p>Math.random()<br>随机 0-1</p>
+</blockquote>
+<p>随机整数</p>
+<p>Math.floor(Math.random() * (m-n + 1) +n)</p>
+<h4 id="Date-日期"><a href="#Date-日期" class="headerlink" title="Date:日期"></a>Date:日期</h4><p>方法<br><code>let date = new Date()</code></p>
+<blockquote>
+<p>date.getFullYear()</p>
+<ul>
+<li>4 位年份</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getMonth()</p>
+<ul>
+<li>月份 0-11</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getDate()</p>
+<ul>
+<li>月份的天数</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getDay()</p>
+<ul>
+<li>返回星期</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getHours()</p>
+<ul>
+<li>返回小时</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getMinutes()</p>
+<ul>
+<li>返回分钟</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getSeconds()</p>
+<ul>
+<li>返回秒</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>date.getTime()</p>
+<ul>
+<li>返回毫秒</li>
+</ul>
+</blockquote>
+<h4 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h4><blockquote>
+<p>typeof <code>检测的数据</code></p>
+</blockquote>
+<ul>
+<li>返回</li>
+<li><code>string, number, boolean , object, undefined,function,symbol,bigint</code></li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><ol>
+<li>var,let,const</li>
+<li>松散类型-保存任何类型的数据</li>
+<li>多个变量要用逗号</li>
+</ol>
+<h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><h3 id="算数操作符"><a href="#算数操作符" class="headerlink" title="算数操作符"></a>算数操作符</h3><blockquote>
+<ul>
+<li><code>-</code>加</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>*</code>减</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>-</code> 乘</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>/</code>除</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>%</code>取余</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>递增和递减</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>++x ;x–</li>
+</ul>
+</blockquote>
+<h3 id="赋值操作符"><a href="#赋值操作符" class="headerlink" title="赋值操作符"></a>赋值操作符</h3><blockquote>
+<ul>
+<li><code>=</code> 赋值</li>
+<li><code>+=</code>加等</li>
+<li><code>-=</code>减等</li>
+<li><code>\*=</code> 乘等</li>
+<li><code>/=</code>除等</li>
+<li><code>%=</code> 取余等</li>
+</ul>
+</blockquote>
+<h3 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h3><blockquote>
+<p>`&amp;&amp; 逻辑与</p>
+</blockquote>
+<ul>
+<li>非布尔值时</li>
+<li>从左往右执行,遇到 false 值 返回 false 值</li>
+<li>遇到 false 值为 undefined,null,NaN ,直接返回他们三值</li>
+<li>全为 true,返回最后值</li>
+</ul>
+<blockquote>
+<p>|| 逻辑或</p>
+</blockquote>
+<ul>
+<li><p>非布尔值时</p>
+</li>
+<li><p>从左往右执行,遇到 true 值 返回 true 值</p>
+</li>
+<li><p>遇到全为 false 值为 undefined,null,NaN ,直接返回他们三值</p>
+</li>
+<li><p>全为 false 返回最后值</p>
+</li>
+</ul>
+<blockquote>
+<p>! 非</p>
+</blockquote>
+<ul>
+<li>!!val 返回布尔值</li>
+</ul>
+<h3 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h3><blockquote>
+<ul>
+<li><code>&gt;</code> 大于</li>
+<li><code>&lt;</code> 小于</li>
+<li><code>&gt; =</code> 大于等于</li>
+<li><code>&lt;=</code> 小于等于</li>
+<li><code>==</code> 是否相等</li>
+<li><code>===</code> 是否全等(判断类型)</li>
+<li><code>!=</code> 是否不等</li>
+<li><code>!==</code> 是否不全等</li>
+</ul>
+</blockquote>
+<h3 id="三元操作符"><a href="#三元操作符" class="headerlink" title="三元操作符"></a>三元操作符</h3><p><code>条件? 执行代码 1 : 执行代码 2</code></p>
+<ul>
+<li>代替简单的 if 语句</li>
+</ul>
+<h2 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h2><blockquote>
+<p><strong>将同类型的数据(常量,变量,函数等),运用运算符号按照一定规则链接起来,成为有意义的式子</strong></p>
+</blockquote>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><h4 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>()&#123;</span><br><span class="line"></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>()&#123;</span><br><span class="line"></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>()&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> 值 :语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">default</span> :语句;</span><br><span class="line"></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>区别</strong></p>
+</blockquote>
+<ul>
+<li>if 和 while 已知次数,和未知次数</li>
+</ul>
+<h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>()&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="do-while"><a href="#do-while" class="headerlink" title="do..while"></a>do..while</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;&#125;<span class="keyword">while</span>()</span><br></pre></td></tr></table></figure>
+
+<h4 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(执行前定义,循环条件,执行后语句)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>循环嵌套时,先外层后内层,内层 false 后返回外层<blockquote>
+<p><code>while</code> 和 <code>do while</code> 区别</p>
+</blockquote>
+</li>
+<li>区别在于执行次数,do while 至少执行一次</li>
+</ul>
+<h4 id="break-continue"><a href="#break-continue" class="headerlink" title="break continue"></a>break continue</h4><blockquote>
+<p>break</p>
+</blockquote>
+<ul>
+<li>跳出语句,终止语句<blockquote>
+<p>continue</p>
+</blockquote>
+</li>
+<li>跳过语句 ,继续执行</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="function"><a href="#function" class="headerlink" title="function"></a>function</h4><p>语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params">参数</span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="return-语句"><a href="#return-语句" class="headerlink" title="return 语句"></a>return 语句</h4><ul>
+<li><p>函数会在执行完 return,结束函数</p>
+</li>
+<li><p>可以不带值返回</p>
+</li>
+</ul>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><blockquote>
+<p>ECMAscript 函数参数内部用一个数组来表示</p>
+</blockquote>
+<ul>
+<li><strong>arguments</strong></li>
+</ul>
+<blockquote>
+<p>类数组</p>
+</blockquote>
+<ul>
+<li>不是 array 的实例</li>
+<li>有 length 可以用[] 来取值</li>
+</ul>
+<h3 id="错误调试"><a href="#错误调试" class="headerlink" title="错误调试"></a>错误调试</h3><h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><h5 id="语法错误"><a href="#语法错误" class="headerlink" title="语法错误"></a>语法错误</h5><ol>
+<li><p>漏打,少打,多打,错打</p>
+</li>
+<li><p>不合法的变量名</p>
+</li>
+<li><p>语法错误</p>
+</li>
+</ol>
+<h5 id="运行时错误"><a href="#运行时错误" class="headerlink" title="运行时错误"></a>运行时错误</h5><ol>
+<li><p>ReferenceError: 变量引用错误</p>
+</li>
+<li><p>TypeError: 类型使用错误</p>
+</li>
+<li><p>RangeError: 递归爆栈</p>
+</li>
+</ol>
+<h5 id="逻辑错误"><a href="#逻辑错误" class="headerlink" title="逻辑错误"></a>逻辑错误</h5><p>计算结果不符合预期</p>
+<h4 id="try-catch-finally-语句"><a href="#try-catch-finally-语句" class="headerlink" title="try-catch -finally 语句"></a>try-catch -finally 语句</h4><blockquote>
+<p>用法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主动抛出错误</li>
+<li>语法错误无法识别</li>
+<li>接受 throw Error()</li>
+</ul>
+<h5 id="finally"><a href="#finally" class="headerlink" title="finally"></a>finally</h5><ul>
+<li>清理性工作</li>
+<li>一定执行()</li>
+</ul>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p><strong>定义</strong> : 文档或浏览器窗口中发生的一些特定的交互瞬间</p>
+<h4 id="事件分类"><a href="#事件分类" class="headerlink" title="事件分类"></a>事件分类</h4><blockquote>
+<p>HTML 事件</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">onclick</span>=<span class="string">"function()&#123;&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>写在行内样式中</p>
+<blockquote>
+<p>DOM0 级事件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>DOM2 级事件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ele.addEventListenr(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="literal">false</span>);</span><br><span class="line">ele.attachEvent(<span class="string">'onclick'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="事件增删"><a href="#事件增删" class="headerlink" title="事件增删"></a>事件增删</h4><blockquote>
+<p>添加事件</p>
+</blockquote>
+<ul>
+<li><p>addEventListener;</p>
+</li>
+<li><p>attachEvent;</p>
+</li>
+</ul>
+<blockquote>
+<p>移出事件</p>
+</blockquote>
+<ul>
+<li>removeEventListener;</li>
+<li>detachEvent;</li>
+</ul>
+<blockquote>
+<p><strong>区别</strong></p>
+</blockquote>
+<ul>
+<li><p>HTML 事件:强耦合,不利于复用代码</p>
+</li>
+<li><p>DOM 0 级事件:松耦合,代码 js 代码分离</p>
+</li>
+<li><p>不能绑定多次绑定同一类型事件</p>
+</li>
+<li><p>DOM2 级事件 :优点全有,增加了冒泡捕获</p>
+</li>
+</ul>
+<h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><ol>
+<li><p>事件对象</p>
+</li>
+<li><p>事件对象绑定事件</p>
+</li>
+<li><p>事件句柄:事件处理函数,事件监听函数</p>
+</li>
+</ol>
+<h4 id="冒泡与捕获"><a href="#冒泡与捕获" class="headerlink" title="冒泡与捕获"></a>冒泡与捕获</h4><blockquote>
+<p>捕获:</p>
+</blockquote>
+<ul>
+<li>点击子元素,会先触发父元素的事件,再依次向下触子元素的事件</li>
+</ul>
+<blockquote>
+<p>冒泡:</p>
+</blockquote>
+<ul>
+<li>直系亲属树结构,点底部树结构的某个元素,(亲属树上)的父级元素会依次向上触发</li>
+</ul>
+<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托:"></a>事件委托:</h4><ul>
+<li>利用冒泡,点击子元素触发父元素的事件委托对象(event)</li>
+</ul>
+<h5 id="event"><a href="#event" class="headerlink" title="event"></a><strong>event</strong></h5><blockquote>
+<p>属性</p>
+<ul>
+<li>type<br>事件类型</li>
+<li>target<br>事件源(点击哪个就是哪个)</li>
+<li>currentarget<br>事件绑定的对象</li>
+<li>preventDeault()<br>阻止默认行为(链接跳转)</li>
+<li>stopPropagation()<br>阻止冒泡</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>ie 属性</p>
+<ul>
+<li>returnValue = false<br>同 preventDefault</li>
+<li>cancelBubble = true<br>同 stopPropagation</li>
+<li>srcElement = target</li>
+</ul>
+</blockquote>
+<h4 id="常见的事件类型"><a href="#常见的事件类型" class="headerlink" title="常见的事件类型"></a>常见的事件类型</h4><blockquote>
+<p>load<br>页面加载后</p>
+</blockquote>
+<blockquote>
+<p>unload<br>当文档或一个子资源正在被卸载时</p>
+</blockquote>
+<blockquote>
+<p>resized<br>窗口变换大小</p>
+</blockquote>
+<blockquote>
+<p>scroll<br>滚动</p>
+</blockquote>
+<blockquote>
+<p>blur<br>失去焦点</p>
+</blockquote>
+<blockquote>
+<p>focus<br>得到焦点(不支持冒泡)</p>
+</blockquote>
+<blockquote>
+<p>focusin<br>得到焦点</p>
+</blockquote>
+<blockquote>
+<p>focusout<br>失去焦点</p>
+</blockquote>
+<blockquote>
+<p>DOMFoucusIn<br>得到焦点</p>
+</blockquote>
+<blockquote>
+<p>DOmFoucsOut<br>失去焦点</p>
+</blockquote>
+<blockquote>
+<p>click<br>点击</p>
+</blockquote>
+<blockquote>
+<p>dblclick<br>双击</p>
+</blockquote>
+<blockquote>
+<p>mouseup<br>松开鼠标</p>
+</blockquote>
+<blockquote>
+<p>mousedown<br>鼠标按下</p>
+</blockquote>
+<blockquote>
+<p>mouseout<br>鼠标离开元素区域</p>
+</blockquote>
+<blockquote>
+<p>mouseover<br>鼠标进入元素区域</p>
+</blockquote>
+<blockquote>
+<p>mousemove<br>鼠标在区域移动</p>
+</blockquote>
+<blockquote>
+<p>mousenter<br>鼠标进入目标区域</p>
+</blockquote>
+<blockquote>
+<p>mouseleave<br>鼠标离开目标区域</p>
+</blockquote>
+<blockquote>
+<p>event.</p>
+<ul>
+<li>shiftkey</li>
+<li>ctrlkey</li>
+<li>altkey</li>
+<li>metakey</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>keydown<br>键盘按下<br>返回 keycode 码</p>
+</blockquote>
+<blockquote>
+<p>keyup<br>键盘抬起</p>
+</blockquote>
+<blockquote>
+<p>keypress<br>键盘按下,比 keydouwn 慢<br>只返回数,和字符 返回 ASCII 码</p>
+</blockquote>
+<blockquote>
+<p>textInput<br>输在 input text 类型中和值 会在 event.data 返回</p>
+</blockquote>
+<blockquote>
+<p>DOMNodeRemoved<br>文档任意元素删除触发</p>
+</blockquote>
+<blockquote>
+<p>DOMSubtreeModified<br>文档任意变化触发</p>
+</blockquote>
+<blockquote>
+<p>DOMNodeRemovedFromDocument<br>在文档移除前触发</p>
+</blockquote>
+<blockquote>
+<p>DOMNodeInserted<br>任何元素被添加时触发</p>
+</blockquote>
+<blockquote>
+<p>DOMNodeInsertedIntoDocument<br>在文档添加前触发</p>
+</blockquote>
+<blockquote>
+<p>DOMContentLoaded<br>在 dom 树之后就会触发</p>
+</blockquote>
+<blockquote>
+<p>readystatechange<br>不支持 chrome,提供文档或者元素加载过程中,很难预料结果</p>
+</blockquote>
+<blockquote>
+<p>hashchange<br>网址后的#后的值变化</p>
+</blockquote>
+<blockquote>
+<p>touchstart<br>手指触摸屏幕</p>
+</blockquote>
+<blockquote>
+<p>touchmove<br>手指在滑动</p>
+</blockquote>
+<blockquote>
+<p>touchend<br>手指离开</p>
+</blockquote>
+<blockquote>
+<p>touchcancel<br>当系统停止跟踪触摸时触发</p>
+</blockquote>
+<blockquote>
+<p>手机端</p>
+<ul>
+<li>event.<blockquote>
+<ul>
+<li>touches<br>触摸点数目</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>changeTouces<br>引起事件的触摸点</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>targetTouches<br>放在目标元素的触摸信息</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>注意事项: 兼容代码的书写</p>
+<h3 id="基本包装对象"><a href="#基本包装对象" class="headerlink" title="基本包装对象"></a>基本包装对象</h3><h5 id="String-1"><a href="#String-1" class="headerlink" title="String"></a>String</h5><ul>
+<li>字符串</li>
+</ul>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<blockquote>
+<p>charCodeAt(索引)</p>
+</blockquote>
+<ul>
+<li>返回索引处字符编码(unicode)</li>
+</ul>
+<blockquote>
+<p>indexOf(value)</p>
+</blockquote>
+<ul>
+<li>按顺序查找 value</li>
+<li>返回 索引</li>
+<li>-1 没有找到</li>
+</ul>
+<blockquote>
+<p>lastIndexOf(value)</p>
+</blockquote>
+<ul>
+<li>倒着找</li>
+</ul>
+<blockquote>
+<p>slice(start,end)</p>
+</blockquote>
+<ul>
+<li>截取 start 到 end -1 的字符</li>
+</ul>
+<blockquote>
+<p>substring(start,end)</p>
+</blockquote>
+<ul>
+<li>截取 start 到 end -1 的字符,start 遇到负数转为 0</li>
+</ul>
+<blockquote>
+<p>substr(start,length)</p>
+</blockquote>
+<ul>
+<li>截取 start 到最后 ,length 的长度</li>
+</ul>
+<blockquote>
+<p>split(符号)</p>
+</blockquote>
+<ul>
+<li>根据符号,分成数组</li>
+</ul>
+<blockquote>
+<p>replace(‘被替换’,替换)</p>
+</blockquote>
+<ul>
+<li>替换字符</li>
+</ul>
+<blockquote>
+<p>toUpperCase()</p>
+</blockquote>
+<ul>
+<li>转为大写</li>
+</ul>
+<blockquote>
+<p>toLowerCase()</p>
+</blockquote>
+<ul>
+<li>转为小写</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/10/01/CSS-CSS3%E5%B1%9E%E6%80%A7/" rel="prev" title="CSS3">
+      <i class="fa fa-chevron-left"></i> CSS3
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/10/01/jQuery-%E5%AD%A6%E4%B9%A0/" rel="next" title="jQuery">
+      jQuery <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="xuanji"
+      src="/uploads/avator.jpg">
+  <p class="site-author-name" itemprop="name">xuanji</p>
+  <div class="site-description" itemprop="description">博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/985616770" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;985616770" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:z985616770@gmail.com" title="E-Mail → mailto:z985616770@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">滇ICP备19008002号-1 </a>
+      <img src="/uploads/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=19008002" rel="noopener" target="_blank">滇ICP备19008002号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xuanji</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/three.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-three@1/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+</body>
+</html>
