@@ -232,168 +232,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/12/26/%E6%9C%8D%E5%8A%A1%E5%99%A8-NGINX/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avator.jpg">
-      <meta itemprop="name" content="xuanji">
-      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="玄机..">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/26/%E6%9C%8D%E5%8A%A1%E5%99%A8-NGINX/" class="post-title-link" itemprop="url">服务器-NGINX</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-26 22:13:23 / 修改时间：22:30:58" itemprop="dateCreated datePublished" datetime="2019-12-26T22:13:23+08:00">2019-12-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index">
-                    <span itemprop="name">服务器</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><hr>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><hr>
-<blockquote>
-<p> <a href="https://nginx.org/en/download.html" target="_blank" rel="noopener">官网下载</a></p>
-</blockquote>
-<p><code>win10</code> 系统解压后在 <code>conf</code>目录下,找到 <code>nginx.conf</code>进行设置</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>###　静态资源配置</p>
-<p>在<code>http</code>中配置对象 <code>server</code></p>
-<ul>
-<li><p><code>listen</code> : 监听端口好（注意不要重复）</p>
-</li>
-<li><p><code>server_name</code>： host名称</p>
-</li>
-<li><p><code>root</code>：资源文件指向</p>
-</li>
-<li><p><code>autoindex</code>：（布尔）开启索引　</p>
-</li>
-<li><p><code>add_header Cache-Control &quot;no-cache,must-revalidate&quot;</code>: 禁止缓存</p>
-</li>
-</ul>
-<h4 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h4><ul>
-<li><code>add_header</code>: <ul>
-<li><code>Access-Control-Allow-Origin *</code>: 允许跨域访问</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a><strong>完整代码</strong></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">      listen 8001;</span><br><span class="line">      server_name resource;</span><br><span class="line">      root  D:/data/reader/reader;</span><br><span class="line">      autoindex on;</span><br><span class="line"></span><br><span class="line">      location / &#123;  </span><br><span class="line">      add_header Access-Control-Allow-Origin *;</span><br><span class="line">      add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';</span><br><span class="line">      add_header Access-Control-Allow-Headers 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';</span><br><span class="line"></span><br><span class="line">      if ($request_method = 'OPTIONS') &#123;</span><br><span class="line">          return 204;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/12/25/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-axios/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avator.jpg">
-      <meta itemprop="name" content="xuanji">
-      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="玄机..">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/25/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B-axios/" class="post-title-link" itemprop="url">网络编程-axios</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-25 13:05:18" itemprop="dateCreated datePublished" datetime="2019-12-25T13:05:18+08:00">2019-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/12/01/%E6%9C%8D%E5%8A%A1%E5%99%A8-git%E5%8A%A0%E9%80%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -425,7 +263,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-26 12:33:46" itemprop="dateModified" datetime="2019-12-26T12:33:46+08:00">2019-12-26</time>
+                <time title="修改时间：2020-03-26 16:09:49" itemprop="dateModified" datetime="2020-03-26T16:09:49+08:00">2020-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -450,20 +288,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="http-https"><a href="#http-https" class="headerlink" title="http / https"></a>http / https</h2><p>设置 Git 全局代理的命令如下：</p>
-<p>HTTP 代理服务器：<code>http://127.0.0.1:8081</code><br>HTTPS 代理服务器： <code>https://127.0.0.1:8081</code></p>
-<p>比如只针对 github.com 的 Git 代码库使用代理，语法是如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.https:<span class="comment">//github.com.proxy http://127.0.0.1:8889</span></span><br><span class="line">git config --global https.https:<span class="comment">//github.com.proxy http://127.0.0.1:8889</span></span><br><span class="line"></span><br><span class="line">git config --global --unset</span><br><span class="line">git config -l</span><br></pre></td></tr></table></figure>
+          <a id="more"></a>
+
+<h1 id="针对-github-com"><a href="#针对-github-com" class="headerlink" title="针对 github.com"></a>针对 github.com</h1><h2 id="http-https协议"><a href="#http-https协议" class="headerlink" title="http / https协议"></a>http / https协议</h2><blockquote>
+<p> 命令行中输入</p>
+</blockquote>
+<p>设置 Git 全局代理的命令如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git config --global http.https://github.com.proxy http://127.0.0.1:8889</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global https.https://github.com.proxy http://127.0.0.1:8889</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消当前使用代理</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global --<span class="built_in">unset</span> http.proxy</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看当前使用代理</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config -l</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git config --global --get http.proxy</span></span><br></pre></td></tr></table></figure>
 
 
 
-
-
-<h2 id="ssh-git"><a href="#ssh-git" class="headerlink" title="ssh/git"></a>ssh/git</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ProxyCommand connect -S 127.0.0.1:8080 %h %p # proxy hostname:port</span><br><span class="line"></span><br><span class="line">Host github.com</span><br><span class="line">  User git</span><br><span class="line">  Port 22</span><br><span class="line">  Hostname github.com</span><br><span class="line">  IdentityFile "C:\Users\98561\.ssh\id_rsa" # path</span><br><span class="line">  TCPKeepAlive yes</span><br><span class="line">  IdentitiesOnly yes</span><br><span class="line"></span><br><span class="line">Host ssh.github.com</span><br><span class="line">  User git</span><br><span class="line">  Port 443</span><br><span class="line">  Hostname ssh.github.com</span><br><span class="line">  IdentityFile "C:\Users\98561\.ssh\id_rsa" # path</span><br><span class="line">  TCPKeepAlive yes</span><br><span class="line">  IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+<h2 id="ssh-git"><a href="#ssh-git" class="headerlink" title="ssh/git"></a>ssh/git</h2><blockquote>
+<p> 修改~/.ssh/config文件</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ProxyCommand connect -S 127.0.0.1:8080 %h %p </span><br><span class="line"><span class="meta">#</span><span class="bash"> proxy hostname:port</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这个地方会针对全局的git 注意!!</span></span><br><span class="line"></span><br><span class="line">Host github.com</span><br><span class="line">  User git</span><br><span class="line">  Port 22</span><br><span class="line">  Hostname github.com</span><br><span class="line">  IdentityFile "C:\Users\98561\.ssh\id_rsa" # path</span><br><span class="line">  TCPKeepAlive yes</span><br><span class="line">  IdentitiesOnly yes</span><br><span class="line"></span><br><span class="line">Host ssh.github.com</span><br><span class="line">  User git</span><br><span class="line">  Port 443</span><br><span class="line">  Hostname ssh.github.com</span><br><span class="line">  IdentityFile "C:\Users\98561\.ssh\id_rsa" # path</span><br><span class="line">  TCPKeepAlive yes</span><br><span class="line">  IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
 
 
 
 <p>(set the correct <strong>proxy hostname:port,</strong> and <strong>the path to id_rsa</strong>. When you use git-bash, use slashes in the path to id_rsa)</p>
+<p>设置<code>正确的代理服务器,端口</code></p>
+<p>和<code>私钥</code> 的<code>正确位置</code></p>
 <h2 id="yarn加速"><a href="#yarn加速" class="headerlink" title="yarn加速"></a>yarn加速</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yarn config set proxy http://127.0.0.1:8889</span><br><span class="line">yarn config set https-proxy http://127.0.0.1:8889</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置国内镜像-淘宝镜像</span></span><br><span class="line">yarn config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
 <p>淘宝源的速度快些</p>
@@ -862,7 +706,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/18/JavaScript-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/08/JavaScript-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/avator.jpg">
@@ -876,7 +720,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/18/JavaScript-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84/" class="post-title-link" itemprop="url">JavaScript-学习路径</a>
+            <a href="/2019/11/08/JavaScript-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/" class="post-title-link" itemprop="url">JavaScript-你不知道的JS(上)</a>
         </h1>
 
         <div class="post-meta">
@@ -886,7 +730,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-11-18 21:03:02" itemprop="dateCreated datePublished" datetime="2019-11-18T21:03:02+08:00">2019-11-18</time>
+              <time title="创建时间：2019-11-08 21:03:02" itemprop="dateCreated datePublished" datetime="2019-11-08T21:03:02+08:00">2019-11-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -919,220 +763,537 @@
 
       
           <a id="more"></a>
-<p>要说学习 JavaScript，首先要说到 JavaScript 这门语言本身的特质，<br>简直就是一门神奇的语言，他正在朝着万能钥匙的方向发展，<br><strong>只要会 JavaScript</strong>，<br>有一种走遍 WEB 开发无敌手的赶脚，且仿佛”非常简单”。</p>
-<h1 id="先来看看-JavaScript-这些年都干了什么？"><a href="#先来看看-JavaScript-这些年都干了什么？" class="headerlink" title="先来看看 JavaScript 这些年都干了什么？"></a>先来看看 JavaScript 这些年都干了什么？</h1><ul>
-<li>1、生产出一大堆库：jQuery、MooTools、Prototype、Dojo、YUI、ExtJS、ZeptoJS……</li>
-<li>2、生产出一大堆框架：AngularJS、VueJS、ReactJS、EmberJS、NuxtJS、ThreeJS……</li>
-<li>3、生产出一大堆衍生语言：TypeScript、JSX、CoffeeScript……</li>
-<li>4、ES6 的诞生与发展：对于 ES3/ES5 来说，ES6 就是一块大大的语法糖……</li>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h2><blockquote>
+<p>分词/词法分析(Tokenizing/Lexing)</p>
+</blockquote>
+<p>字符组成的字符串分解成对(对编程语言)有意义代码块,这些代码块称为<strong>词法单元</strong>(token)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="comment">// var , a, = , 2, 以及空格(是否有意义取决于语言本身)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解析/语法分析(Parsing)</p>
+</blockquote>
+<p>这个过程是将词法单元流(数组)转换成一个由元素逐级嵌套所组成的代表程序语法结构的树.(AST 抽象语法树)</p>
+<blockquote>
+<p>代码生成</p>
+</blockquote>
+<p>将 AST 转换成可执行的代码的过程称为代码生成,这个过程域语言,目标平台等息息相关.</p>
+<ul>
+<li>JavaScript 代码的编译在执行前的几微秒(甚至更短)</li>
+<li>v8 引擎用了很多方法进行优化</li>
+</ul>
+<h2 id="理解作用域"><a href="#理解作用域" class="headerlink" title="理解作用域"></a>理解作用域</h2><blockquote>
+<p>引擎</p>
+</blockquote>
+<p>负责从头到尾的整个 JavaScript 程序的编译及执行</p>
+<blockquote>
+<p>编译器</p>
+</blockquote>
+<p>负责语法分析和代码生成</p>
+<blockquote>
+<p>作用域</p>
+</blockquote>
+<p>负责收集并维护所有声明的标识符（变量)组成的一系列查询,并实施一套非常严格的规则,确定当前执行的代码对这些标识符的访问权限.</p>
+<h2 id="变量的赋值操作"><a href="#变量的赋值操作" class="headerlink" title="变量的赋值操作"></a>变量的赋值操作</h2><p>变量的赋值操作会执行两个动作:</p>
+<ul>
+<li>编译器会在当前作用域中声明一个变量(如果之前没有声明过)</li>
+<li>在运行时引擎会在作用域中查找该变量，如果找到就会对它赋值</li>
 </ul>
 <blockquote>
-<p>返过来，我们来看看为什么会出现如此广的发展？</p>
+<p>编译器层次</p>
 </blockquote>
-<h2 id="库的产生原因"><a href="#库的产生原因" class="headerlink" title="库的产生原因"></a>库的产生原因</h2><ul>
-<li>JS 库其实就是一堆函数接口，用了这些库，很多 JavaScript 程序将不需要开发者写，直接用库函数接口来完成功能就搞定。</li>
-<li>库的出现证明前端程序的要求越来越高，复杂度也随之增加，那么用 JS 实现功能就会越来越难，一堆库给你写好了方法，你直接用，大大减少了程序开发周期。</li>
+<ul>
+<li>LHS查询</li>
 </ul>
-<h2 id="框架的产生原因"><a href="#框架的产生原因" class="headerlink" title="框架的产生原因"></a>框架的产生原因</h2><ul>
-<li>JS 框架就是 JS 的开发模式，更好、更合理的项目架构，使得项目易维护、易扩展，大部分框架还提供一套完善的数据与视图绑定机制来优化了前端性能。</li>
-<li>框架的出现证明了 JavaScript 本身的优点与缺点，优点是<strong>灵活</strong>，缺点也是<strong>灵活</strong>，可以灵活运用一门语言是多棒的一件事情，但是有时往往因为灵活导致开发者很难掌握合理的开发模式，怎么写都对，又不知道怎么写是对的。</li>
+<p>变量出现在赋值操作的左侧,找到容器的本身,从而对其赋值(赋值操作的目标是谁)<br>两个词概括: <strong>赋值</strong></p>
+<ul>
+<li>RHS查询</li>
 </ul>
-<h2 id="衍生语言的产生的原因"><a href="#衍生语言的产生的原因" class="headerlink" title="衍生语言的产生的原因"></a>衍生语言的产生的原因</h2><ul>
-<li>JavaScript 除了语法部分以外跟浏览器打交道最多的语</li>
-<li>这个特点就决定了他本身没有特定的开发模式，导致没有特定的开发规范，这一点导致了开发到了后期，很难进行维护和扩展，这时衍生语言就来解决这一难题了</li>
-<li>他们干脆把 JavaScript 改造成一套完全面向对象的语言。逼迫开发者用面向对象的思想和既定规则进行开发。</li>
+<p>查找某个变量的值,’非左侧’=&gt; retrieve this source value (取到它的源码), 谁是赋值操作的源头.</p>
+<p>两个词概括: <strong>查询</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/06/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/06/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">JavaScript-面向对象</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-06 23:47:04" itemprop="dateCreated datePublished" datetime="2019-11-06T23:47:04+08:00">2019-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><blockquote>
+<p>定义</p>
+</blockquote>
+<p>对代码的一种抽象,对外统一提供接口的编程思想</p>
+<blockquote>
+<p>在 JavaScript 中的实现</p>
+</blockquote>
+<p>基于原型的面向对象方式中,对象则是依靠构造器<code>constructor</code>,利用原型<code>prototype</code>构造出来的</p>
+<hr>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><blockquote>
+<p>属性</p>
+</blockquote>
+<p>事务的特性</p>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<p>事物的功能</p>
+<blockquote>
+<p>对象</p>
+</blockquote>
+<p>事物的一个实例</p>
+<blockquote>
+<p>原型</p>
+</blockquote>
+<p>JavaScript 函数由<code>prototype</code>引用了一个对象,即<strong>原型</strong></p>
+<hr>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<p>实现面向对象的根源</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<p>闭包是一个拥有许多变量和绑定了这些变量的环境的表达式(通常是一个函数)<br>闭包是一个拥有上层函数的引用，且不会被立即释放的一个作用域，</p>
+<ul>
+<li>实现的功能是函数内部拥有对外部函数的引用，可以防止及外部函数改变内部函数的状态，</li>
 </ul>
-<h2 id="ES6-的诞生"><a href="#ES6-的诞生" class="headerlink" title="ES6 的诞生"></a>ES6 的诞生</h2><ul>
-<li>很多人认为 ES6 的诞生是 JavaScript 救命稻草，这不是没有道理</li>
-<li>ES6 引入了类的概念，但是这个类的概念也是阉割版；</li>
-<li>ES6 引入了模块化的概念，使得 JavaScript 可以真正意义上分模块开发且可相互依赖；</li>
-<li>ES6 对原本 JavaScript 的异步概念进行了加强，并针对性的增加了强有力的异步问题解决方案。</li>
+<blockquote>
+<p>优点:</p>
+</blockquote>
+<ul>
+<li>有利于封装和可以访问局部变量<blockquote>
+<p>缺点</p>
+</blockquote>
+</li>
+<li>内存占用严重，容易内存泄露，</li>
 </ul>
 <hr>
-<h1 id="综上所述，我们可以非常容易的整理一套学习方案。"><a href="#综上所述，我们可以非常容易的整理一套学习方案。" class="headerlink" title="综上所述，我们可以非常容易的整理一套学习方案。"></a>综上所述，我们可以非常容易的整理一套学习方案。</h1><h2 id="第一弹：ECMAScript（JavaScript-的基础）"><a href="#第一弹：ECMAScript（JavaScript-的基础）" class="headerlink" title="第一弹：ECMAScript（JavaScript 的基础）"></a>第一弹：ECMAScript（JavaScript 的基础）</h2><blockquote>
-<p>你可以理解他为 JavaScript 的本尊或者灵活，如果你认为它仅仅是个语法的盒子，那就错了，它的本质是 JavaScript 开发的理论基础和技术提升的踏板。</p>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h2><blockquote>
+<p>6 种</p>
 </blockquote>
 <blockquote>
-<p>对于初学者来说，这一关很难，但如果你翻过了这座大山，恭喜你，后面的内容你可以边抽烟边学习了，反之，还是放弃吧。 那我们来看看都要学些什么？</p>
-</blockquote>
-<ol>
-<li>编程语言、ECMA、JavaScript、浏览器的发展史</li>
-<li>基本语法：值、变量、运算、语句等等</li>
-<li>各种类型的函数、参数与原理</li>
-<li>预编译、暗示全局变量</li>
-<li>作用域、作用域链、闭包</li>
-<li>对象、构造函数、实例化</li>
-<li>原型、原型链、对象继承</li>
-<li>对象、对象克隆</li>
-<li>数组方法、类数组</li>
-<li>自定义原型方法、碎片知识</li>
-<li>错误信息、错误捕获</li>
-<li>严格模式</li>
-<li>变量声明周期、垃圾回收</li>
-</ol>
-<h2 id="第二弹：DOM（文档对象模型，JS-操作-HTML-用的（记住：JS-是操作不了-CSS-的！！））"><a href="#第二弹：DOM（文档对象模型，JS-操作-HTML-用的（记住：JS-是操作不了-CSS-的！！））" class="headerlink" title="第二弹：DOM（文档对象模型，JS 操作 HTML 用的（记住：JS 是操作不了 CSS 的！！））"></a>第二弹：DOM（文档对象模型，JS 操作 HTML 用的（记住：JS 是操作不了 CSS 的！！））</h2><blockquote>
-<p>JavaScript 跟浏览器关系真的不要太好（非常好的意思），但是如果把学习 DOM 理解为对 DOM 结构的增删改查，那就太肤浅了。</p>
+<p>寄生式组合式继承</p>
 </blockquote>
 <ul>
-<li>我们来看看 DOM 包含哪些内容呢？</li>
+<li>es5<blockquote>
+<p>原型继承:</p>
+</blockquote>
+</li>
+<li>用于写框架和 js 库<blockquote>
+<p>构造继承</p>
+</blockquote>
+</li>
 </ul>
-<ol>
-<li>掌握 document 对象、了解其中的方法的继承关系（特别是相关原型的问题）</li>
-<li>遍历节点树与遍历元素节点树（重考点）</li>
-<li>节点的增删改查、元素属性的操作</li>
-<li>滚动相关操作</li>
-<li>样式属性相关操作</li>
-<li>元素运动 （兼容性封装！兼容性封装！兼容性封装！）</li>
-<li>事件处理函数与绑定机制</li>
-<li>事件的冒泡捕获机制</li>
-<li>事件对象与事件源对象</li>
-<li>事件代理</li>
-<li>模块化与插件化开发的基础</li>
-<li>鼠标行为坐标系与相关兼容性、功能性函数封装</li>
-<li>输入与状态改变事件</li>
-<li>鼠标行为预测技术</li>
-<li>键盘事件</li>
-<li>DOM 常见问题的解决方案与函数封装</li>
-<li>至少完成 10 个典型案例</li>
-</ol>
-<h2 id="第三弹：BOM（浏览器对象模型，JS-操作浏览器用的，没事儿弹个窗？没娘的孩子最惨）"><a href="#第三弹：BOM（浏览器对象模型，JS-操作浏览器用的，没事儿弹个窗？没娘的孩子最惨）" class="headerlink" title="第三弹：BOM（浏览器对象模型，JS 操作浏览器用的，没事儿弹个窗？没娘的孩子最惨）"></a>第三弹：BOM（浏览器对象模型，JS 操作浏览器用的，没事儿弹个窗？没娘的孩子最惨）</h2><blockquote>
-<p>BOM 一直是 JavaScript 特殊的存在，没人搭理，却时不时用用的存在。毕竟没娘没规范，所以很多内容都不在用了，但不代表你可以一点都不知道。职业素养！职业素养！职业素养！</p>
-</blockquote>
-<ol>
-<li>window、Navigator、history、screen、location 对象的属性与方法</li>
-<li>window、location 对象深入学习</li>
-<li>初步掌握单页面应用的简单开发</li>
-<li>浏览器相关检查</li>
-</ol>
-<h2 id="第四弹：正则表达式（匹配字符串用的，这个字符串是不是个-E-mail-呢？手机号是不是-138-开头的呢？）"><a href="#第四弹：正则表达式（匹配字符串用的，这个字符串是不是个-E-mail-呢？手机号是不是-138-开头的呢？）" class="headerlink" title="第四弹：正则表达式（匹配字符串用的，这个字符串是不是个 E-mail 呢？手机号是不是 138 开头的呢？）"></a>第四弹：正则表达式（匹配字符串用的，这个字符串是不是个 E-mail 呢？手机号是不是 138 开头的呢？）</h2><blockquote>
-<p>这个东西可以说相当于是一门小语言，难学、难记、难掌握，但是在关键时刻能给你解决大问题，往往需要大量代码些的程序，用正则，1 行搞定。</p>
-</blockquote>
-<blockquote>
-<p>怎么学？老老实实学，然后老老实实一次又一次的抠破头皮用。</p>
-</blockquote>
-<ol>
-<li>转义相关、修饰与元字符</li>
-<li>正则量词、属性、方法</li>
-<li>正则相关的所有方法</li>
-<li>正向预查、贪婪与非贪婪模式</li>
-<li>replace 方法、不捕获分组</li>
-<li>整个 50 个正则案例逐个分析</li>
-</ol>
-<h2 id="第五弹：JSON（一种很友好的数据格式）"><a href="#第五弹：JSON（一种很友好的数据格式）" class="headerlink" title="第五弹：JSON（一种很友好的数据格式）"></a>第五弹：JSON（一种很友好的数据格式）</h2><blockquote>
-<p>长这样舍尔滴 -&gt; {“名字”:”JS++”,”年龄”:”18”,”婚否”:”未婚”}</p>
-</blockquote>
-<ol>
-<li>JSON 数据认知与解析方法</li>
-<li>JSON 对象与字符串的转换方法</li>
-<li>AJAX 的基本认知</li>
-<li>数据渲染、模板渲染</li>
-<li>数据缓存机制、数据缓存池</li>
-</ol>
-<h2 id="第六弹：浏览器（职业素养！职业素养！前端优化-）"><a href="#第六弹：浏览器（职业素养！职业素养！前端优化-）" class="headerlink" title="第六弹：浏览器（职业素养！职业素养！前端优化!）"></a>第六弹：浏览器（职业素养！职业素养！前端优化!）</h2><blockquote>
-<p>很多开发者并不了解浏览器，这对于前端开发是非常非常可怕的一件事，因为你写的东西能不能用，取决于你是否懂得根据浏览器相关的机制来优化你的程序</p>
-</blockquote>
-<ol>
-<li>DOM/CSS/渲染树</li>
-<li>文档的解析与加载</li>
-<li>DOM 相关回流与重绘</li>
-<li>渲染引擎、声明 HTML 与渲染模式</li>
-<li>JS 引擎的执行机制</li>
-</ol>
-<h2 id="第七弹：JS-运动（就是用-JS-让-DOM-元素各种动）"><a href="#第七弹：JS-运动（就是用-JS-让-DOM-元素各种动）" class="headerlink" title="第七弹：JS 运动（就是用 JS 让 DOM 元素各种动）"></a>第七弹：JS 运动（就是用 JS 让 DOM 元素各种动）</h2><blockquote>
-<p>这个东西在实际开发中是基本用不到的，但你就不学了吗？不行！！不行！！不行！！ 为啥？</p>
-</blockquote>
-<blockquote>
-<p>JS 运动是你了解动画执行机制的唯一途径，</p>
-</blockquote>
-<blockquote>
-<p>其次，是你提升 JS 编程逻辑能力的一个重要学习过程。</p>
-</blockquote>
-<blockquote>
-<p>比如原生 JS 开发一个轮播图，这是一个训练综合运用能力的过程。 当然相关的数学知识也要学一些哟~</p>
-</blockquote>
-<ol>
-<li>JS 运动的原理与机制</li>
-<li>加速度、弹性运动</li>
-<li>重力运动与拖拽效果</li>
-<li>原生 JS 开发无缝轮播图</li>
-</ol>
-<h2 id="第八弹：ES5-数组扩展方法"><a href="#第八弹：ES5-数组扩展方法" class="headerlink" title="第八弹：ES5 数组扩展方法"></a>第八弹：ES5 数组扩展方法</h2><blockquote>
-<p>ES3 给了我们很多数组相关的方法，</p>
-</blockquote>
-<blockquote>
-<p>但觉得不够，再给你加一些，方便你开发</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  A.call(<span class="keyword">this</span>, name);</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">B.prototype = <span class="built_in">Object</span>.create(A.prototype);</span><br><span class="line">B.constructor = B;</span><br></pre></td></tr></table></figure>
+
+<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><blockquote>
+<p>原型</p>
 </blockquote>
 <ul>
-<li><p>ES3 的数组方法回顾一下： <code>concat, join, pop, push, reverse, shift, slice, sort, splice, toString, unshift</code></p>
-</li>
-<li><p>ES5 给我们扩展的方法：（都跟遍历数组有关） <code>forEach, map, every, some, filer, reduce, reduceRight</code></p>
-</li>
-<li><p>学习内容： 所有 ES5 的数组扩展方法的使用场景与重写（兼容性也得考虑考虑啦）<br>实战肯定少不了，因为你要知道各个方法的使用场景。 特别是 <code>forEach、map、filter、reduce</code></p>
-</li>
+<li>利用 prototype 添加属性和方法</li>
 </ul>
-<h2 id="第九弹：函数式编程"><a href="#第九弹：函数式编程" class="headerlink" title="第九弹：函数式编程"></a>第九弹：函数式编程</h2><blockquote>
-<p>你如果顺利走到这里，恭喜你，基础你已经学完了，但是函数式编程是你提升 JS 能力的又一座大山，这座山主要是理论太抽象，很多都没有特别明显的使用场景，它究竟是干什么的呢？它其实就是教你封装一个又一个的函数完成一些比较复杂的功能。可以说是提升抽象函数的能力的利器集合。</p>
+<blockquote>
+<p>原型链</p>
+</blockquote>
+<ul>
+<li>Js 在创建对象(无论是普通对象还是函数对象)的时候，都有一个叫做<code>__proto__</code>的内置属性，用于指向创建它的函数的的原型对象 prototype，</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> A();</span><br><span class="line"><span class="comment">// 默认执行</span></span><br><span class="line"><span class="comment">// let p = &#123;&#125;</span></span><br><span class="line"><span class="comment">// p.__proto__ = A.prototype =&gt; true</span></span><br><span class="line"><span class="comment">// A.call(p)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>__proto__</code><br>实例对象的隐式原型<br>指向它的构造函数的原型对象</p>
+</blockquote>
+<p><img data-src="https://yimg.xjdd.xyz//%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%9B%BE.png" alt=""></p>
+<blockquote>
+<p>规则:</p>
 </blockquote>
 <ol>
-<li>纯函数</li>
-<li>函数组合、结合律、pointfree</li>
-<li>高阶函数</li>
-<li>函数柯里化与封装</li>
-<li>偏函数与封装</li>
-<li>惰性函数与使用场景</li>
-<li>缓存函数</li>
-<li>函数防抖、函数节流（必会）</li>
-<li>归类函数（必会）</li>
+<li>实例对象的隐式原型指向构造函数的原型对象</li>
+<li>Function 的原型对象和隐式原型都指向 Function 的原型对象</li>
+<li>Object 原型对象是所有原型对象的终点,它的隐式原型为 null</li>
+<li>函数的隐式原型指向 function 原型对象</li>
 </ol>
-<h2 id="第十弹：碎片知识"><a href="#第十弹：碎片知识" class="headerlink" title="第十弹：碎片知识"></a>第十弹：碎片知识</h2><blockquote>
-<p>我们学了这么多东西，还要补充吗？<br>看了下面的这些，你就知道了，还差的远呢？难受，香菇！！！</p>
-</blockquote>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>4种情况</p>
+<ul>
+<li>一般函数调用this ,指向全局对象,在严格模式下指向undefined</li>
+<li>作为方法调用,构造函数中的this</li>
+<li>Call ,apply, bind</li>
+<li>对象中的this</li>
+</ul>
+<p>对象冒充</p>
 <ol>
-<li>同步与异步加载的三种方法</li>
-<li>放大与宽放大模式</li>
-<li>call/apply/bind 以及 bind 重写（常考）</li>
-<li>标签的属性与特性</li>
-<li>Math 方法</li>
-<li>封装 byClassName</li>
-<li>断点测试、bug 调试</li>
-<li>图片的预加载与懒加载</li>
-<li>日期对象与计时器</li>
-<li>this 指向问题</li>
-<li>DOM 与虚拟 DOM（常考）</li>
+<li>冒充对象传递特权属性和特权方法给子类</li>
+<li>不能继承共有方法和属性(prototype)</li>
 </ol>
-<h1 id="第十一弹：网络"><a href="#第十一弹：网络" class="headerlink" title="第十一弹：网络"></a>第十一弹：网络</h1><blockquote>
-<p>我是前端程序员，我为啥要学网络？这样的问题经常被问，简单！因为现在前后端开发分离了，分离不代表相互不搭理，分离既合作，合作就要相互了解对方个大概，其次，开发本身还会涉及到前后端联调的问题，所以前端程序员一定要掌握基本的网络知识。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/06/JavaScript-%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/06/JavaScript-%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">JavaScript-对象和函数</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-06 21:44:41" itemprop="dateCreated datePublished" datetime="2019-11-06T21:44:41+08:00">2019-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><hr>
+<blockquote>
+<p>定义</p>
 </blockquote>
-<ol>
-<li>服务器的搭建</li>
-<li>网络、URL、客户端与服务端、域名</li>
-<li>DNS/IP/TCP/UDP/HTTP/HTTPS</li>
-<li>三次握手、四次挥手</li>
-<li>www、http 报文、请求方式、GET 与 POST</li>
-<li>http 状态码、accept 与 ContentType</li>
-<li>缓存、长短连接、Content-Length、referrer</li>
-<li>http 版本、同源策略</li>
-<li>同步与异步请求、混编的概念</li>
-<li>AJAX 以及原生 JS 封装 AJAX</li>
-<li>AJAX 版本、响应状态、超时设置、同步与异步设置</li>
-<li>6 种跨域获取数据的方法</li>
-<li>iframe 与网络相关</li>
-<li>cookie 相关</li>
-<li>cookie+token 技术</li>
-<li>相关典型实战至少做 8 个</li>
+<ul>
+<li>值的集合:键值对|名称值对</li>
+</ul>
+<h2 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h2><ol>
+<li>字面量</li>
 </ol>
-<h2 id="第十二弹：ES6-（新的-JavaScript-版本）"><a href="#第十二弹：ES6-（新的-JavaScript-版本）" class="headerlink" title="第十二弹：ES6+（新的 JavaScript 版本）"></a>第十二弹：ES6+（新的 JavaScript 版本）</h2><blockquote>
-<p>作用在于引入了类、模块的概念，对异步处理提出了新的方案，也对 JS 对象们扩展了很多方法，让开发变得更加顺畅。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> b = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> c = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>构造函数创建</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Object.create()</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line"><span class="comment">// 完全的空对象, 没有任何属性</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="方法及属性"><a href="#方法及属性" class="headerlink" title="方法及属性"></a>方法及属性</h2><blockquote>
+<p>修改</p>
+</blockquote>
+<ul>
+<li><code>.</code>法</li>
+<li>[]法</li>
+</ul>
+<p>区别在于两者后者更通用些</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="string">'s d'</span>] = ... <span class="comment">// 有空格</span></span><br><span class="line">obj.s = ...</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>删除</p>
+</blockquote>
+<ul>
+<li><code>delete obj[name]|.name</code></li>
+</ul>
+<blockquote>
+<p>是否存在</p>
+</blockquote>
+<ul>
+<li><code>&#39;name&#39; in object</code> 返回布尔值</li>
+</ul>
+<blockquote>
+<p>循环对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for ... in ...</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> object)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>对象的深浅拷贝</p>
+</blockquote>
+<p><strong>浅拷贝</strong></p>
+<ul>
+<li>浅拷贝是对象共用一个内存地址，对象的变化相互影响</li>
+<li>只复制一层对象</li>
+</ul>
+<ol>
+<li><code>Object.assign()</code>当属性有对象时</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> srcObj = &#123; <span class="attr">name</span>: <span class="string">'明'</span>, <span class="attr">grade</span>: &#123; <span class="attr">chi</span>: <span class="string">'50'</span>, <span class="attr">eng</span>: <span class="string">'50'</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">let</span> copyObj = <span class="built_in">Object</span>.assign(&#123;&#125;, srcObj);</span><br><span class="line">copyObj.name = <span class="string">'红'</span>;</span><br><span class="line">copyObj.grade.chi = <span class="string">'60'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'copyObj'</span>, copyObj);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "红",</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'srcObj'</span>, srcObj);</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "明"</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>直接赋值</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">a</span>: <span class="number">2</span>, <span class="attr">b</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> objCopy = obj;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'objCopy'</span>, objCopy);</span><br><span class="line"><span class="comment">// &#123;a: 2, b: 3&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' obj'</span>, obj);</span><br><span class="line"><span class="comment">// &#123;a: 2, b: 3&#125;</span></span><br><span class="line">objCopy.a = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>函数实现</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> target = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> source) &#123;</span><br><span class="line">    <span class="keyword">if</span> (source.hasOwnProperty(i)) &#123;</span><br><span class="line">      target[i] = source[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>深拷贝</strong></p>
+<ul>
+<li>简单理解深拷贝是将对象放到一个新的内存中，两个对象的改变不会相互影响。</li>
+</ul>
+<ol>
+<li><code>JSON.parse()</code> 和 <code>JSON.stringify()</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">srcObj = &#123; <span class="attr">name</span>: <span class="string">'明'</span>, <span class="attr">grade</span>: &#123; <span class="attr">chi</span>: <span class="string">'50'</span>, <span class="attr">eng</span>: <span class="string">'50'</span> &#125; &#125;;</span><br><span class="line">copyObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(srcObj));</span><br><span class="line">copyObj.name = <span class="string">'红'</span>;</span><br><span class="line">copyObj.grade.chi = <span class="string">'60'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'srcObj'</span>, srcObj); <span class="comment">/* grade: &#123;chi: "50", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "明" */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'copyObj'</span>, copyObj); <span class="comment">/* </span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "红"</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JSON.stringify(..) 在对象中遇到 undefined 、 function 和 symbol 时会自动将其忽略， 在 数组中则会返回 null （以保证单元位置不变）。</li>
+</ul>
+<ol start="2">
+<li>函数实现</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] =</span><br><span class="line">        <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> ? deepCopy(obj[key]) : obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以上针对的只是简单的对象,复杂的拷贝在 JavaScript 一直以来都是一个难题</p>
+<hr>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>一次封装,四处使用</li>
+</ul>
+<blockquote>
+<p>分类</p>
+</blockquote>
+<ul>
+<li>命名函数</li>
+<li>匿名函数</li>
+</ul>
+<blockquote>
+<p>优点</p>
 </blockquote>
 <ol>
-<li>新增语法</li>
-<li>新增 API</li>
-<li>集合</li>
-<li>异步</li>
-<li>面向对象<br>6、这里需要一个大的实战去训练自己这是 JavaScript 要学习的内容，当然后续还有很多很多技术要学习。</li>
+<li>复用代码</li>
+<li>统一修改和维护</li>
+<li>可读性</li>
 </ol>
 <blockquote>
-<p>比如…….jQuery、HTML5 技术、CSS3 技术、什么 BootStrap、CSS 扩展语言 Less/Sass、Webpack 工程化、Git、VueJS……漫长曲折艰辛而又很有趣的前端技术学习，只要你有意志力，不要回头，相信成功是不远的未来</p>
+<p>本质</p>
+</blockquote>
+<ul>
+<li>二象性</li>
+<li>调用</li>
+<li>对象</li>
+</ul>
+<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>把对象内部数据和操作细节进行隐藏，把闭包的方法叫做特权方法，</p>
+<p>在构造函数中返回对其内部变量的访问，实现外部访问内部变量的方法，</p>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ul>
+<li>一占用内存</li>
+<li>二不利于继承，</li>
+</ul>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ol>
+<li>字面量</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newFun = <span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> newFun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>声明式</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>构造函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newf = <span class="keyword">new</span> <span class="built_in">Function</span>(参数,函数体)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>函数声明和函数表达式(var)都有预解析</p>
+</blockquote>
+<h2 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h2><ul>
+<li>全局作用域</li>
+<li>函数作用域</li>
+</ul>
+<blockquote>
+<p>作用域链</p>
+</blockquote>
+<p><img data-src="https://yimg.xjdd.xyz//20191106232415.png" alt="作用域图"></p>
+<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ul>
+<li>普通调用</li>
+</ul>
+<p><code>a();</code></p>
+<ul>
+<li>匿名调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iife</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>递归调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (num === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> num * f(num - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">3</span>); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事件模拟(dom事件)</span></span><br><span class="line"><span class="comment">// 链式调用</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line"><span class="comment">// 对象方法调用</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>构造函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首字母大写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Aa</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> Aa(<span class="string">'xx'</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>间接调用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// call,apply,bind</span></span><br><span class="line"><span class="comment">// 改变this的指向</span></span><br><span class="line">obj.fun.call(<span class="literal">null</span>)</span><br><span class="line">obj.fun.apply(<span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>形参</li>
+</ul>
+<p>占位符,相当于定义变量</p>
+<ul>
+<li>实参</li>
+</ul>
+<p>传递值,给形参,代替形参</p>
+<h3 id="参数的个数"><a href="#参数的个数" class="headerlink" title="参数的个数"></a>参数的个数</h3><ol>
+<li>实参 &lt; 形参</li>
+</ol>
+<ul>
+<li><p>未赋值,undefined&lt;可选参数&gt;</p>
+</li>
+<li><p>设置默认值 值 = 值 || 固定值</p>
+</li>
+</ul>
+<ol start="2">
+<li>实参 &gt; 形参</li>
+</ol>
+<blockquote>
+<p>arguments</p>
+</blockquote>
+<ul>
+<li>类数组 每一个函数都有自己的 arguments</li>
+<li>多余的参数存储在类数组中</li>
+<li><code>arguments.callee</code>代表自身(递归常用)</li>
+</ul>
+<h3 id="能作为参数的"><a href="#能作为参数的" class="headerlink" title="能作为参数的"></a>能作为参数的</h3><ul>
+<li>空 “”</li>
+<li>数字 number</li>
+<li>字符串 string</li>
+<li>boolean 布尔</li>
+<li>undefined</li>
+<li>null</li>
+<li>array 数组</li>
+<li>object 对象</li>
+<li>function(回调函数)</li>
+</ul>
+<h3 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h3><blockquote>
+<p>return<br>continue<br>break</p>
 </blockquote>
 
       
@@ -1153,7 +1314,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1221,20 +1382,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

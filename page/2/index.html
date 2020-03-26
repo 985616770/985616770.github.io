@@ -232,614 +232,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/08/JavaScript-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avator.jpg">
-      <meta itemprop="name" content="xuanji">
-      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="玄机..">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/08/JavaScript-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS/" class="post-title-link" itemprop="url">JavaScript-你不知道的JS(上)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-08 21:03:02" itemprop="dateCreated datePublished" datetime="2019-11-08T21:03:02+08:00">2019-11-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h2><blockquote>
-<p>分词/词法分析(Tokenizing/Lexing)</p>
-</blockquote>
-<p>字符组成的字符串分解成对(对编程语言)有意义代码块,这些代码块称为<strong>词法单元</strong>(token)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="comment">// var , a, = , 2, 以及空格(是否有意义取决于语言本身)</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>解析/语法分析(Parsing)</p>
-</blockquote>
-<p>这个过程是将词法单元流(数组)转换成一个由元素逐级嵌套所组成的代表程序语法结构的树.(AST 抽象语法树)</p>
-<blockquote>
-<p>代码生成</p>
-</blockquote>
-<p>将 AST 转换成可执行的代码的过程称为代码生成,这个过程域语言,目标平台等息息相关.</p>
-<ul>
-<li>JavaScript 代码的编译在执行前的几微秒(甚至更短)</li>
-<li>v8 引擎用了很多方法进行优化</li>
-</ul>
-<h2 id="理解作用域"><a href="#理解作用域" class="headerlink" title="理解作用域"></a>理解作用域</h2><blockquote>
-<p>引擎</p>
-</blockquote>
-<p>负责从头到尾的整个 JavaScript 程序的编译及执行</p>
-<blockquote>
-<p>编译器</p>
-</blockquote>
-<p>负责语法分析和代码生成</p>
-<blockquote>
-<p>作用域</p>
-</blockquote>
-<p>负责收集并维护所有声明的标识符（变量)组成的一系列查询,并实施一套非常严格的规则,确定当前执行的代码对这些标识符的访问权限.</p>
-<h2 id="变量的赋值操作"><a href="#变量的赋值操作" class="headerlink" title="变量的赋值操作"></a>变量的赋值操作</h2><p>变量的赋值操作会执行两个动作:</p>
-<ul>
-<li>编译器会在当前作用域中声明一个变量(如果之前没有声明过)</li>
-<li>在运行时引擎会在作用域中查找该变量，如果找到就会对它赋值</li>
-</ul>
-<blockquote>
-<p>编译器层次</p>
-</blockquote>
-<ul>
-<li>LHS查询</li>
-</ul>
-<p>变量出现在赋值操作的左侧,找到容器的本身,从而对其赋值(赋值操作的目标是谁)<br>两个词概括: <strong>赋值</strong></p>
-<ul>
-<li>RHS查询</li>
-</ul>
-<p>查找某个变量的值,’非左侧’=&gt; retrieve this source value (取到它的源码), 谁是赋值操作的源头.</p>
-<p>两个词概括: <strong>查询</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/06/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avator.jpg">
-      <meta itemprop="name" content="xuanji">
-      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="玄机..">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/06/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">JavaScript-面向对象</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-06 23:47:04" itemprop="dateCreated datePublished" datetime="2019-11-06T23:47:04+08:00">2019-11-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><blockquote>
-<p>定义</p>
-</blockquote>
-<p>对代码的一种抽象,对外统一提供接口的编程思想</p>
-<blockquote>
-<p>在 JavaScript 中的实现</p>
-</blockquote>
-<p>基于原型的面向对象方式中,对象则是依靠构造器<code>constructor</code>,利用原型<code>prototype</code>构造出来的</p>
-<hr>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><blockquote>
-<p>属性</p>
-</blockquote>
-<p>事务的特性</p>
-<blockquote>
-<p>方法</p>
-</blockquote>
-<p>事物的功能</p>
-<blockquote>
-<p>对象</p>
-</blockquote>
-<p>事物的一个实例</p>
-<blockquote>
-<p>原型</p>
-</blockquote>
-<p>JavaScript 函数由<code>prototype</code>引用了一个对象,即<strong>原型</strong></p>
-<hr>
-<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><blockquote>
-<p>定义</p>
-</blockquote>
-<p>实现面向对象的根源</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote>
-<p>定义</p>
-</blockquote>
-<p>闭包是一个拥有许多变量和绑定了这些变量的环境的表达式(通常是一个函数)<br>闭包是一个拥有上层函数的引用，且不会被立即释放的一个作用域，</p>
-<ul>
-<li>实现的功能是函数内部拥有对外部函数的引用，可以防止及外部函数改变内部函数的状态，</li>
-</ul>
-<blockquote>
-<p>优点:</p>
-</blockquote>
-<ul>
-<li>有利于封装和可以访问局部变量<blockquote>
-<p>缺点</p>
-</blockquote>
-</li>
-<li>内存占用严重，容易内存泄露，</li>
-</ul>
-<hr>
-<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h2><blockquote>
-<p>6 种</p>
-</blockquote>
-<blockquote>
-<p>寄生式组合式继承</p>
-</blockquote>
-<ul>
-<li>es5<blockquote>
-<p>原型继承:</p>
-</blockquote>
-</li>
-<li>用于写框架和 js 库<blockquote>
-<p>构造继承</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  A.call(<span class="keyword">this</span>, name);</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">B.prototype = <span class="built_in">Object</span>.create(A.prototype);</span><br><span class="line">B.constructor = B;</span><br></pre></td></tr></table></figure>
-
-<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><blockquote>
-<p>原型</p>
-</blockquote>
-<ul>
-<li>利用 prototype 添加属性和方法</li>
-</ul>
-<blockquote>
-<p>原型链</p>
-</blockquote>
-<ul>
-<li>Js 在创建对象(无论是普通对象还是函数对象)的时候，都有一个叫做<code>__proto__</code>的内置属性，用于指向创建它的函数的的原型对象 prototype，</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> A();</span><br><span class="line"><span class="comment">// 默认执行</span></span><br><span class="line"><span class="comment">// let p = &#123;&#125;</span></span><br><span class="line"><span class="comment">// p.__proto__ = A.prototype =&gt; true</span></span><br><span class="line"><span class="comment">// A.call(p)</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><code>__proto__</code><br>实例对象的隐式原型<br>指向它的构造函数的原型对象</p>
-</blockquote>
-<p><img data-src="https://yimg.xjdd.xyz//%E5%8E%9F%E5%9E%8B%E9%93%BE%E5%9B%BE.png" alt=""></p>
-<blockquote>
-<p>规则:</p>
-</blockquote>
-<ol>
-<li>实例对象的隐式原型指向构造函数的原型对象</li>
-<li>Function 的原型对象和隐式原型都指向 Function 的原型对象</li>
-<li>Object 原型对象是所有原型对象的终点,它的隐式原型为 null</li>
-<li>函数的隐式原型指向 function 原型对象</li>
-</ol>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>4种情况</p>
-<ul>
-<li>一般函数调用this ,指向全局对象,在严格模式下指向undefined</li>
-<li>作为方法调用,构造函数中的this</li>
-<li>Call ,apply, bind</li>
-<li>对象中的this</li>
-</ul>
-<p>对象冒充</p>
-<ol>
-<li>冒充对象传递特权属性和特权方法给子类</li>
-<li>不能继承共有方法和属性(prototype)</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/06/JavaScript-%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avator.jpg">
-      <meta itemprop="name" content="xuanji">
-      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="玄机..">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/06/JavaScript-%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">JavaScript-对象和函数</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-11-06 21:44:41" itemprop="dateCreated datePublished" datetime="2019-11-06T21:44:41+08:00">2019-11-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-25 13:05:18" itemprop="dateModified" datetime="2019-12-25T13:05:18+08:00">2019-12-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><hr>
-<blockquote>
-<p>定义</p>
-</blockquote>
-<ul>
-<li>值的集合:键值对|名称值对</li>
-</ul>
-<h2 id="创建方式"><a href="#创建方式" class="headerlink" title="创建方式"></a>创建方式</h2><ol>
-<li>字面量</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> b = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> c = &#123;&#125;;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>构造函数创建</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>Object.create()</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.create(<span class="literal">null</span>);</span><br><span class="line"><span class="comment">// 完全的空对象, 没有任何属性</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="方法及属性"><a href="#方法及属性" class="headerlink" title="方法及属性"></a>方法及属性</h2><blockquote>
-<p>修改</p>
-</blockquote>
-<ul>
-<li><code>.</code>法</li>
-<li>[]法</li>
-</ul>
-<p>区别在于两者后者更通用些</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj[<span class="string">'s d'</span>] = ... <span class="comment">// 有空格</span></span><br><span class="line">obj.s = ...</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>删除</p>
-</blockquote>
-<ul>
-<li><code>delete obj[name]|.name</code></li>
-</ul>
-<blockquote>
-<p>是否存在</p>
-</blockquote>
-<ul>
-<li><code>&#39;name&#39; in object</code> 返回布尔值</li>
-</ul>
-<blockquote>
-<p>循环对象</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for ... in ...</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> object)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>对象的深浅拷贝</p>
-</blockquote>
-<p><strong>浅拷贝</strong></p>
-<ul>
-<li>浅拷贝是对象共用一个内存地址，对象的变化相互影响</li>
-<li>只复制一层对象</li>
-</ul>
-<ol>
-<li><code>Object.assign()</code>当属性有对象时</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> srcObj = &#123; <span class="attr">name</span>: <span class="string">'明'</span>, <span class="attr">grade</span>: &#123; <span class="attr">chi</span>: <span class="string">'50'</span>, <span class="attr">eng</span>: <span class="string">'50'</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">let</span> copyObj = <span class="built_in">Object</span>.assign(&#123;&#125;, srcObj);</span><br><span class="line">copyObj.name = <span class="string">'红'</span>;</span><br><span class="line">copyObj.grade.chi = <span class="string">'60'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'copyObj'</span>, copyObj);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "红",</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'srcObj'</span>, srcObj);</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "明"</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>直接赋值</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">a</span>: <span class="number">2</span>, <span class="attr">b</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> objCopy = obj;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'objCopy'</span>, objCopy);</span><br><span class="line"><span class="comment">// &#123;a: 2, b: 3&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' obj'</span>, obj);</span><br><span class="line"><span class="comment">// &#123;a: 2, b: 3&#125;</span></span><br><span class="line">objCopy.a = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>函数实现</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowClone</span>(<span class="params">source</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> target = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">in</span> source) &#123;</span><br><span class="line">    <span class="keyword">if</span> (source.hasOwnProperty(i)) &#123;</span><br><span class="line">      target[i] = source[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>深拷贝</strong></p>
-<ul>
-<li>简单理解深拷贝是将对象放到一个新的内存中，两个对象的改变不会相互影响。</li>
-</ul>
-<ol>
-<li><code>JSON.parse()</code> 和 <code>JSON.stringify()</code></li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">srcObj = &#123; <span class="attr">name</span>: <span class="string">'明'</span>, <span class="attr">grade</span>: &#123; <span class="attr">chi</span>: <span class="string">'50'</span>, <span class="attr">eng</span>: <span class="string">'50'</span> &#125; &#125;;</span><br><span class="line">copyObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(srcObj));</span><br><span class="line">copyObj.name = <span class="string">'红'</span>;</span><br><span class="line">copyObj.grade.chi = <span class="string">'60'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'srcObj'</span>, srcObj); <span class="comment">/* grade: &#123;chi: "50", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "明" */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'copyObj'</span>, copyObj); <span class="comment">/* </span></span><br><span class="line"><span class="comment">grade: &#123;chi: "60", eng: "50"&#125;</span></span><br><span class="line"><span class="comment">name: "红"</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>JSON.stringify(..) 在对象中遇到 undefined 、 function 和 symbol 时会自动将其忽略， 在 数组中则会返回 null （以保证单元位置不变）。</li>
-</ul>
-<ol start="2">
-<li>函数实现</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deepCopy = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">      newObj[key] =</span><br><span class="line">        <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> ? deepCopy(obj[key]) : obj[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>以上针对的只是简单的对象,复杂的拷贝在 JavaScript 一直以来都是一个难题</p>
-<hr>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><blockquote>
-<p>定义</p>
-</blockquote>
-<ul>
-<li>一次封装,四处使用</li>
-</ul>
-<blockquote>
-<p>分类</p>
-</blockquote>
-<ul>
-<li>命名函数</li>
-<li>匿名函数</li>
-</ul>
-<blockquote>
-<p>优点</p>
-</blockquote>
-<ol>
-<li>复用代码</li>
-<li>统一修改和维护</li>
-<li>可读性</li>
-</ol>
-<blockquote>
-<p>本质</p>
-</blockquote>
-<ul>
-<li>二象性</li>
-<li>调用</li>
-<li>对象</li>
-</ul>
-<h2 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h2><p>把对象内部数据和操作细节进行隐藏，把闭包的方法叫做特权方法，</p>
-<p>在构造函数中返回对其内部变量的访问，实现外部访问内部变量的方法，</p>
-<blockquote>
-<p>缺点</p>
-</blockquote>
-<ul>
-<li>一占用内存</li>
-<li>二不利于继承，</li>
-</ul>
-<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ol>
-<li>字面量</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newFun = <span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> newFun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>声明式</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>构造函数</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newf = <span class="keyword">new</span> <span class="built_in">Function</span>(参数,函数体)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>函数声明和函数表达式(var)都有预解析</p>
-</blockquote>
-<h2 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h2><ul>
-<li>全局作用域</li>
-<li>函数作用域</li>
-</ul>
-<blockquote>
-<p>作用域链</p>
-</blockquote>
-<p><img data-src="https://yimg.xjdd.xyz//20191106232415.png" alt="作用域图"></p>
-<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ul>
-<li>普通调用</li>
-</ul>
-<p><code>a();</code></p>
-<ul>
-<li>匿名调用</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// iife</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)();</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>递归调用</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (num === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> num * f(num - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">3</span>); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>方法调用</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 事件模拟(dom事件)</span></span><br><span class="line"><span class="comment">// 链式调用</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line"><span class="comment">// 对象方法调用</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>构造函数</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首字母大写</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Aa</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> Aa(<span class="string">'xx'</span>)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>间接调用</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// call,apply,bind</span></span><br><span class="line"><span class="comment">// 改变this的指向</span></span><br><span class="line">obj.fun.call(<span class="literal">null</span>)</span><br><span class="line">obj.fun.apply(<span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
-<li>形参</li>
-</ul>
-<p>占位符,相当于定义变量</p>
-<ul>
-<li>实参</li>
-</ul>
-<p>传递值,给形参,代替形参</p>
-<h3 id="参数的个数"><a href="#参数的个数" class="headerlink" title="参数的个数"></a>参数的个数</h3><ol>
-<li>实参 &lt; 形参</li>
-</ol>
-<ul>
-<li><p>未赋值,undefined&lt;可选参数&gt;</p>
-</li>
-<li><p>设置默认值 值 = 值 || 固定值</p>
-</li>
-</ul>
-<ol start="2">
-<li>实参 &gt; 形参</li>
-</ol>
-<blockquote>
-<p>arguments</p>
-</blockquote>
-<ul>
-<li>类数组 每一个函数都有自己的 arguments</li>
-<li>多余的参数存储在类数组中</li>
-<li><code>arguments.callee</code>代表自身(递归常用)</li>
-</ul>
-<h3 id="能作为参数的"><a href="#能作为参数的" class="headerlink" title="能作为参数的"></a>能作为参数的</h3><ul>
-<li>空 “”</li>
-<li>数字 number</li>
-<li>字符串 string</li>
-<li>boolean 布尔</li>
-<li>undefined</li>
-<li>null</li>
-<li>array 数组</li>
-<li>object 对象</li>
-<li>function(回调函数)</li>
-</ul>
-<h3 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h3><blockquote>
-<p>return<br>continue<br>break</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/11/05/JavaScript-%E8%BF%9B%E9%98%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1120,11 +512,752 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/02/HTML-%E7%9F%A5%E8%AF%861/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/02/HTML-%E7%9F%A5%E8%AF%861/" class="post-title-link" itemprop="url">HTML-知识1</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-02 00:55:13" itemprop="dateCreated datePublished" datetime="2019-10-02T00:55:13+08:00">2019-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h2 id="什么是-html"><a href="#什么是-html" class="headerlink" title="什么是 html"></a>什么是 html</h2><blockquote>
+<p>文本标记语言(<strong>hypertext markup language</strong>),已经是第五代</p>
+</blockquote>
+<p><em>HTML5</em></p>
+<blockquote>
+<p>html 的增量式更新,新增许多东西,eg: 表单的属性,音视频的 api</p>
+</blockquote>
+<blockquote>
+<p>是 HTML 的第五次修订版本,添加更多的标签,以及过期的标签,使得页面结构语义化,利于搜索的搜索权重,</p>
+</blockquote>
+<hr>
+<h2 id="基本的常识"><a href="#基本的常识" class="headerlink" title="基本的常识"></a>基本的常识</h2><h3 id="HTML-网页构成"><a href="#HTML-网页构成" class="headerlink" title="HTML 网页构成"></a>HTML 网页构成</h3><p><strong>声明标签</strong>:<!DOCTYPE html> html5 的声明 ,用于浏览器解析判断版本,不加的话会陷入混杂模式</p>
+<p><strong>根标签</strong>: <html> 网页的根标签,内包括两个大标签 head body</p>
+<p><strong>head 标签</strong>: 里面包含着网页的图标,描述信息,网站名称,引入的资源,样式脚本,移动端的识别.</p>
+<p><strong>body 标签</strong>: 内容的载体,是数据的存放的地方,所有的展现给用户的界面都在这里</p>
+<p><strong>meta 标签</strong>: 元数据存放,网页图标,描述信息,移动端判断</p>
+<p><strong>引入标签</strong>: <code>link</code> <code>img</code> <code>script</code>以及 h5 的新标签 音视频标签 <code>audio</code> <code>video</code> <code>soruce</code></p>
+<blockquote>
+<p>常用标签</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1-h5</span>&gt;</span><span class="tag">&lt;/<span class="name">h1-h5</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> /&gt;</span></span><br><span class="line">// head 中的元标签<span class="tag">&lt;<span class="name">meta</span> /&gt;</span></span><br><span class="line">// 还有html5新增的许多语义化标签</span><br><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hgroup</span>&gt;</span><span class="tag">&lt;/<span class="name">hgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">figcaption</span>&gt;</span><span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dialog</span>&gt;</span><span class="tag">&lt;/<span class="name">dialog</span>&gt;</span></span><br><span class="line">// 多媒体标签</span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">canvas</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">embed</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>常用属性</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">type: 类型(常用input)</span><br><span class="line">name: (input)</span><br><span class="line">class: 通用类型;</span><br><span class="line">id id</span><br><span class="line">style 行内样式</span><br><span class="line">data-* 自定义的属性;</span><br></pre></td></tr></table></figure>
+
+<h3 id="标签的分类"><a href="#标签的分类" class="headerlink" title="标签的分类"></a><strong>标签的分类</strong></h3><ul>
+<li>块级元素</li>
+<li>行内元素</li>
+<li>行内块元素(可替换元素)</li>
+</ul>
+<h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><p><code>div, ul, li, dl, dt, dd,h1-h5, p, form</code></p>
+<ol>
+<li>可以设置宽高</li>
+<li>margin,padding ,border</li>
+<li>自动换行</li>
+<li>多个块状元素，排列方式为从上至下</li>
+</ol>
+<h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><p><code>span, i, sup, sub, strong, b</code></p>
+<ol>
+<li>宽高由自身决定</li>
+<li>margin-left|right 有效 padding 都有效</li>
+<li>不会自动进行换行</li>
+</ol>
+<h4 id="行内块元素"><a href="#行内块元素" class="headerlink" title="行内块元素"></a>行内块元素</h4><p><code>img, input</code></p>
+<ol>
+<li>可以设置宽高</li>
+<li>margin,padding ,border</li>
+<li>自动换行</li>
+<li>多个块状元素，从左到右</li>
+</ol>
+<h4 id="嵌套规则"><a href="#嵌套规则" class="headerlink" title="嵌套规则"></a>嵌套规则</h4><ol>
+<li>块级元素可包行内元素,和某些块级元素</li>
+<li>行内元素不可包含块级元素,只能包含其他行内元素</li>
+<li>特殊块级元素只能包含行内元素,不能包含块级元素(h1-h5,p,dt)</li>
+<li>块级元素和块级元素并列,行内元素与行内元素并列</li>
+</ol>
+<h3 id="拓展知识"><a href="#拓展知识" class="headerlink" title="拓展知识"></a>拓展知识</h3><h4 id="INPUT-ElELEMENT-input-用法"><a href="#INPUT-ElELEMENT-input-用法" class="headerlink" title="INPUT ElELEMENT (input 用法)"></a>INPUT ElELEMENT (input 用法)</h4><p>属性:</p>
+<ul>
+<li>name</li>
+<li>placeholder</li>
+<li>required</li>
+<li>disabled</li>
+<li>type<blockquote>
+<p>type 是其中最重要的 由 type 引申了很多的新的属性</p>
+</blockquote>
+</li>
+</ul>
+<p>type 属性:</p>
+<ol>
+<li>text</li>
+</ol>
+<input type="text" placeholder="请输入文本">
+
+<ol start="2">
+<li>email</li>
+</ol>
+<input type="email" placeholder="请输入邮箱">
+
+<ol start="3">
+<li>number</li>
+</ol>
+<input type="number" placeholder="请输入数值">
+
+<ol start="4">
+<li>checkbox</li>
+</ol>
+<p>唱<input type="checkbox" name="hobby"><br>跳<input type="checkbox" name="hobby"><br>打篮球<input type="checkbox" name="hobby"></p>
+<ol start="5">
+<li>radio</li>
+</ol>
+<p>男<input type="radio" name="sex"><br>女<input type="radio" name="sex"></p>
+<ol start="6">
+<li>submit</li>
+</ol>
+<input type="submit">
+
+<ol start="7">
+<li>tel</li>
+</ol>
+<input type="tel" placeholder="请输入号码">
+
+<ol start="8">
+<li>datetime-local</li>
+</ol>
+<input type="datetime-local">
+
+<ol start="9">
+<li>range</li>
+</ol>
+<input type="range">
+
+<ol start="10">
+<li>search</li>
+</ol>
+<input type="search" placeholder="请输入搜索内容">
+
+<ol start="11">
+<li>color<input type="color">
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/02/JavaScript--BOM-DOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/02/JavaScript--BOM-DOM/" class="post-title-link" itemprop="url">JavaScript-BOM&DOM</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-02 00:55:13" itemprop="dateCreated datePublished" datetime="2019-10-02T00:55:13+08:00">2019-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><blockquote>
+<p>document 文档操作级别的最高对象</p>
+</blockquote>
+<h2 id="节点-元素"><a href="#节点-元素" class="headerlink" title="节点(元素)"></a>节点(元素)</h2><h3 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h3><blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li><code>document.write()</code> 覆盖页面,在页面加载之前却不不会</li>
+<li><code>document.createElement(ele)</code> 创建标签节点</li>
+<li><code>document.createTextNode(ele)</code> 创建文本节点</li>
+<li><code>document.createDocumentFragment(ele)</code> 创建文本片段节点</li>
+<li><code>document.createComment(ele)</code> 创建文本注释节点</li>
+</ul>
+<blockquote>
+<p>常用的创建方法</p>
+</blockquote>
+<blockquote>
+<p><code>innerHTML()</code></p>
+</blockquote>
+<ul>
+<li>设置或获取当前标签起始和结束表里面的内容</li>
+<li>最左边不能有空白</li>
+<li>不能对 meta 标签操作<blockquote>
+<p><code>innerText()</code></p>
+</blockquote>
+</li>
+<li>设置或获取当前标签起始和结束表里面的文本内容<blockquote>
+<p><code>outerHTML()</code></p>
+</blockquote>
+</li>
+<li>获取当前标签起始和结束表里面的内容(包括自身)</li>
+<li>设置会覆盖内容<blockquote>
+<p><code>outerText()</code></p>
+</blockquote>
+</li>
+<li>获取当前标签起始和结束表里面的内容(包括自身)</li>
+<li>设置会导致上层元素内容消失(不推荐)</li>
+</ul>
+<h3 id="查找节点"><a href="#查找节点" class="headerlink" title="查找节点"></a>查找节点</h3><blockquote>
+<p>Node API</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[parent]--firstChild--&gt;B(child)</span><br><span class="line">A--lastChild--&gt;C(child)</span><br><span class="line">C--parentNode--&gt;A</span><br><span class="line">C--previousSibling--&gt;B</span><br><span class="line">B--nextSibling--&gt;C</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>owerDocumnet()</code> 直达根元素</li>
+<li><code>childNodes[]</code> or <code>childNodes.item()</code> 选择节点</li>
+<li><code>hasChildNodes()</code> 判断是否有子节点</li>
+</ul>
+<blockquote>
+<p>element API</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[parent]--firstElementChild--&gt;B(child)</span><br><span class="line">A--lastElementchild--&gt;C(child)</span><br><span class="line">C--parentNode--&gt;A</span><br><span class="line">C--previousElementSibling--&gt;B</span><br><span class="line">B--nextElementSibling--&gt;C</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>childElementChildCount</code> 元素的个数</li>
+</ul>
+<h3 id="节点查找"><a href="#节点查找" class="headerlink" title="节点查找"></a>节点查找</h3><ul>
+<li>document.getElementById() 根据 id 查找 dom</li>
+<li>document.getElementsByName() 根据 name 查找 dom</li>
+<li>document.getElementsByTagName() 根据标签名查找 dom</li>
+<li>document.getElementsByClassName() 根据类名查找 dom</li>
+<li>document.querySelector() 万能选择器</li>
+<li>document.querySelectorAll() 万能选择器 形成类数组</li>
+</ul>
+<h3 id="操作节点"><a href="#操作节点" class="headerlink" title="操作节点"></a>操作节点</h3><ul>
+<li>appendChild() 添加节点</li>
+<li>insertBefore(添加节点,插入节点的位置) 在指定位置插入节点</li>
+<li>replaceChild(替换节点,被替换的节点) 替换节点</li>
+<li>cloneNode(boolean) 克隆节点(为 true, 克隆子节点)</li>
+<li>normalize() 合并文本节点(TextNode)</li>
+<li>splitText(索引) 按照指定位置分隔</li>
+</ul>
+<h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><ul>
+<li>removeChild(节点) 删除节点</li>
+<li>removeNode(boolean) ie 专用 为 true 删除父子节点</li>
+<li>innerHTML 赋值删除</li>
+</ul>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><blockquote>
+<p>分为两种</p>
+</blockquote>
+<ul>
+<li>固有属性(property)</li>
+<li>自定义属性(Attribute)</li>
+</ul>
+<h3 id="固有属性"><a href="#固有属性" class="headerlink" title="固有属性"></a>固有属性</h3><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>浏览器定义好的属性,固有属性部分继承于父元素</li>
+</ul>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li><code>.</code>法直接访问属性</li>
+</ul>
+<h3 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h3><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>用户自定义的属性,常用 data-*<blockquote>
+<p>特点</p>
+</blockquote>
+</li>
+<li>在 js 中大写属性名,在 html 会自动转换为小写</li>
+<li>通过 <code>NameNodeMap</code>对象操作<blockquote>
+<p>方法</p>
+</blockquote>
+</li>
+<li>节点.attributes.getNameItem(name)</li>
+<li>节点.attributes.removeNameItem(name)</li>
+<li>节点.attributes.setNameItem(name,value)</li>
+</ul>
+<p>常用的</p>
+<ul>
+<li><p>节点.getAttribute(name)</p>
+</li>
+<li><p>节点.setAttribute(name,value)</p>
+</li>
+<li><p>节点.removeAttribute(name)</p>
+</li>
+<li><p>节点.dataset.value 获取<code>data-value</code>属性</p>
+</li>
+</ul>
+<h3 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h3><blockquote>
+<p>布尔属性</p>
+<ul>
+<li>checked 常用于<code>radio, checkbox</code> 勾选</li>
+<li>selected 常用域<code>option</code> 选中</li>
+<li>readonly 只读</li>
+<li>disabled 使表单元素失灵,不会提交 value</li>
+<li>multiple 使之多选</li>
+<li>hidden 不显示在页面</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>字符串属性</p>
+<ul>
+<li>id</li>
+<li>title 可见元素掠过的时候显示的文字</li>
+<li>href 超链接</li>
+<li>src 数据的来源</li>
+<li>lang 辅助设备,盲人</li>
+<li>dir 文本输出方向</li>
+<li>accesskey 组合键(快捷键) <code>alt+</code></li>
+<li>name 表单</li>
+<li>value 表单</li>
+<li>class 样式类</li>
+<li>contentediable 是否可编辑元素</li>
+<li>tabindex 用 tab 导航</li>
+<li>translate 是否可以翻译</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>其他</p>
+</blockquote>
+<blockquote>
+<p>classlist.</p>
+</blockquote>
+<ul>
+<li>add() 添加</li>
+<li>remove() 删除</li>
+<li>contain() 包含</li>
+<li>toggle() 取反</li>
+</ul>
+<h3 id="类数组"><a href="#类数组" class="headerlink" title="类数组"></a>类数组</h3><ol>
+<li>类数组对象,保存一组有序的节点</li>
+<li>[]用于访问, 有 item() 和 length 属性</li>
+<li>不是 Array 实例 , 没有数组方法,可以 for 循环<blockquote>
+<p>NodeList 对象</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>通过nodeAPI获取<blockquote>
+<p>HTMLCollection 对象</p>
+</blockquote>
+</li>
+<li>标签</li>
+<li>脚本</li>
+<li>链接</li>
+<li>图片</li>
+<li>表单</li>
+<li>单元格(表格)</li>
+<li>select.option<blockquote>
+<p>NameNodeMap 对象</p>
+</blockquote>
+</li>
+<li>ele.attributes</li>
+</ul>
+<blockquote>
+<p>类数组动态性</p>
+</blockquote>
+<ol>
+<li>基于dom结构的动态查询的结果,dom变化能自动反应到这些对象中</li>
+<li>结构发生变化时,都会得到更新<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1></li>
+</ol>
+<h2 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>浏览器的一个实例,在浏览器中 window是JavaScript访问浏览器窗口的一个接口,又是ECMAScript规定global对象</li>
+</ul>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li>alert 弹出窗口</li>
+<li>confirm 弹框(确认,取消)</li>
+<li>prompt 输入值(true 值, false 返回null)</li>
+<li>open 新打开一个浏览器窗口</li>
+<li>close 关闭窗口</li>
+<li>setTimeout 超时调用</li>
+<li>clearTimeout 清除调用</li>
+<li>setInterval 间歇调用</li>
+<li>clearInterval 清除间歇调用</li>
+</ul>
+<h2 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>是document和window的属性,提供导航的功能,提供加载的文档有关的信息</li>
+</ul>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li>href 返回完整的url</li>
+<li>hash 返回url中的hash</li>
+<li>host 返回服务器名称和端口号</li>
+<li>hostname 返回不带端口的服务器名称</li>
+<li>pathname 返回url中的目录和文件名</li>
+<li>port 端口号</li>
+<li>protcal 协议</li>
+<li>search ? 后的字符串</li>
+<li>replace 重新定向url(不会再历史记录中产生新纪录)</li>
+<li>reload(boolean) 重新加载页面,传(true) 从服务器重新加载,否则缓存加载</li>
+</ul>
+<h2 id="history对象"><a href="#history对象" class="headerlink" title="history对象"></a>history对象</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>历史记录</li>
+</ul>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li>back() 回到历史纪录的上一把</li>
+<li>go() -1 上一步 -2 上两步 1 下一步 2 下两步</li>
+<li>forward(num) 回到下num步</li>
+</ul>
+<h2 id="screen-屏幕对象"><a href="#screen-屏幕对象" class="headerlink" title="screen 屏幕对象"></a>screen 屏幕对象</h2><blockquote>
+<p>定义</p>
+</blockquote>
+<ul>
+<li>屏幕对象</li>
+</ul>
+<blockquote>
+<p>方法</p>
+</blockquote>
+<ul>
+<li>availWidth() 可用宽度</li>
+<li>availHeight() 可用高度</li>
+</ul>
+<h2 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a>Navigator对象</h2><blockquote>
+<p>返回 用户的操作系统,</p>
+</blockquote>
+<ul>
+<li>userAgent: 浏览器版本,版本, 引擎,操作系统</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xjdd.xyz/2019/10/01/jQuery-%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avator.jpg">
+      <meta itemprop="name" content="xuanji">
+      <meta itemprop="description" content="博客,web,frontend,web,javascript,vue,blog,前端,html,css,jQuery,jq,nodejs,github,git,nginx,centos,ubuntu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="玄机..">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/01/jQuery-%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">jQuery</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-01 21:26:27" itemprop="dateCreated datePublished" datetime="2019-10-01T21:26:27+08:00">2019-10-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><ul>
+<li>写的少，做的多 JavaScript 库</li>
+<li>化大为小化繁为简</li>
+<li>简化代码,程序更高效</li>
+</ul>
+<blockquote>
+<p>特点</p>
+</blockquote>
+<ol>
+<li>轻量级</li>
+<li>强大选择器</li>
+<li>Dom 操作极其封装</li>
+<li>事件处理机制</li>
+<li>Ajax.</li>
+<li>不污染顶级变量</li>
+<li>出色的浏览器兼容</li>
+<li>链式操作</li>
+<li>隐式迭代</li>
+<li>行为层和结构层</li>
+<li>插件支持</li>
+<li>组件化,模块化</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>标签引入</li>
+<li>Cdn</li>
+<li>NPM YARn Node.</li>
+<li>框架的使用</li>
+</ul>
+<p>$ = JQuery</p>
+<ul>
+<li>被占用</li>
+<li>jQuery.noConflict(); 释放对$的引用</li>
+</ul>
+<h2 id="jQuery-书写方式"><a href="#jQuery-书写方式" class="headerlink" title="jQuery 书写方式"></a>jQuery 书写方式</h2><blockquote>
+<p>入口函数:</p>
+</blockquote>
+<ol>
+<li><code>$(document().ready(function(){}))</code></li>
+<li><code>$(function(){})</code></li>
+<li><code>$().ready({})</code></li>
+</ol>
+<blockquote>
+<p>区别 onload ready</p>
+</blockquote>
+<ol>
+<li>onload 是所有资源加载完毕</li>
+<li>ready dom 结构加载完成, 不包括图片和非文本</li>
+</ol>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
+<li>最为强大的一点<blockquote>
+<p>返回的都是 jquery 对象,每一个对象都是引用 Dom 节点的对象</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>如果传入的是 undefined || null ,返回空数组[]</p>
+</blockquote>
+<h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><ol>
+<li>Id 选择器</li>
+<li>标签选择器</li>
+<li>Class 选择器</li>
+<li>通配选择器</li>
+</ol>
+<h3 id="多项选择器"><a href="#多项选择器" class="headerlink" title="多项选择器"></a>多项选择器</h3><ol>
+<li>用逗号分割,将匹配的选择器,合并到一起返回</li>
+<li>选择会按照 DOM 顺序选择</li>
+</ol>
+<h3 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h3><ol>
+<li>后代选择器</li>
+<li>子代选择器</li>
+<li>相邻兄弟选择器</li>
+<li>通用兄弟选择器</li>
+</ol>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><ol>
+<li>属性名选择器 <code>[attr]</code></li>
+<li>属性值选择器 <code>[attr=val]</code></li>
+<li>属性值不等于值选择<code>[attr!=val]</code></li>
+<li>开头选择器<code>[attr^=val]</code></li>
+<li>结尾选择题<code>[attr$=val]</code></li>
+<li>包含选择器 <code>[attr*=val]</code></li>
+<li>筛选属性选择器<code>[attr][attr2]</code></li>
+</ol>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><ol>
+<li>第 1 个子标签</li>
+<li>最后一个子标签</li>
+<li>第 n 个子标签<code>nth-child(n)</code></li>
+<li>只有一个子标签 <code>only-child</code></li>
+<li>第 1 个指定属性子标签 <code>first-of-type</code></li>
+<li>最后一个指定属性子标签</li>
+<li>第 n 个指定属性子标签 <code>nth-of-type(n)</code></li>
+<li>从后往前选第 n 个指定属性子标签</li>
+<li>只有一个指定属性子标签</li>
+</ol>
+<h3 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h3><ol>
+<li><code>:input</code> 选择</li>
+<li><code>:text</code> 匹配所有的单行文本框</li>
+<li><code>:[type]</code> 有的类型都能匹配</li>
+</ol>
+<ul>
+<li><code>:password | :radio</code></li>
+</ul>
+<blockquote>
+<p>状态</p>
+</blockquote>
+<ol>
+<li><code>:enabled</code> 所有可用的</li>
+<li><code>:disabled</code> 所有不可用的</li>
+<li><code>:checked</code> 单选复选</li>
+<li><code>:selected</code> Option.中的 Selected.</li>
+</ol>
+<h3 id="查找和过滤"><a href="#查找和过滤" class="headerlink" title="查找和过滤"></a>查找和过滤</h3><ol>
+<li>find() 搜索所有与指定表达式匹配的元素</li>
+<li>children() 子代选择器</li>
+<li>parent() 父元素</li>
+<li>next() 相邻的下一个元素</li>
+<li>prev() 相邻的上一个元素</li>
+<li>eq() 选择索引为</li>
+<li>siblings() 同一层的所有兄弟元素</li>
+<li>filter() 筛选出与指定表达式匹配的元素</li>
+</ol>
+<h2 id="Jq-事件"><a href="#Jq-事件" class="headerlink" title="Jq 事件"></a>Jq 事件</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1192,20 +1325,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
