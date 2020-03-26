@@ -5,12 +5,13 @@ author: xuanji
 tags: jQuery
 categories: jQuery
 ---
-<!-- more -->
 # jQuery
 
 - 写的少，做的多 JavaScript 库
 - 化大为小化繁为简
 - 简化代码,程序更高效
+
+<!-- more -->
 
 > 特点
 

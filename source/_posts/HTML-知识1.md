@@ -4,10 +4,11 @@ date: 2019-10-02 00:55:13
 tags: HTML
 categories: HTML
 ---
-<!-- more -->
 ## 什么是 html
 
 > 文本标记语言(**hypertext markup language**),已经是第五代
+
+<!-- more -->
 
 _HTML5_
 

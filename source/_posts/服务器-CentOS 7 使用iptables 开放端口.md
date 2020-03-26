@@ -10,6 +10,8 @@ categories: 服务器
 
 CentOS 7.0 默认使用的是 firewall 作为防火墙，这里改为 iptables 防火墙。
 
+<!-- more -->
+
 1、关闭 firewall：
 
 ```
@@ -22,7 +24,6 @@ systemctl mask firewalld.service
 
 ```
 
- <!-- more -->
 
 2、安装 iptables 防火墙
 

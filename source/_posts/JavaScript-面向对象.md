@@ -6,12 +6,13 @@ tags:
   - JavaScript
 categories: JavaScript
 ---
-<!-- more -->
 # 面向对象
 
 > 定义
 
 对代码的一种抽象,对外统一提供接口的编程思想
+
+<!-- more -->
 
 > 在 JavaScript 中的实现
 

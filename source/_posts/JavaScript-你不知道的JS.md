@@ -6,7 +6,6 @@ tags:
     - JavaScript
 categories: JavaScript
 ---
-<!-- more -->
 # 作用域
 
 ## 编译原理
@@ -14,6 +13,8 @@ categories: JavaScript
 > 分词/词法分析(Tokenizing/Lexing)
 
 字符组成的字符串分解成对(对编程语言)有意义代码块,这些代码块称为**词法单元**(token)
+
+<!-- more -->
 
 ```javascript
 var a = 2;

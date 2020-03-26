@@ -7,8 +7,10 @@ tags:
   - 阿里云
 categories: 服务器
 ---
-<!-- more -->
+
 ## 安装 Git(服务端)
+
+<!-- more -->
 
 ```
 $ yum install git

@@ -6,10 +6,11 @@ tags:
   - JavaScript
 categories: JavaScript
 ---
-<!-- more -->
 # 变量,作用域,内存
 
 ## 变量
+
+<!-- more -->
 
 > 数据
 

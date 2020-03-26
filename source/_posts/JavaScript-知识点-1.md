@@ -4,10 +4,11 @@ date: 2018-10-17 17:39:48
 tags: JavaScript
 categories: JavaScript
 ---
-<!-- more -->
 # 回顾基础
 
 ## 基础语法的回顾
+
+<!-- more -->
 
 ### Math.random()
 

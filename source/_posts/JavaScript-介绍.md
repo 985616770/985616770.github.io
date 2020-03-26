@@ -4,7 +4,6 @@ date: 2018-06-01 14:38:47
 tags: JavaScript
 categories: JavaScript
 ---
-<!-- more -->
 **JavaScript 编程语言**
 
 ## **流程控制**

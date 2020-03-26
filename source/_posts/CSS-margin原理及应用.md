@@ -7,8 +7,9 @@ tags:
     - margin
 categories: CSS
 ---
-<!-- more -->
 今天看到圣杯，双飞翼，就想搞懂 margin 的原理，以前一直避而不谈。
+
+<!-- more -->
 
 # 什么是 margin
 
