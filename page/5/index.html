@@ -376,7 +376,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-26 16:13:48" itemprop="dateModified" datetime="2020-03-26T16:13:48+08:00">2020-03-26</time>
+                <time title="修改时间：2020-03-26 17:34:13" itemprop="dateModified" datetime="2020-03-26T17:34:13+08:00">2020-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -399,107 +399,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-<h2 id="安装-Git-服务端"><a href="#安装-Git-服务端" class="headerlink" title="安装 Git(服务端)"></a>安装 Git(服务端)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install git</span><br></pre></td></tr></table></figure>
-
-<p>8、查看 git 版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="安装-hexo-window"><a href="#安装-hexo-window" class="headerlink" title="安装 hexo(window)"></a>安装 hexo(window)</h2><p>先切换镜像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># npm config set registry http:&#x2F;&#x2F;registry.npm.taobao.org&#x2F;</span><br><span class="line">更换</span><br><span class="line"># npm get registry</span><br><span class="line">查看地址</span><br></pre></td></tr></table></figure>
-
-<p>安装完上面两项后，只需要使用 npm 即可完成 Hexo 的安装:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli #全局安装hexo</span><br></pre></td></tr></table></figure>
-
-<p>安装完成后，新建博客文件夹并初始化 hexo 文件夹：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir &lt;floder&gt;</span><br><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-
-<p>hexo 的操作比较简单 自行看文档</p>
-<h2 id="git-创建-服务端"><a href="#git-创建-服务端" class="headerlink" title="git 创建(服务端)"></a>git 创建(服务端)</h2><h3 id="创建-git-用户"><a href="#创建-git-用户" class="headerlink" title="创建 git 用户"></a>创建 git 用户</h3><p><strong>1.创建一个 git 用户，并根据提示设置密码，用来专门运行 git 服务:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ adduser git</span><br></pre></td></tr></table></figure>
-
-<p><strong>2.赋予 git 用户 sudo 权限</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 740 &#x2F;etc&#x2F;sudoers</span><br><span class="line">$ vim &#x2F;etc&#x2F;sudoers #编辑文档</span><br></pre></td></tr></table></figure>
-
-<p>找到以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## Allow root to run any commands anywhere</span><br><span class="line">root    ALL&#x3D;(ALL)     ALL</span><br></pre></td></tr></table></figure>
-
-<p>在下面添加一行：<br><code>git ALL=(ALL) ALL</code></p>
-<p>保存退出后改回权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 400 &#x2F;etc&#x2F;sudoers</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.切换用户，配置 SSH</strong></p>
-<p>使用 <code>su git</code> 切换到 git 用户，再执行下列操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 切换到git用户目录</span><br><span class="line">$ cd &#x2F;home&#x2F;git</span><br><span class="line"># 创建.ssh文件夹</span><br><span class="line">$ mkdir ~&#x2F;.ssh</span><br><span class="line"># 创建authorized_keys文件并编辑</span><br><span class="line">$ vim ~&#x2F;.ssh&#x2F;authorized_keys</span><br><span class="line"># 如果你还没有生成公钥，那么首先在本地电脑中执行 cat ~&#x2F;.ssh&#x2F;id_rsa.pub | pbcopy生成公钥</span><br><span class="line"># 再将公钥复制粘贴到authorized_keys</span><br><span class="line"># 保存关闭authorized_keys后，修改相应权限</span><br><span class="line">$ chmod 700 ~&#x2F;.ssh</span><br><span class="line">$ chmod 600 ~&#x2F;.ssh&#x2F;authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>然后可以通过本地 Git Bash 执行 ssh 命令测试是否可以免密登录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -v git@服务器ip地址:端口</span><br></pre></td></tr></table></figure>
-
-<p>这样 git 用户就添加好了。</p>
-<h3 id="建立-git-裸库"><a href="#建立-git-裸库" class="headerlink" title="建立 git 裸库"></a>建立 git 裸库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 回到git目录</span><br><span class="line">$ cd &#x2F;home&#x2F;git</span><br><span class="line"># 使用git用户创建git裸仓库，以blog.git为例</span><br><span class="line">$ git init --bare blog.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="检查用户组权限"><a href="#检查用户组权限" class="headerlink" title="检查用户组权限"></a>检查用户组权限</h3><p>我们的 git 裸仓库已经建立好了，离成功又近了一步。为了以防万一，我们要检查一下之前的 blog.git、.ssh、blog 目录的用户组权限是否都为 git:git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 还记得&#x2F;var&#x2F;www&#x2F;吗？这是之前配置nginx时，我们自己选定的网站根目录，请依据你自己的设置更改</span><br><span class="line">ll -a &#x2F;var&#x2F;www&#x2F;</span><br><span class="line">ll -a &#x2F;home&#x2F;git&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p>如果有哪个不是，执行下面相应的命令后再查看</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown git:git -R &#x2F;var&#x2F;www&#x2F;blog</span><br><span class="line">sudo chown git:git -R &#x2F;home&#x2F;git&#x2F;blog.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用-git-hooks-同步网站根目录"><a href="#使用-git-hooks-同步网站根目录" class="headerlink" title="使用 git-hooks 同步网站根目录"></a>使用 git-hooks 同步网站根目录</h3><p>简单来说，我们使用一个钩子文件：<code>post-receive</code>，每当 git 仓库接收到内容的时候，就会自动调用这个钩子，把内容同步到网站根目录。</p>
-<p>在 git 用户下执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 新建一个post-receive文件并编辑</span><br><span class="line">$ vim ~&#x2F;blog.git&#x2F;hooks&#x2F;post-receive</span><br></pre></td></tr></table></figure>
-
-<p>在里面输入以下内容，注意修改为自己的设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;sh</span><br><span class="line">git --work-tree&#x3D;&#x2F;data&#x2F;www&#x2F;blog --git-dir&#x3D;&#x2F;home&#x2F;git&#x2F;blog.git checkout -f</span><br></pre></td></tr></table></figure>
-
-<p>保存退出后，执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x post-receive</span><br></pre></td></tr></table></figure>
-
-<p>赋予这个文件可执行权限。</p>
-<p>好了，以上就是服务器端需要配置的内容。我们还差最后一步就可以完成整个部署了！</p>
-<h2 id="安装-ngnix"><a href="#安装-ngnix" class="headerlink" title="安装 ngnix"></a>安装 ngnix</h2><p>域名和服务器准备好之后，就是安装网站容器了，我选择的是 nginx。nginx 的安装过程非常简单，nginx 的安装有两种方式，一种是采用源代码安装，一种是采用安装包。我图省事采用了安装包安装，nginx 安装步骤如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y install nginx</span><br></pre></td></tr></table></figure>
-
-<p>在执行了以上的命令之后，就安装成功了，有木有很简单，安装成功后，输入启动命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl start nginx.service #启动</span><br></pre></td></tr></table></figure>
-
-<p>访问你的机器 ip，如果看到如下页面，就说明已经安装成功了。</p>
-<p>编辑 ngnix 服务器配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi &#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80 default_server;</span><br><span class="line">    listen       [::]:80 default_server;</span><br><span class="line">    # 网站域名 配置自己的域名即可</span><br><span class="line">    server_name  xjdd.xyz www.xjdd.xyz;</span><br><span class="line">    # 网站目录 自定义目录即可</span><br><span class="line">    root         &#x2F;var&#x2F;www&#x2F;blog;</span><br><span class="line">    index        index.html index.htm index.txt;</span><br><span class="line"></span><br><span class="line">    # Load configuration files for the default server block.</span><br><span class="line">    include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page 404 &#x2F;404.html;</span><br><span class="line">        location &#x3D; &#x2F;40x.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page 500 502 503 504 &#x2F;50x.html;</span><br><span class="line">        location &#x3D; &#x2F;50x.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ngnix命令</span><br><span class="line">service nginx restart #重启服务器</span><br><span class="line">systemctl start nginx.service #启动服务器</span><br><span class="line">nginx -t #测试</span><br><span class="line">$ sudo nginx -t  #查看nginx配置路径，宝塔面板安装nginx非下列路径</span><br><span class="line">$ sudo vim &#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置本地-Hexo-的-config-yml"><a href="#配置本地-Hexo-的-config-yml" class="headerlink" title="配置本地 Hexo 的_config.yml"></a>配置本地 Hexo 的_config.yml</h2><p>非常简单，只需要找到本地 Hexo 博客的站点配置文件_config.yml，找到以下内容并修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@你的服务器IP:&#x2F;home&#x2F;git&#x2F;blog.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<p>保存后，剩下的就是 Hexo 的日常操作了，这里就不赘述了，写完文章后，在你的本地博客根目录执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-
-<p>就可以实现线上博客的自动更新了！一切搞定！</p>
-<h2 id="一些注意点和小坑"><a href="#一些注意点和小坑" class="headerlink" title="一些注意点和小坑"></a>一些注意点和小坑</h2><p>很多时候我们没这么幸运，博客搭建过程中总会出现无数的坑。</p>
-<h3 id="CentOS-和-Ubuntu"><a href="#CentOS-和-Ubuntu" class="headerlink" title="CentOS 和 Ubuntu"></a>CentOS 和 Ubuntu</h3><p>如果你的 VPS 系统是 Ubuntu，那么<code>yum</code>命令肯定要换成<code>apt-get</code>。</p>
-<blockquote>
-<p>一般来说著名的 linux 系统基本上分两大类：<br>1.RedHat 系列：Redhat、Centos、Fedora 等<br>2.Debian 系列：Debian、Ubuntu 等<br>RedHat 系列<br>1 常见的安装包格式 rpm 包,安装 rpm 包的命令是“rpm -参数”<br>2 包管理工具 yum<br>3 支持 tar 包<br>Debian 系列<br>1 常见的安装包格式 deb 包,安装 deb 包的命令是“dpkg -参数”<br>2 包管理工具 apt-get<br>3 支持 tar 包</p>
-</blockquote>
-<h3 id="vim-command-not-found"><a href="#vim-command-not-found" class="headerlink" title="vim: command not found"></a>vim: command not found</h3><p>系统自带的 vim 未正确安装</p>
-<p>输入<code>rpm -qa|grep vim</code>命令, 如果 vim 已经正确安裝,会返回下面的三行代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@server1 [~]# rpm -qa|grep vim</span><br><span class="line">vim-enhanced-7.0.109-7.el5</span><br><span class="line">vim-minimal-7.0.109-7.el5</span><br><span class="line">vim-common-7.0.109-7.el5</span><br></pre></td></tr></table></figure>
-
-<p>如果少了其中的某一条,比如<code>vim-enhanced</code>,就用命令<code>yum -y install vim-enhanced</code>来安裝缺少的那一个。</p>
-<p>如果上面的三条一条都沒有返回, 那就直接用<code>yum -y install vim*</code>命令吧！</p>
-<h3 id="Permission-denied"><a href="#Permission-denied" class="headerlink" title="Permission denied"></a>Permission denied</h3><p>如果 git 用户出现类似权限不够被拒绝访问的问题，直接试试使用 sudo 权限吧！</p>
-<p>例如：在创建文件夹的时候出现权限不够的问题，最简单的解决方法就是<code>sudo mkdir 文件夹名</code></p>
-<p>但还是具体问题具体分析，多多谷歌。</p>
-<h3 id="一切正常，但-deploy-后网页无法显示"><a href="#一切正常，但-deploy-后网页无法显示" class="headerlink" title="一切正常，但 deploy 后网页无法显示"></a>一切正常，但 deploy 后网页无法显示</h3><p>首先要查看一下服务器网站根目录下是否有 Hexo 的静态文件。</p>
-<p>如果没有，说明 git 配置出现问题，再仔细查找配置上的原因。</p>
-<p>如果已经传入了静态文件，说明可能是服务器 nginx 等环境配置出现问题，这种情况排查起来比较困难，一个简单粗暴的办法就是试试一键安装 LNMP(安装方法请自行百度+谷歌)。</p>
-<blockquote>
-<p>LNMP 代表的就是：Linux 系统下 Nginx+MySQL+PHP 这种网站服务器架构<br>同样还有 LAMP，它代表的是 Linux+Apache+Mysql/MariaDB+Perl/PHP/Python</p>
-</blockquote>
-
+          <h2 id="安装-Git-服务端"><a href="#安装-Git-服务端" class="headerlink" title="安装 Git(服务端)"></a>安装 Git(服务端)</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/10/30/%E6%9C%8D%E5%8A%A1%E5%99%A8-%E9%98%BF%E9%87%8C%E4%BA%91ecs%20%E5%AE%89%E8%A3%85hexo/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -549,7 +457,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+                <time title="修改时间：2020-03-26 17:36:52" itemprop="dateModified" datetime="2020-03-26T17:36:52+08:00">2020-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -572,275 +480,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-<h1 id="回顾基础"><a href="#回顾基础" class="headerlink" title="回顾基础"></a>回顾基础</h1><h2 id="基础语法的回顾"><a href="#基础语法的回顾" class="headerlink" title="基础语法的回顾"></a>基础语法的回顾</h2><h3 id="Math-random"><a href="#Math-random" class="headerlink" title="Math.random()"></a>Math.random()</h3><p>产生的是 [0,1) 左闭右开区间 eg:JS 原生 设置密码:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Uint32Array</span>(<span class="number">10</span>);</span><br><span class="line"><span class="built_in">window</span>.crypto.getRandomValues(array);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Your lucky numbers:'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(array[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<!-- more -->
-
-<blockquote>
-<p>拓展知识:</p>
-</blockquote>
-<h3 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a>arguments</h3><p>伪数组对象 是一个对应于传递给函数的参数的类数组<strong>对象</strong>,类数组是除了 length 属性和索引元素外没有任何 Array 的方法.</p>
-<ul>
-<li><p>应用的方面 : 用与传入不确定的参数 可以遍历和输出 eg:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myConcat</span>(<span class="params">separator</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> args.join(separator);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// returns "red, orange, blue"</span></span><br><span class="line">myConcat(<span class="string">", "</span>, <span class="string">"red"</span>, <span class="string">"orange"</span>, <span class="string">"blue"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>*高级方面待了解:剩余参数、默认参数和解构赋值参数—-</p>
-<blockquote>
-<p>引申的知识 :</p>
-<blockquote>
-<blockquote>
-<ul>
-<li><code>Array.from()</code> =&gt; 转换伪数组为真正的数组(ES6)</li>
-<li>第二种转换 […arguments] 拓展运算符(ES6)</li>
-<li>JavaScript 的签名 : JS 是一种类型松散或动态语言,意味着不必提前声明变量的类型.,类型会在程序员处理时确定.签名是提供该方法的一些信息.</li>
-<li></li>
-</ul>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<h3 id="call-bind-apply"><a href="#call-bind-apply" class="headerlink" title="call(), bind(), apply()"></a>call(), bind(), apply()</h3><ol>
-<li><p>call(thisArg, arg1, arg2, …) 转换 this 的指向 (第一个参数为 null 或者 undefined 会指向全局对象)</p>
-<p>apply(this,[arg1,arg2,…])</p>
-</li>
-<li><p>允许我们明确指定方法中的 this 指向</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &lt;button&gt;Get Random Person&lt;/button&gt;</span></span><br><span class="line"><span class="comment">// &lt;input type="text"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    data        :[</span><br><span class="line">        &#123;<span class="attr">name</span>:<span class="string">"T. Woods"</span>, <span class="attr">age</span>:<span class="number">37</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">name</span>:<span class="string">"P. Mickelson"</span>, <span class="attr">age</span>:<span class="number">43</span>&#125;</span><br><span class="line">    ],</span><br><span class="line">    clickHandler:<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> randomNum = ((<span class="built_in">Math</span>.random () * <span class="number">2</span> | <span class="number">0</span>) + <span class="number">1</span>) - <span class="number">1</span>; <span class="comment">// random number between 0 and 1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 从 data 数组中随机选取一个名字填入 input 框内</span></span><br><span class="line">        $(<span class="string">"input"</span>).val(<span class="keyword">this</span>.data[randomNum].name + <span class="string">" "</span> + <span class="keyword">this</span>.data[randomNum].age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给点击事件添加一个事件处理器</span></span><br><span class="line">$(<span class="string">"button"</span>).click(user.clickHandler);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>.实现函数借用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cars 对象</span></span><br><span class="line"><span class="keyword">var</span> cars = &#123;</span><br><span class="line">  data: [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">'Honda Accord'</span>, <span class="attr">age</span>: <span class="number">14</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">'Tesla Model S'</span>, <span class="attr">age</span>: <span class="number">2</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们从之前定义的 user 对象借用 showData 方法</span></span><br><span class="line"><span class="comment">// 这里我们将 user.showData 方法绑定到刚刚新建的 cars 对象上</span></span><br><span class="line">cars.showData = user.showData.bind(cars);</span><br><span class="line">cars.showData(); <span class="comment">// Honda Accord 14</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>柯里化(curry)</p>
-<p>柯里化的概念很简单, 只传递给函数一部分参数来调用它, 让它返回一个函数去处理剩下的参数. 你可以一次性地调用 curry 函数, 也可以每次只传一个参数分多次调用, 以下为一个简单的示例. - <a href="https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch4.html" target="_blank" rel="noopener">JS 函数是编程指南 第 4 章: 柯里化（curry）</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> increment = add(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">var</span> addTen = add(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">increment(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">addTen(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
-
-<p>现在, 我们使用 bind() 方法来实现函数的柯里化. 我们首先定义一个接收三个参数的 greet() 函数:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">gender, age, name</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// if a male, use Mr., else use Ms.</span></span><br><span class="line">  <span class="keyword">var</span> salutation = gender === <span class="string">'male'</span> ? <span class="string">'Mr. '</span> : <span class="string">'Ms. '</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (age &gt; <span class="number">25</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello, '</span> + salutation + name + <span class="string">'.'</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hey, '</span> + name + <span class="string">'.'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在 greet 函数中我们可以传递 null, 因为函数中并未使用到 this 关键字</span></span><br><span class="line"><span class="keyword">var</span> greetAnAdultMale = greet.bind(<span class="literal">null</span>, <span class="string">'male'</span>, <span class="number">45</span>);</span><br><span class="line"></span><br><span class="line">greetAnAdultMale(<span class="string">'John Hartlove'</span>); <span class="comment">// "Hello, Mr. John Hartlove."</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> greetAYoungster = greet.bind(<span class="literal">null</span>, <span class="string">''</span>, <span class="number">16</span>);</span><br><span class="line">greetAYoungster(<span class="string">'Alex'</span>); <span class="comment">// "Hey, Alex."</span></span><br><span class="line">greetAYoungster(<span class="string">'Emma Waterloo'</span>); <span class="comment">// "Hey, Emma Waterloo."</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>利用 call 调用数组的方法使用数组方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Make a quick copy and save the results in a real array:</span></span><br><span class="line"><span class="comment">// First parameter sets the "this" value</span></span><br><span class="line"><span class="keyword">var</span> newArray = <span class="built_in">Array</span>.prototype.slice.call(anArrayLikeObj, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(newArray); <span class="comment">// ["Martin", 78, 67, Array[3]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Search for "Martin" in the array-like object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.indexOf.call(anArrayLikeObj, <span class="string">"Martin"</span>) === <span class="number">-1</span> ? <span class="literal">false</span> : <span class="literal">true</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Try using an Array method without the call () or apply ()</span></span><br><span class="line"><span class="built_in">console</span>.log(anArrayLikeObj.indexOf(<span class="string">"Martin"</span>) === <span class="number">-1</span> ? <span class="literal">false</span> : <span class="literal">true</span>); <span class="comment">// Error: Object has no method 'indexOf'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Reverse the object:</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.reverse.call(anArrayLikeObj));</span><br><span class="line"><span class="comment">// &#123;0: Array[3], 1: 67, 2: 78, 3: "Martin", length: 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Sweet. We can pop too:</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.pop.call(anArrayLikeObj));</span><br><span class="line"><span class="built_in">console</span>.log(anArrayLikeObj); <span class="comment">// &#123;0: Array[3], 1: 67, 2: 78, length: 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// What about push?</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.push.call(anArrayLikeObj, <span class="string">"Jackie"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(anArrayLikeObj); <span class="comment">// &#123;0: Array[3], 1: 67, 2: 78, 3: "Jackie", length: 4&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当我们使用 apply 或者 call 时, 传入的第一个参数为目标函数中 this 指向的对象, 以下为一个简单的例子:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局变量</span></span><br><span class="line"><span class="keyword">var</span> avgScore = <span class="string">"global avgScore"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">avg</span>(<span class="params">arrayOfScores</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 分数相加并返回结果</span></span><br><span class="line">    <span class="keyword">var</span> sumOfScores = arrayOfScores.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur, index, array</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> prev + cur;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里的 "this" 会被绑定到全局对象上, 除非使用 Call 或者 Apply 明确指定 this 的指向</span></span><br><span class="line">    <span class="keyword">this</span>.avgScore = sumOfScores / arrayOfScores.length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> gameController = &#123;</span><br><span class="line">    scores  :[<span class="number">20</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">46</span>, <span class="number">77</span>],</span><br><span class="line">    avgScore:<span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用 avg 函数, this 指向 window 对象</span></span><br><span class="line">avg(gameController.scores);</span><br><span class="line"><span class="comment">// 证明 avgScore 已经被设置为 window 对象的属性</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.avgScore); <span class="comment">// 46.4</span></span><br><span class="line"><span class="built_in">console</span>.log(gameController.avgScore); <span class="comment">// null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 重置全局变量</span></span><br><span class="line">avgScore = <span class="string">"global avgScore"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 call() 方法明确将 "this" 绑定到 gameController 对象</span></span><br><span class="line">avg.call(gameController, gameController.scores);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.avgScore); <span class="comment">// 全局变量 avgScore 的值</span></span><br><span class="line"><span class="built_in">console</span>.log(gameController.avgScore); <span class="comment">// 46.4</span></span><br></pre></td></tr></table></figure>
-
-<p>以上例子中 call() 中的第一个参数明确了 this 的指向, 第二参数被传递给了 avg() 函数.</p>
-</li>
-<li><p>在回调函数中用 call 或者 apply 设置 this</p>
-<p>以下为一个例子, 这种做法允许我们在执行 callback 函数时能够明确 其内部的 this 指向以下为一个例子, 这种做法允许我们在执行 callback 函数时能够明确 其内部的 this 指向</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个方法</span></span><br><span class="line"><span class="keyword">var</span> clientData = &#123;</span><br><span class="line">  id: <span class="number">094545</span>,</span><br><span class="line">  fullName: <span class="string">'Not Set'</span>,</span><br><span class="line">  <span class="comment">// clientData 对象中的一个方法</span></span><br><span class="line">  setUserName: <span class="function"><span class="keyword">function</span>(<span class="params">firstName, lastName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.fullName = firstName + <span class="string">' '</span> + lastName;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUserInput</span>(<span class="params">firstName, lastName, callback, callbackObj</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 使用 apply 方法将 "this" 绑定到 callbackObj 对象</span></span><br><span class="line">  callback.apply(callbackObj, [firstName, lastName]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getUserInput(<span class="string">'Barack'</span>, <span class="string">'Obama'</span>, clientData.setUserName, clientData);</span><br><span class="line"><span class="built_in">console</span>.log(clientData.fullName); <span class="comment">// Barack Obama</span></span><br></pre></td></tr></table></figure>
-
-<p>递给 callback 函数 中的参数将会在 clientData 对象中被设置/更新.</p>
-</li>
-<li><p>使用 Apply 或者 Call 借用函数</p>
-<p>相比 bind 方法, 我们使用 apply 或者 call 方法实现函数借用能够有很大的施展空间. 接下来我们考虑从 Array 中借用方法的问题, 让我们定义一个<strong>类数组对象(array-like object)</strong>然后从数组中借用方法来处理我们定义的这个对象, 不过在这之前请记住我们要操作的是一个对象, 而不是数组;</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// An array-like object: note the non-negative integers used as keys</span></span><br><span class="line"><span class="keyword">var</span> anArrayLikeObj = &#123;</span><br><span class="line">  <span class="number">0</span>: <span class="string">'Martin'</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="number">78</span>,</span><br><span class="line">  <span class="number">2</span>: <span class="number">67</span>,</span><br><span class="line">  <span class="number">3</span>: [<span class="string">'Letta'</span>, <span class="string">'Marieta'</span>, <span class="string">'Pauline'</span>],</span><br><span class="line">  length: <span class="number">4</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// Make a quick copy and save the results in a real array:</span></span><br><span class="line"><span class="comment">// First parameter sets the "this" value</span></span><br><span class="line"><span class="keyword">var</span> newArray = <span class="built_in">Array</span>.prototype.slice.call(anArrayLikeObj, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(newArray); <span class="comment">// ["Martin", 78, 67, Array[3]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Search for "Martin" in the array-like object</span></span><br><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">  <span class="built_in">Array</span>.prototype.indexOf.call(anArrayLikeObj, <span class="string">'Martin'</span>) === <span class="number">-1</span></span><br><span class="line">    ? <span class="literal">false</span></span><br><span class="line">    : <span class="literal">true</span></span><br><span class="line">); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Try using an Array method without the call () or apply ()</span></span><br><span class="line"><span class="built_in">console</span>.log(anArrayLikeObj.indexOf(<span class="string">'Martin'</span>) === <span class="number">-1</span> ? <span class="literal">false</span> : <span class="literal">true</span>); <span class="comment">// Error: Object has no method 'indexOf'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Reverse the object:</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.reverse.call(anArrayLikeObj));</span><br><span class="line"><span class="comment">// &#123;0: Array[3], 1: 67, 2: 78, 3: "Martin", length: 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Sweet. We can pop too:</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.pop.call(anArrayLikeObj));</span><br><span class="line"><span class="built_in">console</span>.log(anArrayLikeObj); <span class="comment">// &#123;0: Array[3], 1: 67, 2: 78, length: 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// What about push?</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.push.call(anArrayLikeObj, <span class="string">'Jackie'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(anArrayLikeObj); <span class="comment">// &#123;0: Array[3], 1: 67, 2: 78, 3: "Jackie", length: 4&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>arguments</strong> 对象是所有 JavaScript 函数中的一个类数组对象, 因此 call() 和 apply() 的一个最常用的用法是从 arguments 中提取参数并将其传递给一个函数.</p>
-<p>以下为 Ember.js 源码中的一部分, 加上了我的一些注释:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transitionTo</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 因为 arguments 是一个类数组对象, 所以我们可以使用 slice()来处理它</span></span><br><span class="line">  <span class="comment">// 参数 "1" 表示我们返回一个从下标为1到结尾元素的数组</span></span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加该行代码用于查看 args 的值</span></span><br><span class="line">  <span class="built_in">console</span>.log(args);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注释本例不需要使用到的代码</span></span><br><span class="line">  <span class="comment">//doTransition(this, name, this.updateURL, args);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用案例</span></span><br><span class="line">transitionTo(<span class="string">'contact'</span>, <span class="string">'Today'</span>, <span class="string">'20'</span>); <span class="comment">// ["Today", "20"]</span></span><br></pre></td></tr></table></figure>
-
-<p>考虑到字符串是不可变的, 如果使用 apply 或者 call 方法借用字符串的方法, 不可变的数组操作对他们来说才是有效的, 所以你不能使用类似 reverse 或者 pop 等等这类的方法.,可以借用我们自定义的方法</p>
-</li>
-<li><p>使用 apply() 执行参数可变的函数</p>
-<p>关于 Apply, Call 和 Bind 方法的多功能性和实用性, 我们将讨论一下 Apply 方法的一个很简单的功能: 使用参数数组执行函数.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> students = [</span><br><span class="line">  <span class="string">'Peter Alexander'</span>,</span><br><span class="line">  <span class="string">'Michael Woodruff'</span>,</span><br><span class="line">  <span class="string">'Judy Archer'</span>,</span><br><span class="line">  <span class="string">'Malcolm Khan'</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不定义参数, 因为我们可以传递任意多个参数进入该函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">welcomeStudents</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> lastItem = args.pop();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Welcome '</span> + args.join(<span class="string">', '</span>) + <span class="string">', and '</span> + lastItem + <span class="string">'.'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">welcomeStudents.apply(<span class="literal">null</span>, students);</span><br><span class="line"><span class="comment">// Welcome Peter Alexander, Michael Woodruff, Judy Archer, and Malcolm Khan.</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>bind 是返回对应函数, 便于稍后调用; apply, call 则是立即调用</p>
-</li>
-<li><p>, 在 ES6 的箭头函数下, call 和 apply 的失效, 对于箭头函数来说:</p>
-<ul>
-<li>函数体内的 this 对象, 就是定义时所在的对象, 而不是使用时所在的对象;</li>
-<li>不可以当作构造函数, 也就是说不可以使用 new 命令, 否则会抛出一个错误;</li>
-<li>不可以使用 arguments 对象, 该对象在函数体内不存在. 如果要用, 可以用 Rest 参数代替;</li>
-<li>不可以使用 yield 命令, 因此箭头函数不能用作 Generator 函数;</li>
-</ul>
-</li>
-</ol>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
-<li><p>全局作用域:全局能使用的函数</p>
-</li>
-<li><p>局部作用域:只能在函数内部使用的</p>
-</li>
-<li><p>块级作用域: ES6 const let 花括号内使用的</p>
-</li>
-<li><p>隐式全局变量: 能被删除,未使用 var</p>
-</li>
-<li><p>作用域链: script 标签为零级作用域,函数嵌套,嵌套越深层级值越大,零级最大</p>
-</li>
-<li><p>预解析(变量提升) : 解析代码,会将声明提前,只能在当前的 script 标签中,只是提升说明,不会初始化,如果提前调用,报 undefined</p>
-</li>
-</ul>
-<h3 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h3><p>亲力亲为,注重过程.</p>
-<h3 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h3><p>需求找对象,注重结果.</p>
-<p><strong>特性</strong> :</p>
-<ul>
-<li><p><strong>命名空间</strong> :使用命名空间也最大程度地减少应用程序的名称冲突的可能性。</p>
-</li>
-<li><p><strong>类</strong> : JavaScript 是一种基于原型的语言，它没类的声明语句</p>
-</li>
-<li><p><strong>封装</strong> :对于所有继承自父类的方法，只需要在子类中定义那些你想改变的即可。</p>
-</li>
-<li><p><strong>对象</strong> :我们使用 new obj 创建对象 obj 的新实例, 将结果（obj 类型）赋值给一个变量方便稍后调用。</p>
-</li>
-<li><p><strong>构造器</strong> :在实例化时构造器被调用 (也就是对象实例被创建时)。构造器是对象中的一个方法。</p>
-</li>
-<li><p><strong>属性</strong> (对象属性) : 属性就是 类中包含的变量;每一个对象实例有若干个属性. 为了正确的继承，属性应该被定义在类的原型属性 (函数)中。</p>
-</li>
-<li><p><strong>方法</strong> (对象属性): 方法与属性很相似， 不同的是：一个是函数，另一个可以被定义为函数。</p>
-</li>
-<li><p><strong>继承</strong>: 单继承,创建的专门版本的类通常叫做子类，另外的类通常叫做父类。</p>
-</li>
-<li><p><strong>多态</strong> : 不同的类可以定义具有相同名称的方法;方法是作用于所在的类中。并且这仅在两个类不是父子关系时成立（继承链中，一个类不是继承自其他类）。</p>
-</li>
-<li><p><strong>抽象</strong> : 通过继承（具体化）或组合来实现。JavaScript 通过继承实现具体化，通过让类的实例是其他对象的属性值来实现组合。</p>
-</li>
-</ul>
-<p>继承的实现</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义Person构造器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstName = firstName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在Person.prototype中加入方法</span></span><br><span class="line">Person.prototype.walk = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">"I am walking!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  alert(<span class="string">"Hello, I'm "</span> + <span class="keyword">this</span>.firstName);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义Student构造器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">firstName, subject</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 调用父类构造器, 确保(使用Function#call)"this" 在调用过程中设置正确</span></span><br><span class="line">  Person.call(<span class="keyword">this</span>, firstName);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化Student类特有属性</span></span><br><span class="line">  <span class="keyword">this</span>.subject = subject;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 建立一个由Person.prototype继承而来的Student.prototype对象.</span></span><br><span class="line"><span class="comment">// 注意: 常见的错误是使用 "new Person()"来建立Student.prototype.</span></span><br><span class="line"><span class="comment">// 这样做的错误之处有很多, 最重要的一点是我们在实例化时</span></span><br><span class="line"><span class="comment">// 不能赋予Person类任何的FirstName参数</span></span><br><span class="line"><span class="comment">// 调用Person的正确位置如下，我们从Student中来调用它</span></span><br><span class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.prototype); <span class="comment">// See note below</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置"constructor" 属性指向Student</span></span><br><span class="line">Student.prototype.constructor = Student;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更换"sayHello" 方法</span></span><br><span class="line">Student.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello, I'm "</span> + <span class="keyword">this</span>.firstName + <span class="string">". I'm studying "</span> + <span class="keyword">this</span>.subject + <span class="string">"."</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入"sayGoodBye" 方法</span></span><br><span class="line">Student.prototype.sayGoodBye = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Goodbye!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试实例:</span></span><br><span class="line"><span class="keyword">var</span> student1 = <span class="keyword">new</span> Student(<span class="string">"Janet"</span>, <span class="string">"Applied Physics"</span>);</span><br><span class="line">student1.sayHello();   <span class="comment">// "Hello, I'm Janet. I'm studying Applied Physics."</span></span><br><span class="line">student1.walk();       <span class="comment">// "I am walking!"</span></span><br><span class="line">student1.sayGoodBye(); <span class="comment">// "Goodbye!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Check that instanceof works correctly</span></span><br><span class="line"><span class="built_in">console</span>.log(student1 <span class="keyword">instanceof</span> Person);  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(student1 <span class="keyword">instanceof</span> Student); <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 是不是属于该变量的方法 1. instanceof</span></span><br><span class="line"><span class="comment">//2.person.hasOwnProperty('name')；//</span></span><br><span class="line"><span class="comment">// 3. in 操作符  'name' in person</span></span><br><span class="line"><span class="comment">// 4. Object.keys()</span></span><br></pre></td></tr></table></figure>
-
-<p>红宝书的各种方式:</p>
-<ol>
-<li><p><strong>调用构造函数</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj.name = <span class="string">'sss'</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>工厂模式</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">creatPerson</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">  o.name = name;</span><br><span class="line">  <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = creatPerson(<span class="string">'sssa'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person.name);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>字面量创建对象</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.name = <span class="string">'sss'</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>​ 缺陷一次性的对象</p>
-<p><strong>使用构造函数创建对象</strong></p>
-<ol>
-<li>在内存中开辟空间申请一块空闲的空间,创建新的对象</li>
-<li>将构造函数的作用域赋给新对象,this 指向当前的对象</li>
-<li>设置对象属性和方法的值</li>
-<li>返回新的对象</li>
-</ol>
-<p><strong>获取和设置对象属性和方法</strong></p>
-<ol>
-<li>点法 eg :obj.属性</li>
-<li>obj[‘属性’]</li>
-</ol>
-<h3 id="json-格式的数据"><a href="#json-格式的数据" class="headerlink" title="json 格式的数据"></a>json 格式的数据</h3><ol>
-<li>两头都是双引号</li>
-<li>键值对</li>
-<li>没有注释</li>
-<li>是对象</li>
-</ol>
-<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><h4 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a><strong>基本类型</strong></h4><ul>
-<li>Number</li>
-<li>String</li>
-<li>Boolean</li>
-<li>Symbol(ES6)</li>
-<li>Undefined</li>
-<li>Null</li>
-</ul>
-<p><strong>约定</strong>：基本数据类型与原始数据类型等意。</p>
-<ol>
-<li><p>基本类型的值是不可变的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"123hello321"</span>;</span><br><span class="line">str.toUpperCase();     <span class="comment">// 123HELLO321</span></span><br><span class="line"><span class="built_in">console</span>.log(str);      <span class="comment">// 123hello321</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>基本类型的比较是它们的值的比较</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a == b);    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(a === b);   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<p>A 与 B 数据类型不同,但是也可以进行值的比较,是因为自动进行数据类型的<strong>隐式转换</strong>.</p>
-<ul>
-<li><code>==</code> : 只进行值的比较</li>
-<li><code>===</code> : 不仅进行值得比较，还要进行数据类型的比较</li>
-</ul>
-<ol start="3">
-<li><p>基本类型的变量是放在栈(stack)内存中的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a,b;</span><br><span class="line">a = <span class="string">"玄机"</span>;</span><br><span class="line">b = a;</span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">// 玄机</span></span><br><span class="line"><span class="built_in">console</span>.log(b);   <span class="comment">// 玄机</span></span><br><span class="line">a = <span class="string">"呵呵"</span>;       <span class="comment">// 改变 a 的值，并不影响 b 的值</span></span><br><span class="line"><span class="built_in">console</span>.log(a);   <span class="comment">// 呵呵</span></span><br><span class="line"><span class="built_in">console</span>.log(b);   <span class="comment">// 玄机</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a><strong>引用类型</strong></h4><ul>
-<li>Object(统称)</li>
-<li>Array</li>
-<li>Date</li>
-<li>RegExp</li>
-<li>Function</li>
-</ul>
-<ol>
-<li><p>引用类型的值是可变的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">"玄机"</span>&#125;;   <span class="comment">// 创建一个对象</span></span><br><span class="line">obj.name = <span class="string">"percy"</span>;       <span class="comment">// 改变 name 属性的值</span></span><br><span class="line">obj.age = <span class="number">21</span>;             <span class="comment">// 添加 age 属性</span></span><br><span class="line">obj.giveMeAll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name + <span class="string">" : "</span> + <span class="keyword">this</span>.age;</span><br><span class="line">&#125;;                        <span class="comment">// 添加 giveMeAll 方法</span></span><br><span class="line">obj.giveMeAll();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引用类型的比较是引用的比较</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;&#125;; <span class="comment">// 新建一个空对象 obj1</span></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;&#125;; <span class="comment">// 新建一个空对象 obj2</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1 == obj2); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1 === obj2); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>因为 obj1 和 obj2 分别引用的是存放在堆内存中的 2 个不同的对象，故变量 obj1 和 obj2 的值（引用地址）也是不一样的！</p>
-</blockquote>
-</li>
-<li><p>引用类型的值是保存在堆内存（Heap）中的对象（Object）,与其他编程语言不同，JavaScript 不能直接操作对象的内存空间（堆内存）。所以重新赋值引用的值 不会改变.会创建新的对象,重新指向.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">name</span>:<span class="string">"percy"</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> b;</span><br><span class="line">b = a;</span><br><span class="line">a.name = <span class="string">"玄机"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b.name);    <span class="comment">// 玄机</span></span><br><span class="line">b.age = <span class="number">22</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a.age);     <span class="comment">// 22</span></span><br><span class="line"><span class="keyword">var</span> c = &#123;</span><br><span class="line">  name: <span class="string">"玄机"</span>,</span><br><span class="line">  age: <span class="number">22</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<p>图解如下：</p>
-<ul>
-<li>栈内存中保存了变量标识符和指向堆内存中该对象的指针</li>
-<li>堆内存中保存了对象的内容</li>
-</ul>
-<h4 id="检测类型"><a href="#检测类型" class="headerlink" title="检测类型"></a>检测类型</h4><p>[typeof]经常用来检测一个变量是不是最基本的数据类型</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">a = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// object</span></span><br><span class="line"></span><br><span class="line">a = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// boolean</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">666</span>;</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// number</span></span><br><span class="line"></span><br><span class="line">a = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// string</span></span><br><span class="line"></span><br><span class="line">a = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// symbol</span></span><br><span class="line"></span><br><span class="line">a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// function</span></span><br><span class="line"></span><br><span class="line">a = [];</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// object</span></span><br><span class="line">a = &#123;&#125;;</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// object</span></span><br><span class="line">a = <span class="regexp">/aaa/g</span>;</span><br><span class="line"><span class="keyword">typeof</span> a;    <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="noopener">instanceof</a>：用来判断某个构造函数的 prototype 属性所指向的对象是否存在于另外一个要检测对象的原型链上</p>
-<p>简单说就是判断一个引用类型的变量具体是不是某种类型的对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Object</span>              <span class="comment">// true</span></span><br><span class="line">([]) <span class="keyword">instanceof</span> <span class="built_in">Array</span>               <span class="comment">// true</span></span><br><span class="line">(<span class="regexp">/aa/g</span>) <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>           <span class="comment">// true</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;) <span class="keyword">instanceof</span> <span class="built_in">Function</span>  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><ul>
-<li><p>Boolean</p>
-</li>
-<li><p>Number</p>
-</li>
-<li><p>String</p>
-<p>特殊的行为:具有方法</p>
-<ol>
-<li><p>创建 String 类型的一个实例；</p>
-</li>
-<li><p>在实例上调用指定的方法；</p>
-</li>
-<li><p>销毁这个实例。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'some text'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s2 = s1.substring(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">s1 = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-</li>
-</ul>
-<p>与基本类型的区别主要在于: <strong>对象的生存期</strong></p>
-<p>使用 new 操作符创建的引用类型的实例,在执行流离开当前作用域之前都一直保存在内存中,自动创建的基本包装类型的对象,仅仅存在于一行代码执行瞬间,然后销毁,这意味着不能为运行时的基本类型值添加属性方法.</p>
-<p>布尔表达式的所有对象都会被转为 true;</p>
-<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>栈(地址)</p>
-<p>值传递的是值</p>
-<p>堆(对象)</p>
-<p>引用类型传递的是地址</p>
-<h3 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h3><ul>
-<li><p>内置对象</p>
-<p>Math</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Math.pow(x,y);</span><br><span class="line">返回x的y次幂.</span><br><span class="line">Math.random();</span><br><span class="line">返回0到1之间的伪随机数.</span><br><span class="line">Math.round(x);</span><br><span class="line">返回四舍五入后的整数.</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>Date:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dt = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">dt.getFullYear(); <span class="comment">// 当前年份</span></span><br><span class="line">dt.getMonth(); <span class="comment">// 当前月-1</span></span><br><span class="line">dt.getDate(); <span class="comment">// 当前日期</span></span><br><span class="line">dt.getHours(); <span class="comment">// 当前小时</span></span><br><span class="line">dt.getMinute(); <span class="comment">// 当前分钟</span></span><br><span class="line">dt.getSeconds(); <span class="comment">// 当前秒</span></span><br><span class="line">dt.getDay(); <span class="comment">// 当前天</span></span><br><span class="line">dt.toString(); <span class="comment">// 当前地区标准时间</span></span><br><span class="line">dt.toDateString(); <span class="comment">// 星期 月份 日 年份</span></span><br><span class="line">dt.toTimeString(); <span class="comment">// 时分秒 GMT时区</span></span><br><span class="line">dt.toLocaleDateString(); <span class="comment">// 年月日</span></span><br><span class="line">dt.toLocaleTimeString(); <span class="comment">// 上午/下午 时分秒</span></span><br><span class="line">dt.valueOf(); | dt.getTime() <span class="comment">// 获取从1970 开始的毫秒数</span></span><br></pre></td></tr></table></figure>
-
-<p>String:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"xuanji"</span>;</span><br><span class="line">str.length(); <span class="comment">// 字符串的长度</span></span><br><span class="line">str.charAt(num); <span class="comment">//  返回指定位置的字符串</span></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(num,num..); <span class="comment">//  静态方法 传入Unicode值 输出字符串</span></span><br><span class="line">str.concat(<span class="string">'string'</span>); <span class="comment">// 拼接字符串 在后面开始,返回新的字符串</span></span><br><span class="line">str.indexOf(<span class="string">'string'</span>); <span class="comment">// 返回索引位置</span></span><br><span class="line">str.lastindexOf(<span class="string">'string'</span>); <span class="comment">//从后往前找 返回索引位置</span></span><br><span class="line">*str.replace(替换的字符或者正则,换的字符); <span class="comment">// 替换所有符合的字符  新的字符串</span></span><br><span class="line">str.split(<span class="string">'分割字符/正则'</span>,前num个元素); <span class="comment">//  将string对象分割成字符串数组(Array)</span></span><br><span class="line">str.substr(num,length); <span class="comment">// 开始数字和提取长度</span></span><br><span class="line">str.substring(num,num); <span class="comment">// 截取  负值和NaN当做0 会自动切换大小排序</span></span><br><span class="line">str.trim(); <span class="comment">//去除两端的空白</span></span><br></pre></td></tr></table></figure>
-
-<p>Array:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = [<span class="string">'A'</span>,<span class="string">'B'</span>];</span><br><span class="line">num.concat(); <span class="comment">// 拼接数组</span></span><br><span class="line">num.every(callback); <span class="comment">//  测试每个值是否满足callback的要求,不满足返回false callback有三个参数</span></span><br><span class="line">num.some(callback); <span class="comment">// 测试是否有值满足callback的要求,遇到true就返回true</span></span><br><span class="line">num.filter(callback); <span class="comment">// 过滤掉不符合的数组,形成新数组</span></span><br><span class="line">num.push(); <span class="comment">// 添加到数组末尾的后面</span></span><br><span class="line">num.pop(); <span class="comment">// 删除最后一个值,返回删除的值</span></span><br><span class="line">num.shift(); <span class="comment">// 删除第一个值,返回删除的值</span></span><br><span class="line">num.unshift(); <span class="comment">// 添加第一个值,返回长度</span></span><br><span class="line">num.foreach(); <span class="comment">// 遍历数组,为每一个数组执行callback</span></span><br><span class="line">num.indexOf(); <span class="comment">// 查找值 ,返回索引 没有返回-1</span></span><br><span class="line">num.join(<span class="string">'字符'</span>); <span class="comment">// 连接数组 使其变成字符串 默认为逗号</span></span><br><span class="line">num.map(); <span class="comment">//  为该数组的每一个元素调用一个提供的函数后返回的结果</span></span><br><span class="line">num.reverse(); <span class="comment">//反转数组</span></span><br><span class="line">num.sort(); <span class="comment">// 按照Unicode码点排序</span></span><br><span class="line">num.slice(num, num); <span class="comment">// 截取产生新的数组对象,是浅拷贝(当原数组值改变也会跟着变化)</span></span><br><span class="line">*num.reduce(); <span class="comment">// 累计器和数组的每个元素从左到右应用一个函数,将其简化为单个值</span></span><br></pre></td></tr></table></figure>
-
-
+          <h1 id="回顾基础"><a href="#回顾基础" class="headerlink" title="回顾基础"></a>回顾基础</h1><h2 id="基础语法的回顾"><a href="#基础语法的回顾" class="headerlink" title="基础语法的回顾"></a>基础语法的回顾</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/10/17/JavaScript-%E7%9F%A5%E8%AF%86%E7%82%B9-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -890,7 +538,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-23 16:56:25" itemprop="dateModified" datetime="2019-12-23T16:56:25+08:00">2019-12-23</time>
+                <time title="修改时间：2020-03-26 17:36:58" itemprop="dateModified" datetime="2020-03-26T17:36:58+08:00">2020-03-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -913,145 +561,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <a id="more"></a>
-<h2 id="JS-基础回顾-二"><a href="#JS-基础回顾-二" class="headerlink" title="JS 基础回顾(二)"></a>JS 基础回顾(二)</h2><h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><ul>
-<li>HTML : 展示信息</li>
-<li>XML :存储信息</li>
-<li>ELEMENT : 元素 标签</li>
-<li>NODE:节点 所有内容</li>
-<li>ROOT :根 HTML 树</li>
-<li>DOCUMENT : 文档 页面</li>
-</ul>
-<p>DOM 树</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/firefox-icon.png"</span> <span class="attr">alt</span>=<span class="string">"My test image"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>关于 dom 的各种属性</p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document_Object_Model" target="_blank" rel="noopener">DOM 接口</a></p>
-<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><ol>
-<li>事件源</li>
-<li>事件名称</li>
-<li>触发事件</li>
-<li>响应</li>
-</ol>
-<p><strong>绑定事件的流程</strong>:</p>
-<ol>
-<li>获取事件源的位置</li>
-<li>为事件源注册事件,添加事件处理函数</li>
-</ol>
-<h3 id="练习的实现思路"><a href="#练习的实现思路" class="headerlink" title="练习的实现思路"></a>练习的实现思路</h3><ol>
-<li>点击事件</li>
-</ol>
-<p>根据 ID 获取按钮,按钮注册事件,添加处理函数,触发,实现效果</p>
-<ol start="2">
-<li>排他功能</li>
-</ol>
-<p>利用遍历设置默认值,点击的值发生变化,刷新其他值,</p>
-<h3 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h3><blockquote>
-<p><strong>id</strong> document.getElementById(‘’);</p>
-</blockquote>
-<blockquote>
-<p><strong>class</strong> document.getElementByClassName(‘’);</p>
-</blockquote>
-<blockquote>
-<p><strong>全能匹配</strong> document.querySelector(‘’)</p>
-</blockquote>
-<blockquote>
-<p>类 : .class</p>
-</blockquote>
-<blockquote>
-<p><strong>ID</strong> : #id</p>
-</blockquote>
-<blockquote>
-<p><strong>属性:</strong> [name=”ss”]</p>
-</blockquote>
-<blockquote>
-<p><strong>标签</strong>: div</p>
-</blockquote>
-<h3 id="兼容代码"><a href="#兼容代码" class="headerlink" title="兼容代码"></a>兼容代码</h3><p>兼容低版本浏览器而写的代码</p>
-<h3 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h3><ul>
-<li><p><code>getAttribute(&#39;&#39;[,&#39;&#39;])</code> 设置一个属性获取,两个属性设置</p>
-</li>
-<li><p><code>removeAttribute()</code>删除属性</p>
-</li>
-</ul>
-<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><p>nodeType:</p>
-<ul>
-<li>1 =&gt; 标签</li>
-<li>2 =&gt; 属性</li>
-<li>3 =&gt; 文本</li>
-<li>8=&gt;注释元素</li>
-<li>9=&gt; 文档元素</li>
-</ul>
-<p>nodeName:</p>
-<ul>
-<li>标签: 大写</li>
-<li>属性: 小写</li>
-<li>文本: #text</li>
-</ul>
-<p>nodeValue:</p>
-<ul>
-<li>标签:null</li>
-<li>属性:属性值</li>
-<li>文本: 文本内容</li>
-</ul>
-<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><ul>
-<li>DOM 事件流:事件捕获阶段, 处于目标阶段, 事件冒泡阶段.</li>
-</ul>
-<blockquote>
-<p><strong>事件捕获（event capturing）：</strong>通俗的理解就是，当鼠标点击或者触发 dom 事件时，浏览器会从根节点开始<strong>由外到内</strong>进行事件传播，即点击了子元素，如果父元素通过事件捕获方式注册了对应的事件的话，会先触发父元素绑定的事件。</p>
-</blockquote>
-<blockquote>
-<p><strong>事件冒泡（dubbed bubbling)</strong>：与事件捕获恰恰相反，事件冒泡顺序是由内到外进行事件传播，直到根节点。</p>
-</blockquote>
-<p>无论是事件捕获还是事件冒泡，它们都有一个共同的行为，就是<strong>事件传播</strong>.</p>
-<p>dom 标准事件流的触发的先后顺序为：<strong>先捕获再冒泡</strong>，即当触发 dom 事件时，会先进行事件捕获，捕获到事件源之后通过事件传播进行事件冒泡.</p>
-<p>不同的浏览器对此有着不同的实现，IE10 及以下不支持捕获型事件，所以就少了一个事件捕获阶段，IE11、Chrome 、Firefox、Safari 等浏览器则同时存在。</p>
-<ul>
-<li><p><strong>addEventListener(event, listener, useCapture)</strong></p>
-<ul>
-<li><p><em>参数定义</em> event—（事件名称，如 click，不带 on）</p>
-</li>
-<li><p>listener—事件监听函数</p>
-</li>
-<li><p><em>useCapture—</em>是否采用事件捕获进行事件捕捉，</p>
-</li>
-<li><p>默认为 false，即采用事件冒泡方式</p>
-</li>
-</ul>
-</li>
-</ul>
-<p>addEventListener 在 IE11、Chrome 、Firefox、Safari 等浏览器都得到支持。</p>
-<ul>
-<li><p><strong>attachEvent(event,listener)</strong></p>
-<ul>
-<li>_参数定义_：event—（事件名称，如 onclick，带 on），</li>
-<li>listener—事件监听函数。</li>
-</ul>
-</li>
-</ul>
-<p>attachEvent 主要用于 IE 浏览器，并且仅在 IE10 及以下才支持，IE11 已经废了这个方法了（微软还是挺识趣的，慢慢向标准靠拢）。</p>
-<p>例子</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-cn"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>js事件机制<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-id">#parent</span> &#123;</span></span><br><span class="line">                width: 200px;</span><br><span class="line">                height: 200px;</span><br><span class="line">                text-align: center;</span><br><span class="line">                line-height: 3;</span><br><span class="line">                background: green;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-id">#child</span> &#123;</span></span><br><span class="line">                width: 100px;</span><br><span class="line">                height: 100px;</span><br><span class="line">                margin: 0 auto;</span><br><span class="line">                background: orange;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">            父元素</span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"child"</span>&gt;</span></span><br><span class="line">                子元素</span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> parent = <span class="built_in">document</span>.getElementById(<span class="string">'parent'</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> child = <span class="built_in">document</span>.getElementById(<span class="string">'child'</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.body.addEventListener(</span></span><br><span class="line"><span class="actionscript">                <span class="string">'click'</span>,</span></span><br><span class="line"><span class="actionscript">                <span class="function"><span class="keyword">function</span><span class="params">(e)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(<span class="string">'click-body'</span>);</span></span><br><span class="line">                &#125;,</span><br><span class="line"><span class="actionscript">                <span class="literal">false</span></span></span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">            parent.addEventListener(</span><br><span class="line"><span class="actionscript">                <span class="string">'click'</span>,</span></span><br><span class="line"><span class="actionscript">                <span class="function"><span class="keyword">function</span><span class="params">(e)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(<span class="string">'click-parent'</span>);</span></span><br><span class="line">                &#125;,</span><br><span class="line"><span class="actionscript">                <span class="literal">false</span></span></span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">            child.addEventListener(</span><br><span class="line"><span class="actionscript">                <span class="string">'click'</span>,</span></span><br><span class="line"><span class="actionscript">                <span class="function"><span class="keyword">function</span><span class="params">(e)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(<span class="string">'click-child'</span>);</span></span><br><span class="line">                &#125;,</span><br><span class="line"><span class="actionscript">                <span class="literal">false</span></span></span><br><span class="line">            );</span><br><span class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>事件触发顺序是由内到外的，这就是事件冒泡，虽然只点击子元素，但是它的父元素也会触发相应的事件，其实这是合理的，因为子元素在父元素里面，点击子元素也就相当于变相的点击了父元素，这样理解对吧？</p>
-<p>这里有同学可能要问了，如果点击子元素不想触发父元素的事件怎么办？肯定可以的，那就是停止事件传播—event.stopPropagation();</p>
-<p>修改栗 1 的代码，在子元素的监听函数中加入停止事件传播的操作，栗 2</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">child.addEventListener(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">　　<span class="built_in">console</span>.log(<span class="string">"click-child"</span>);</span><br><span class="line">  　e.stopPropagation();</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>事件捕获</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> parent = <span class="built_in">document</span>.getElementById(<span class="string">'parent'</span>);</span><br><span class="line"><span class="keyword">var</span> child = <span class="built_in">document</span>.getElementById(<span class="string">'child'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.addEventListener(</span><br><span class="line">    <span class="string">'click'</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'click-body'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">parent.addEventListener(</span><br><span class="line">    <span class="string">'click'</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'click-parent---事件传播'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">); <span class="comment">//新增事件捕获事件代码</span></span><br><span class="line">parent.addEventListener(</span><br><span class="line">    <span class="string">'click'</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'click-parent--事件捕获'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="literal">true</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">child.addEventListener(</span><br><span class="line">    <span class="string">'click'</span>,</span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'click-child'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="literal">false</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h4 id="解绑事件"><a href="#解绑事件" class="headerlink" title="解绑事件"></a>解绑事件</h4><ul>
-<li>对象.on() = null</li>
-<li>removeEventlistener();</li>
-<li>detach()</li>
-</ul>
-
+          <h2 id="JS-基础回顾-二"><a href="#JS-基础回顾-二" class="headerlink" title="JS 基础回顾(二)"></a>JS 基础回顾(二)</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/10/17/JavaScript-%E7%9F%A5%E8%AF%86%E7%82%B9-2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
